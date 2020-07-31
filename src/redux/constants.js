@@ -1,2 +1,4 @@
 export const SELECT_LANGUAGE = 'SELECT_LANGUAGE'
 export const TOGGLE_FAVORITE = 'TOGGLE_FAVORITE'
+export const SET_SCALE = 'SET_SCALE'
+export const TOGGLE_THEME = 'TOGGLE_THEME'

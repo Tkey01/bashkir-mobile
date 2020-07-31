@@ -11,3 +11,17 @@ export const toggleFavorite = (favoriteName) => {
     payload: { favoriteName },
   }
 }
+
+export const setScale = (scale) => {
+  return {
+    type: TYPES.SET_SCALE,
+    payload: { scale },
+  }
+}
+
+export const toggleTheme = (theme) => {
+  return {
+    type: TYPES.TOGGLE_THEME,
+    payload: {},
+  }
+}

@@ -3,15 +3,16 @@ import { View, Text, ScrollView, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 import Icon2 from 'react-native-vector-icons/FontAwesome5Pro'
 
-import materialsIcon from '../assets/images/materials-icon.png'
-import toolsIcon from '../assets/images/tools-icon.png'
-import techIcon from '../assets/images/technology-icon.png'
-import videoIcon from '../assets/images/video-icon.png'
-import audioIcon from '../assets/images/audio-icon.png'
+import materialsIcon from '../../assets/images/materials-icon.png'
+import toolsIcon from '../../assets/images/tools-icon.png'
+import techIcon from '../../assets/images/technology-icon.png'
+import videoIcon from '../../assets/images/video-icon.png'
+import audioIcon from '../../assets/images/audio-icon.png'
 
-import { ListItem } from '../components/ListItem'
-import { TextR } from '../components/TextR'
-import { useTheme } from '../components/ThemeProvider'
+import { ListItem } from '../../components/ListItem'
+import { TextR } from '../../components/TextR'
+import { useTheme } from '../../components/ThemeProvider'
+import { ScalableText } from '../../components/ScalableText'
 
 const PAGES = [
   {
@@ -46,9 +47,7 @@ const PAGES = [
   },
 ]
 
-export const Bort = ({ navigation }) => {
-  const { toggle: toggleTheme } = useTheme()
-
+export const Main = ({ navigation }) => {
   return (
     <ScrollView
       style={{
@@ -56,22 +55,16 @@ export const Bort = ({ navigation }) => {
         paddingHorizontal: 18,
       }}
     >
-      <TouchableOpacity onPress={toggleTheme}>
-        <TextR>123</TextR>
-      </TouchableOpacity>
-      <Icon2 name="bookmark" color="#333" size={50} />
-      <TextR
+      <ScalableText
         style={{
           fontSize: 14,
           color: '#505050',
         }}
       >
-        Lorem Ipsum has been the industry's standard dummy text ever since the
-        1500s, when an unknown printer took a galley of type and scrambled it to
-        make a type specimen book. It has survived not only five centuries, but
-        also the leap into electronic typesetting, remaining essentially
-        unchanged.
-      </TextR>
+        Первый вопрос, который предстоит разрешить новичку в сфере пчеловодства
+        – это выбор жилья для будущих питомцев. Для этого нужно изучить виды
+        ульев, а также материалы, из которых их изготавливают.
+      </ScalableText>
       <View
         style={{
           marginTop: 40,

@@ -18,7 +18,7 @@ const PAGES = [
   {
     title: 'Бортничество',
     icon: bortIcon,
-    screenName: 'Bort',
+    screenName: 'BortMain',
     isFavor: true,
   },
   {

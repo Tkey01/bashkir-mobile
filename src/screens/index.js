@@ -1,10 +1,10 @@
-export { Berest } from './Berest';
-export { Bort } from './Bort';
-export { Short } from './Short';
-export { Textile } from './Textile';
-export { Voil } from './Voil';
-export { Wood } from './Wood';
-export { Settings } from './Settings';
-export { Notes } from './Notes';
-export { Favorites } from './Favorites';
-export { Main } from './Main';
+export { Berest } from './Berest'
+export * from './Bort'
+export { Short } from './Short'
+export { Textile } from './Textile'
+export { Voil } from './Voil'
+export { Wood } from './Wood'
+export { Settings } from './Settings'
+export { Notes } from './Notes'
+export { Favorites } from './Favorites'
+export { Main } from './Main'
