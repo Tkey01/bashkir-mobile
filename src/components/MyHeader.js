@@ -1,14 +1,8 @@
 import React from 'react'
-import { View, TouchableOpacity, Image } from 'react-native'
+import { View, TouchableOpacity } from 'react-native'
+import Icon from 'react-native-vector-icons/FontAwesome5Pro'
 
 import { TextR } from './TextR'
-import chevronLeft from '../assets/images/chevron-left.png'
-import favorites from '../assets/images/favorites.png'
-import favoritesFullfiled from '../assets/images/favorites-fullfiled.png'
-import gamburger from '../assets/images/gamburger.png'
-import search from '../assets/images/search.png'
-import sortByAlphabet from '../assets/images/sortByAlphabet.png'
-import playVideo from '../assets/images/play-video.png'
 
 const CONTAINER = {
   backgroundColor: '#3269C8',
@@ -28,6 +22,7 @@ export const MyHeader = ({
   toggleSideMenu,
   sortByAction,
   playVideoAction,
+  sortByUp,
 }) => {
   const { options } = scene.descriptor
   const title =
@@ -41,7 +36,7 @@ export const MyHeader = ({
     <View style={CONTAINER}>
       {previous && (
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Image source={chevronLeft} />
+          <Icon size={24} name="chevron-left" color="#fff" />
         </TouchableOpacity>
       )}
       <TextR
@@ -59,7 +54,7 @@ export const MyHeader = ({
           onPress={() => playVideoAction()}
           style={{ marginRight: 19 }}
         >
-          <Image source={playVideo} />
+          <Icon size={20} name="play" color="#fff" />
         </TouchableOpacity>
       )}
       {!!searchAction && (
@@ -67,7 +62,7 @@ export const MyHeader = ({
           onPress={() => searchAction()}
           style={{ marginRight: 21 }}
         >
-          <Image source={search} />
+          <Icon size={22} name="search" color="#fff" />
         </TouchableOpacity>
       )}
       {!!toggleFavorite && (
@@ -75,7 +70,7 @@ export const MyHeader = ({
           onPress={() => toggleFavorite(scene.route.name)}
           style={{ marginRight: 25 }}
         >
-          <Image source={isFavor ? favoritesFullfiled : favorites} />
+          <Icon size={20} name="bookmark" solid={isFavor} color="#fff" />
         </TouchableOpacity>
       )}
       {!!sortByAction && (
@@ -83,11 +78,16 @@ export const MyHeader = ({
           onPress={() => sortByAction()}
           style={{ marginRight: 23 }}
         >
-          <Image source={sortByAlphabet} />
+          <Icon
+            size={22}
+            name={sortByUp ? 'sort-alpha-up' : 'sort-alpha-down'}
+            light
+            color="#fff"
+          />
         </TouchableOpacity>
       )}
       <TouchableOpacity onPress={() => toggleSideMenu()}>
-        <Image source={gamburger} />
+        <Icon size={24} name="bars" color="#fff" />
       </TouchableOpacity>
     </View>
   )

@@ -20,6 +20,7 @@ export const StackNavigatorComponent = ({ favorites, toggleFavorite }) => (
             {...props}
             isFavor={isFavor}
             searchAction={() => {}}
+            playVideoAction={() => {}}
             toggleFavorite={toggleFavorite}
             toggleSideMenu={props.navigation.toggleDrawer}
           />

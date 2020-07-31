@@ -1,10 +1,8 @@
 import React from 'react'
 import { View, Image, TouchableOpacity } from 'react-native'
+import Icon from 'react-native-vector-icons/FontAwesome5Pro'
 
 import { TextR } from '../components/TextR'
-import favoritesThin from '../assets/images/favorites-thin.png'
-import favoritesThinFullfilled from '../assets/images/favorites-thin-fullfiled.png'
-import chevronRightBlue from '../assets/images/chevron-right-blue.png'
 
 const CONTAINER = {
   flexDirection: 'row',
@@ -24,13 +22,8 @@ const VIEW = {
   alignItems: 'center',
 }
 
-const FAVOR_IMG = {
-  width: 14,
-  height: 20,
-}
-
 const CHEVRON_RIGHT = {
-  marginLeft: 20,
+  marginLeft: 25,
 }
 
 export const ListItem = ({
@@ -48,13 +41,22 @@ export const ListItem = ({
       </View>
       <View style={VIEW}>
         <TouchableOpacity onPress={onPressFavor}>
-          <Image
-            style={FAVOR_IMG}
-            source={isFavor ? favoritesThinFullfilled : favoritesThin}
+          <Icon
+            size={19}
+            name="bookmark"
+            solid={isFavor}
+            light={!isFavor}
+            color="#3269C8"
           />
         </TouchableOpacity>
         <TouchableOpacity onPress={onPressChevron}>
-          <Image style={CHEVRON_RIGHT} source={chevronRightBlue} />
+          <Icon
+            size={24}
+            name="chevron-right"
+            light
+            color="#3269C8"
+            style={CHEVRON_RIGHT}
+          />
         </TouchableOpacity>
       </View>
     </View>

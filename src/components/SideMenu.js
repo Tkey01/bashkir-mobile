@@ -1,9 +1,9 @@
 import React from 'react'
-import { View, Text, ScrollView, Image } from 'react-native'
+import { View, ScrollView } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import { TextR } from './TextR'
+import Icon from 'react-native-vector-icons/FontAwesome5Pro'
 
-import xMarkGray from '../assets/images/x-mark-gray.png'
+import { TextR } from './TextR'
 
 const list = [
   'Заметки',
@@ -44,9 +44,12 @@ export const SideMenu = ({ navigation }) => {
         onPress={navigation.closeDrawer}
       >
         <TextR style={{ fontSize: 14 }}>Закрыть</TextR>
-        <Image
-          source={xMarkGray}
-          style={{ width: 15, height: 15, marginLeft: 20 }}
+        <Icon
+          size={20}
+          name="times"
+          light
+          color="#565656"
+          style={{ marginLeft: 20 }}
         />
       </TouchableOpacity>
       <View style={{ height: 1, backgroundColor: '#3269C8', marginTop: 24 }} />
