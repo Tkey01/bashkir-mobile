@@ -2,7 +2,7 @@ import * as TYPES from './constants'
 import { createReducer } from '../helpers'
 
 const initialState = {
-  language: 'ru', // ru | en | bash
+  language: 'rus', // rus | eng | bash
   theme: 'light', // dark | light
   scale: 1, // 0.8 | 0.85 | 0.9 | 0.95 | 1 | 1.05 | 1.10 | 1.15 | 1.2
   favorites: {

@@ -1,7 +1,5 @@
 import React from 'react'
-import { View, Text, ScrollView, TouchableOpacity } from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome5'
-import Icon2 from 'react-native-vector-icons/FontAwesome5Pro'
+import { View, ScrollView } from 'react-native'
 
 import materialsIcon from '../../assets/images/materials-icon.png'
 import toolsIcon from '../../assets/images/tools-icon.png'
@@ -10,8 +8,6 @@ import videoIcon from '../../assets/images/video-icon.png'
 import audioIcon from '../../assets/images/audio-icon.png'
 
 import { ListItem } from '../../components/ListItem'
-import { TextR } from '../../components/TextR'
-import { useTheme } from '../../components/ThemeProvider'
 import { ScalableText } from '../../components/ScalableText'
 
 const PAGES = [
@@ -24,7 +20,7 @@ const PAGES = [
   {
     title: 'Необходимые инструменты',
     icon: toolsIcon,
-    screenName: 'Short',
+    screenName: 'Shor',
     isFavor: false,
   },
   {
@@ -76,7 +72,7 @@ export const Main = ({ navigation }) => {
             text={page.title}
             icon={page.icon}
             isFavor={page.isFavor}
-            onPressChevron={() => navigation.navigate(page.screenName)}
+            onPress={() => navigation.navigate(page.screenName)}
             onPressFavor={() => {}}
           />
         ))}

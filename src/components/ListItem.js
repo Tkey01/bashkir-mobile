@@ -26,15 +26,9 @@ const CHEVRON_RIGHT = {
   marginLeft: 25,
 }
 
-export const ListItem = ({
-  text,
-  icon,
-  isFavor,
-  onPressFavor,
-  onPressChevron,
-}) => {
+export const ListItem = ({ text, icon, isFavor, onPressFavor, onPress }) => {
   return (
-    <View style={CONTAINER}>
+    <TouchableOpacity style={CONTAINER} onPress={onPress}>
       <View style={VIEW}>
         <Image source={icon} />
         <TextR style={TEXT}>{text}</TextR>
@@ -49,7 +43,7 @@ export const ListItem = ({
             color="#3269C8"
           />
         </TouchableOpacity>
-        <TouchableOpacity onPress={onPressChevron}>
+        <TouchableOpacity>
           <Icon
             size={24}
             name="chevron-right"
@@ -59,6 +53,6 @@ export const ListItem = ({
           />
         </TouchableOpacity>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }

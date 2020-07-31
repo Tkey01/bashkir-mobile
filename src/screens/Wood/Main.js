@@ -1,10 +1,10 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
-export const Wood = () => {
+export const Main = () => {
   return (
     <View>
-      <Text>Wood</Text>
+      <Text>Main</Text>
     </View>
   )
 }

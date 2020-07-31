@@ -34,7 +34,7 @@ export const StackNavigatorComponent = ({ favorites, toggleFavorite }) => (
       options={{ title: 'Главное меню' }}
     />
     <Stack.Screen
-      name="BortMain"
+      name="Bort"
       component={SCREENS.BortMain}
       options={{ title: 'Бортничество' }}
     />
@@ -70,22 +70,22 @@ export const StackNavigatorComponent = ({ favorites, toggleFavorite }) => (
     />
     <Stack.Screen
       name="Voil"
-      component={SCREENS.Voil}
+      component={SCREENS.VoilMain}
       options={{ title: 'Войлочные изделия' }}
     />
     <Stack.Screen
       name="Textile"
-      component={SCREENS.Textile}
+      component={SCREENS.TextileMain}
       options={{ title: 'Текстиль' }}
     />
     <Stack.Screen
       name="Wood"
-      component={SCREENS.Wood}
+      component={SCREENS.WoodMain}
       options={{ title: 'Резьба по дереву' }}
     />
     <Stack.Screen
       name="Berest"
-      component={SCREENS.Berest}
+      component={SCREENS.BerestMain}
       options={{ title: 'Резьба по бересте' }}
     />
   </Stack.Navigator>

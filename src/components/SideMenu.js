@@ -1,9 +1,11 @@
 import React from 'react'
-import { View, ScrollView } from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
+import { View, ScrollView, TouchableOpacity } from 'react-native'
+import { connect } from 'react-redux'
+
 import Icon from 'react-native-vector-icons/FontAwesome5Pro'
 
 import { TextR } from './TextR'
+import * as ACTIONS from '../redux/actions'
 
 const list = [
   'Заметки',
@@ -13,11 +15,7 @@ const list = [
   'О приложении',
 ]
 
-const languages = {
-  RUS: true,
-  BASH: false,
-  ENG: false,
-}
+const languages = ['RUS', 'BASH', 'ENG']
 
 const LANG = {
   paddingHorizontal: 5,
@@ -27,7 +25,32 @@ const LANG_ACTIVE = {
   fontFamily: 'Roboto-Bold',
 }
 
-export const SideMenu = ({ navigation }) => {
+const CLOSE_CONTAINER = {
+  flexDirection: 'row',
+  alignItems: 'center',
+  alignSelf: 'flex-end',
+}
+
+const DIVIDER_1 = {
+  height: 1,
+  backgroundColor: '#3269C8',
+  marginTop: 24,
+  marginBottom: 62,
+}
+
+const DIVIDER_2 = {
+  height: 1,
+  backgroundColor: '#3269C8',
+  marginTop: 60,
+  marginBottom: 24,
+}
+
+const LANG_CONTAINER = {
+  marginTop: 32,
+  flexDirection: 'row',
+}
+
+const SideMenuComponent = ({ language, selectLanguage, navigation }) => {
   return (
     <ScrollView
       style={{
@@ -36,14 +59,10 @@ export const SideMenu = ({ navigation }) => {
       }}
     >
       <TouchableOpacity
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          alignSelf: 'flex-end',
-        }}
+        style={CLOSE_CONTAINER}
         onPress={navigation.closeDrawer}
       >
-        <TextR style={{ fontSize: 14 }}>Закрыть</TextR>
+        <TextR>Закрыть</TextR>
         <Icon
           size={20}
           name="times"
@@ -52,8 +71,8 @@ export const SideMenu = ({ navigation }) => {
           style={{ marginLeft: 20 }}
         />
       </TouchableOpacity>
-      <View style={{ height: 1, backgroundColor: '#3269C8', marginTop: 24 }} />
-      <View style={{ marginTop: 62 }}>
+      <View style={DIVIDER_1} />
+      <View>
         {list.map((item, index) => (
           <TouchableOpacity
             key={index}
@@ -64,17 +83,26 @@ export const SideMenu = ({ navigation }) => {
           </TouchableOpacity>
         ))}
       </View>
-      <View style={{ height: 1, backgroundColor: '#3269C8', marginTop: 60 }} />
-      <TextR style={{ marginTop: 24 }}>Язык</TextR>
-      <View style={{ marginTop: 32, flexDirection: 'row' }}>
-        {Object.keys(languages).map((lang, index) => (
-          <TouchableOpacity key={index} style={{ marginLeft: 20 }}>
-            <TextR style={[LANG, languages[lang] ? LANG_ACTIVE : null]}>
+      <View style={DIVIDER_2} />
+      <TextR>Язык</TextR>
+      <View style={LANG_CONTAINER}>
+        {languages.map((lang, index) => (
+          <TouchableOpacity
+            key={index}
+            style={{ marginLeft: 20 }}
+            onPress={() => selectLanguage(lang.toLowerCase())}
+          >
+            <TextR
+              style={[
+                LANG,
+                language === lang.toLowerCase() ? LANG_ACTIVE : null,
+              ]}
+            >
               {lang}
             </TextR>
             <View
               style={{
-                height: languages[lang] ? 1 : 0,
+                height: language === lang.toLowerCase() ? 1 : 0,
                 backgroundColor: '#3269C8',
                 marginHorizontal: -5,
               }}
@@ -85,3 +113,15 @@ export const SideMenu = ({ navigation }) => {
     </ScrollView>
   )
 }
+
+const mapStateToProps = (state) => ({
+  language: state.language,
+})
+const mapDispatchToProps = {
+  selectLanguage: ACTIONS.selectLanguage,
+}
+
+export const SideMenu = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(SideMenuComponent)

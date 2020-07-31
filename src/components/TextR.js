@@ -3,6 +3,7 @@ import { Text } from 'react-native'
 
 const TEXT = {
   fontFamily: 'Roboto-Regular',
+  fontSize: 14,
 }
 
 export const TextR = ({ style, children }) => {

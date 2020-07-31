@@ -1,13 +1,17 @@
 import React from 'react'
 import { View } from 'react-native'
+import { connect } from 'react-redux'
+
+import { ListItem } from '../components/ListItem'
+import { languages } from '../global'
+import * as ACTIONS from '../redux/actions'
 
 import bortIcon from '../assets/images/bort-icon.png'
-import shortIcon from '../assets/images/short-icon.png'
+import shorIcon from '../assets/images/shor-icon.png'
 import voilIcon from '../assets/images/voil-icon.png'
 import textileIcon from '../assets/images/textile-icon.png'
 import woodIcon from '../assets/images/wood-icon.png'
 import berestIcon from '../assets/images/berest-icon.png'
-import { ListItem } from '../components/ListItem'
 
 const VIEW = {
   marginTop: 24,
@@ -16,56 +20,60 @@ const VIEW = {
 
 const PAGES = [
   {
-    title: 'Бортничество',
     icon: bortIcon,
-    screenName: 'BortMain',
-    isFavor: true,
+    screenName: 'Bort',
   },
   {
-    title: 'Шорничество',
-    icon: shortIcon,
-    screenName: 'Short',
-    isFavor: false,
+    icon: shorIcon,
+    screenName: 'Shor',
   },
   {
-    title: 'Изготовление войлочных \n изделий',
     icon: voilIcon,
     screenName: 'Voil',
-    isFavor: false,
   },
   {
-    title: 'Изготовление текстильных \n изделий',
     icon: textileIcon,
     screenName: 'Textile',
-    isFavor: false,
   },
   {
-    title: 'Резьба по дереву',
     icon: woodIcon,
     screenName: 'Wood',
-    isFavor: false,
   },
   {
-    title: 'Резьба по бересте',
     icon: berestIcon,
     screenName: 'Berest',
-    isFavor: false,
   },
 ]
 
-export const Main = ({ navigation }) => {
+export const MainComponent = ({ language, toggleFavorite, navigation }) => {
+  console.log('_______')
   return (
     <View style={VIEW}>
-      {PAGES.map((page, index) => (
-        <ListItem
-          key={index}
-          text={page.title}
-          icon={page.icon}
-          isFavor={page.isFavor}
-          onPressChevron={() => navigation.navigate(page.screenName)}
-          onPressFavor={() => {}}
-        />
-      ))}
+      {PAGES.map((page, index) => {
+        const name = page.screenName.toLowerCase()
+
+        return (
+          <ListItem
+            key={index}
+            text={languages.screens[name][language]}
+            icon={page.icon}
+            isFavor={page.isFavor}
+            onPress={() => navigation.navigate(page.screenName)}
+            onPressFavor={() => toggleFavorite(page.screenName)}
+          />
+        )
+      })}
     </View>
   )
 }
+
+const mapStateToProps = (state, ownProps) => ({
+  favorites: state.favorites,
+  language: state.language,
+})
+
+const mapDispatchToProps = {
+  toggleFavorite: ACTIONS.toggleFavorite,
+}
+
+export const Main = connect(mapStateToProps, mapDispatchToProps)(MainComponent)
