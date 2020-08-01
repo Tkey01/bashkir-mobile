@@ -88,6 +88,11 @@ export const StackNavigatorComponent = ({ favorites, toggleFavorite }) => (
       component={SCREENS.BerestMain}
       options={{ title: 'Резьба по бересте' }}
     />
+    <Stack.Screen
+      name="Settings"
+      component={SCREENS.Settings}
+      options={{ title: 'Настройки' }}
+    />
   </Stack.Navigator>
 )
 

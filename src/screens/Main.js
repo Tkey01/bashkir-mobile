@@ -46,7 +46,6 @@ const PAGES = [
 ]
 
 export const MainComponent = ({ language, toggleFavorite, navigation }) => {
-  console.log('_______')
   return (
     <View style={VIEW}>
       {PAGES.map((page, index) => {
