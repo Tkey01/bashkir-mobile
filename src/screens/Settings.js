@@ -21,52 +21,70 @@ const ROW = {
   alignItems: 'center',
 }
 
-const THEME_TITLE_TEXT = {}
+const TITLE = {
+  marginLeft: 20,
+}
+
+const LABEL_TEXT = {
+  marginLeft: 31,
+}
 
 export const Settings = () => {
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={{ paddingHorizontal: 16 }}>
       <View style={BLOCK}>
         <View style={ROW}>
           <Image source={themeIcon} />
-          <TextM style={THEME_TITLE_TEXT}>Тема</TextM>
+          <TextM style={TITLE}>Тема</TextM>
         </View>
-        <TouchableOpacity style={ROW}>
-          <RadioButton />
-          <TextR>Светлая</TextR>
+        <TouchableOpacity
+          style={[ROW, { marginTop: 15, paddingHorizontal: 21 }]}
+        >
+          <RadioButton active />
+          <TextR style={LABEL_TEXT}>Светлая</TextR>
         </TouchableOpacity>
-        <TouchableOpacity style={ROW}>
+        <TouchableOpacity
+          style={[ROW, { marginTop: 12, paddingHorizontal: 21 }]}
+        >
           <RadioButton />
-          <TextR>Тёмная</TextR>
+          <TextR style={LABEL_TEXT}>Тёмная</TextR>
         </TouchableOpacity>
-        <TouchableOpacity style={ROW}>
+        <TouchableOpacity
+          style={[ROW, { marginTop: 12, paddingHorizontal: 21 }]}
+        >
           <RadioButton />
-          <TextR>Автоматически</TextR>
+          <TextR style={LABEL_TEXT}>Автоматически</TextR>
         </TouchableOpacity>
       </View>
       <View style={[BLOCK, { marginTop: 8 }]}>
         <View style={ROW}>
           <Image source={textSizeIcon} />
-          <TextM style={THEME_TITLE_TEXT}>Размер текста</TextM>
+          <TextM style={TITLE}>Размер текста</TextM>
         </View>
         <RangeInput />
       </View>
       <View style={[BLOCK, { marginTop: 8 }]}>
         <View style={ROW}>
           <Image source={languagesIcon} />
-          <TextM style={THEME_TITLE_TEXT}>Выбор языка</TextM>
+          <TextM style={TITLE}>Выбор языка</TextM>
         </View>
-        <TouchableOpacity style={ROW}>
+        <TouchableOpacity
+          style={[ROW, { marginTop: 15, paddingHorizontal: 21 }]}
+        >
           <RadioButton />
-          <TextR>Русский</TextR>
+          <TextR style={LABEL_TEXT}>Русский</TextR>
         </TouchableOpacity>
-        <TouchableOpacity style={ROW}>
+        <TouchableOpacity
+          style={[ROW, { marginTop: 12, paddingHorizontal: 21 }]}
+        >
           <RadioButton />
-          <TextR>Башкирский</TextR>
+          <TextR style={LABEL_TEXT}>Башкирский</TextR>
         </TouchableOpacity>
-        <TouchableOpacity style={ROW}>
+        <TouchableOpacity
+          style={[ROW, { marginTop: 12, paddingHorizontal: 21 }]}
+        >
           <RadioButton />
-          <TextR>Английский</TextR>
+          <TextR style={LABEL_TEXT}>Английский</TextR>
         </TouchableOpacity>
       </View>
     </ScrollView>

@@ -1,5 +1,11 @@
 import React from 'react'
-import { View, ScrollView, TouchableOpacity } from 'react-native'
+import {
+  View,
+  ScrollView,
+  TouchableOpacity,
+  StyleSheet,
+  Dimensions,
+} from 'react-native'
 import { connect } from 'react-redux'
 
 import Icon from 'react-native-vector-icons/FontAwesome5Pro'
@@ -32,15 +38,15 @@ const CLOSE_CONTAINER = {
 }
 
 const DIVIDER_1 = {
-  height: 1,
-  backgroundColor: '#3269C8',
+  borderBottomWidth: 1,
+  borderColor: '#3269C8',
   marginTop: 24,
   marginBottom: 62,
 }
 
 const DIVIDER_2 = {
-  height: 1,
-  backgroundColor: '#3269C8',
+  borderBottomWidth: 1,
+  borderColor: '#3269C8',
   marginTop: 60,
   marginBottom: 24,
 }
@@ -49,6 +55,9 @@ const LANG_CONTAINER = {
   marginTop: 32,
   flexDirection: 'row',
 }
+
+console.log(Dimensions.get('screen').width, Dimensions.get('screen').height)
+console.log(Dimensions.get('window').width, Dimensions.get('window').height)
 
 const SideMenuComponent = ({ language, selectLanguage, navigation }) => {
   return (
@@ -102,7 +111,8 @@ const SideMenuComponent = ({ language, selectLanguage, navigation }) => {
             </TextR>
             <View
               style={{
-                height: language === lang.toLowerCase() ? 1 : 0,
+                borderColor: '#3269C8',
+                borderBottomWidth: language === lang.toLowerCase() ? 1 : 0,
                 backgroundColor: '#3269C8',
                 marginHorizontal: -5,
               }}
