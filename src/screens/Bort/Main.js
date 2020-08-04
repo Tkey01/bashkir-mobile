@@ -6,39 +6,47 @@ import toolsIcon from '../../assets/images/tools-icon.png'
 import techIcon from '../../assets/images/technology-icon.png'
 import videoIcon from '../../assets/images/video-icon.png'
 import audioIcon from '../../assets/images/audio-icon.png'
+import descIcon from '../../assets/images/desc-icon.png'
+import sourcesIcon from '../../assets/images/sources-icon.png'
 
 import { ListItem } from '../../components/ListItem'
 import { ScalableText } from '../../components/ScalableText'
 
 const PAGES = [
   {
-    title: 'Необходимые материалы',
-    icon: materialsIcon,
-    screenName: 'Bort',
+    title: 'Описание',
+    icon: descIcon,
+    screenName: 'BortDescription',
     isFavor: true,
   },
   {
-    title: 'Необходимые инструменты',
+    title: 'Инструменты',
     icon: toolsIcon,
-    screenName: 'Shor',
+    screenName: 'BortTools',
+    isFavor: false,
+  },
+  {
+    title: 'Материалы',
+    icon: materialsIcon,
+    screenName: 'BortDescription',
     isFavor: false,
   },
   {
     title: 'Технология',
     icon: techIcon,
-    screenName: 'Voil',
+    screenName: 'BortTech',
     isFavor: false,
   },
   {
-    title: 'Смотреть видео',
+    title: 'Видео',
     icon: videoIcon,
-    screenName: 'Textile',
+    screenName: 'BortVideo',
     isFavor: false,
   },
   {
-    title: 'Слушать аудио',
-    icon: audioIcon,
-    screenName: 'Wood',
+    title: 'Использованные источники',
+    icon: sourcesIcon,
+    screenName: 'BortSources',
     isFavor: false,
   },
 ]
@@ -46,9 +54,9 @@ const PAGES = [
 export const Main = ({ navigation }) => {
   return (
     <ScrollView
-      style={{
+      contentContainerStyle={{
         paddingVertical: 46,
-        paddingHorizontal: 18,
+        paddingHorizontal: 16,
       }}
     >
       <ScalableText

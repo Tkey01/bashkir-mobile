@@ -37,6 +37,7 @@ const THUMB = {
   width: 11,
   height: 11,
   left: 145.5,
+  top: 1,
 }
 
 export const RangeInput = ({ partsCount = 8, width = 300 }) => {

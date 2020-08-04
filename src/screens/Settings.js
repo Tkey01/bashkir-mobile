@@ -71,7 +71,7 @@ export const Settings = () => {
         <TouchableOpacity
           style={[ROW, { marginTop: 15, paddingHorizontal: 21 }]}
         >
-          <RadioButton />
+          <RadioButton active />
           <TextR style={LABEL_TEXT}>Русский</TextR>
         </TouchableOpacity>
         <TouchableOpacity

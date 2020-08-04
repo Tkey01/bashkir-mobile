@@ -19,15 +19,19 @@ const textComponentSelector = (type) => {
 export const ScalableTextComponent = ({
   scale,
   size = 14,
+  color = '#000',
   children,
   type = 'r',
+  style,
 }) => {
   const TextComponent = textComponentSelector(type)
 
   return (
     <TextComponent
       style={{
+        color,
         fontSize: size * scale,
+        ...style,
       }}
     >
       {children}
