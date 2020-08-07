@@ -68,10 +68,36 @@ export const StackNavigatorComponent = ({ favorites, toggleFavorite }) => (
       component={SCREENS.BortVideo}
       options={{ title: 'Видео' }}
     />
+
     <Stack.Screen
-      name="Voil"
-      component={SCREENS.VoilMain}
-      options={{ title: 'Войлочные изделия' }}
+      name="Shor"
+      component={SCREENS.ShorMain}
+      options={{ title: 'Шорничество' }}
+    />
+    <Stack.Screen
+      name="ShorDescription"
+      component={SCREENS.ShorDescription}
+      options={{ title: 'Описание' }}
+    />
+    <Stack.Screen
+      name="ShorSources"
+      component={SCREENS.ShorSources}
+      options={{ title: 'Источники' }}
+    />
+    <Stack.Screen
+      name="ShorStuff"
+      component={SCREENS.ShorStuff}
+      options={{ title: 'Материалы' }}
+    />
+    <Stack.Screen
+      name="ShorTech"
+      component={SCREENS.ShorTech}
+      options={{ title: 'Технология' }}
+    />
+    <Stack.Screen
+      name="ShorTools"
+      component={SCREENS.ShorTools}
+      options={{ title: 'Инструменты' }}
     />
     <Stack.Screen
       name="Textile"

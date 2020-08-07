@@ -2,8 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { ScrollView } from 'react-native'
 
+import { TemplateString } from '../../components/TemplateString'
 import { languages } from '../../global/languages'
-import { ScalableText } from '../../components/ScalableText'
+import { getTemplateStringArray } from '../../helpers/getTemplateStringArray'
 
 export const ToolsComponent = ({ lang }) => {
   return (
@@ -13,7 +14,9 @@ export const ToolsComponent = ({ lang }) => {
         paddingHorizontal: 16,
       }}
     >
-      <ScalableText color="#505050">{languages.bort.tools[lang]}</ScalableText>
+      <TemplateString color="#505050">
+        {getTemplateStringArray(languages.bort.tools[lang])}
+      </TemplateString>
     </ScrollView>
   )
 }

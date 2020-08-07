@@ -15,7 +15,7 @@ export const TechComponent = ({ lang }) => {
       }}
     >
       <TemplateString color="#505050">
-        {getTemplateStringArray(languages.bort.tech[lang])}
+        {getTemplateStringArray(languages.shor.tech[lang])}
       </TemplateString>
     </ScrollView>
   )

@@ -6,7 +6,7 @@ import { TemplateString } from '../../components/TemplateString'
 import { languages } from '../../global/languages'
 import { getTemplateStringArray } from '../../helpers/getTemplateStringArray'
 
-export const TechComponent = ({ lang }) => {
+export const StuffComponent = ({ lang }) => {
   return (
     <ScrollView
       contentContainerStyle={{
@@ -15,7 +15,7 @@ export const TechComponent = ({ lang }) => {
       }}
     >
       <TemplateString color="#505050">
-        {getTemplateStringArray(languages.bort.tech[lang])}
+        {getTemplateStringArray(languages.shor.stuff[lang])}
       </TemplateString>
     </ScrollView>
   )
@@ -27,4 +27,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = {}
 
-export const Tech = connect(mapStateToProps, mapDispatchToProps)(TechComponent)
+export const Stuff = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(StuffComponent)
