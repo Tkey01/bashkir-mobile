@@ -93,6 +93,11 @@ export const StackNavigatorComponent = ({ favorites, toggleFavorite }) => (
       component={SCREENS.Settings}
       options={{ title: 'Настройки' }}
     />
+    <Stack.Screen
+      name="AddNote"
+      component={SCREENS.AddNote}
+      options={{ title: 'Добавить заметку' }}
+    />
   </Stack.Navigator>
 )
 

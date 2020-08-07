@@ -10,8 +10,6 @@ target 'AwesomeProject' do
 
   pod 'react-native-video', :path => '../node_modules/react-native-video'
 
-  pod 'react-native-draw-view', :path => '../node_modules/react-native-draw-view'
-
   target 'AwesomeProjectTests' do
     inherit! :complete
     # Pods for testing

@@ -4,8 +4,7 @@ import { View, ScrollView } from 'react-native'
 import materialsIcon from '../../assets/images/materials-icon.png'
 import toolsIcon from '../../assets/images/tools-icon.png'
 import techIcon from '../../assets/images/technology-icon.png'
-import videoIcon from '../../assets/images/video-icon.png'
-import audioIcon from '../../assets/images/audio-icon.png'
+// import videoIcon from '../../assets/images/video-icon.png'
 import descIcon from '../../assets/images/desc-icon.png'
 import sourcesIcon from '../../assets/images/sources-icon.png'
 
@@ -28,7 +27,7 @@ const PAGES = [
   {
     title: 'Материалы',
     icon: materialsIcon,
-    screenName: 'BortDescription',
+    screenName: 'BortStuff',
     isFavor: false,
   },
   {
@@ -37,12 +36,12 @@ const PAGES = [
     screenName: 'BortTech',
     isFavor: false,
   },
-  {
-    title: 'Видео',
-    icon: videoIcon,
-    screenName: 'BortVideo',
-    isFavor: false,
-  },
+  // {
+  //   title: 'Видео',
+  //   icon: videoIcon,
+  //   screenName: 'BortVideo',
+  //   isFavor: false,
+  // },
   {
     title: 'Использованные источники',
     icon: sourcesIcon,

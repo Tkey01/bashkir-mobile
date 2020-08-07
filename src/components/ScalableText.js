@@ -19,7 +19,7 @@ const textComponentSelector = (type) => {
 export const ScalableTextComponent = ({
   scale,
   size = 14,
-  color = '#000',
+  color = '#505050',
   children,
   type = 'r',
   style,

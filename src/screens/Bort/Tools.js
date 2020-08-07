@@ -1,10 +1,30 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { connect } from 'react-redux'
+import { ScrollView } from 'react-native'
 
-export const Tools = () => {
+import { languages } from '../../global/languages'
+import { ScalableText } from '../../components/ScalableText'
+
+export const ToolsComponent = ({ lang }) => {
   return (
-    <View>
-      <Text>Tools</Text>
-    </View>
+    <ScrollView
+      contentContainerStyle={{
+        paddingVertical: 46,
+        paddingHorizontal: 16,
+      }}
+    >
+      <ScalableText color="#505050">{languages.bort.tools[lang]}</ScalableText>
+    </ScrollView>
   )
 }
+
+const mapStateToProps = (state, ownProps) => ({
+  lang: state.language,
+})
+
+const mapDispatchToProps = {}
+
+export const Tools = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ToolsComponent)
