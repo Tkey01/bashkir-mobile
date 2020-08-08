@@ -1,1 +1,7 @@
+export { Description as WoodDescription } from './Description'
 export { Main as WoodMain } from './Main'
+export { Sources as WoodSources } from './Sources'
+export { Stuff as WoodStuff } from './Stuff'
+export { Tech as WoodTech } from './Tech'
+export { Tools as WoodTools } from './Tools'
+export { Video as WoodVideo } from './Video'

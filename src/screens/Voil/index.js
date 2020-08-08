@@ -1,1 +1,7 @@
+export { Description as VoilDescription } from './Description'
 export { Main as VoilMain } from './Main'
+export { Sources as VoilSources } from './Sources'
+export { Stuff as VoilStuff } from './Stuff'
+export { Tech as VoilTech } from './Tech'
+export { Tools as VoilTools } from './Tools'
+export { Video as VoilVideo } from './Video'

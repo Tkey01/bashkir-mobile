@@ -99,21 +99,131 @@ export const StackNavigatorComponent = ({ favorites, toggleFavorite }) => (
       component={SCREENS.ShorTools}
       options={{ title: 'Инструменты' }}
     />
+
     <Stack.Screen
       name="Textile"
       component={SCREENS.TextileMain}
       options={{ title: 'Текстиль' }}
     />
     <Stack.Screen
+      name="TextileDescription"
+      component={SCREENS.TextileDescription}
+      options={{ title: 'Описание' }}
+    />
+    <Stack.Screen
+      name="TextileSources"
+      component={SCREENS.TextileSources}
+      options={{ title: 'Источники' }}
+    />
+    <Stack.Screen
+      name="TextileStuff"
+      component={SCREENS.TextileStuff}
+      options={{ title: 'Материалы' }}
+    />
+    <Stack.Screen
+      name="TextileTech"
+      component={SCREENS.TextileTech}
+      options={{ title: 'Технология' }}
+    />
+    <Stack.Screen
+      name="TextileTools"
+      component={SCREENS.TextileTools}
+      options={{ title: 'Инструменты' }}
+    />
+
+    <Stack.Screen
       name="Wood"
       component={SCREENS.WoodMain}
       options={{ title: 'Резьба по дереву' }}
     />
     <Stack.Screen
+      name="WoodDescription"
+      component={SCREENS.WoodDescription}
+      options={{ title: 'Описание' }}
+    />
+    <Stack.Screen
+      name="WoodSources"
+      component={SCREENS.WoodSources}
+      options={{ title: 'Источники' }}
+    />
+    <Stack.Screen
+      name="WoodStuff"
+      component={SCREENS.WoodStuff}
+      options={{ title: 'Материалы' }}
+    />
+    <Stack.Screen
+      name="WoodTech"
+      component={SCREENS.WoodTech}
+      options={{ title: 'Технология' }}
+    />
+    <Stack.Screen
+      name="WoodTools"
+      component={SCREENS.WoodTools}
+      options={{ title: 'Инструменты' }}
+    />
+
+    <Stack.Screen
       name="Berest"
       component={SCREENS.BerestMain}
       options={{ title: 'Резьба по бересте' }}
     />
+    <Stack.Screen
+      name="BerestDescription"
+      component={SCREENS.BerestDescription}
+      options={{ title: 'Описание' }}
+    />
+    <Stack.Screen
+      name="BerestSources"
+      component={SCREENS.BerestSources}
+      options={{ title: 'Источники' }}
+    />
+    <Stack.Screen
+      name="BerestStuff"
+      component={SCREENS.BerestStuff}
+      options={{ title: 'Материалы' }}
+    />
+    <Stack.Screen
+      name="BerestTech"
+      component={SCREENS.BerestTech}
+      options={{ title: 'Технология' }}
+    />
+    <Stack.Screen
+      name="BerestTools"
+      component={SCREENS.BerestTools}
+      options={{ title: 'Инструменты' }}
+    />
+
+    <Stack.Screen
+      name="Voil"
+      component={SCREENS.VoilMain}
+      options={{ title: 'Резьба по бересте' }}
+    />
+    <Stack.Screen
+      name="VoilDescription"
+      component={SCREENS.VoilDescription}
+      options={{ title: 'Описание' }}
+    />
+    <Stack.Screen
+      name="VoilSources"
+      component={SCREENS.VoilSources}
+      options={{ title: 'Источники' }}
+    />
+    <Stack.Screen
+      name="VoilStuff"
+      component={SCREENS.VoilStuff}
+      options={{ title: 'Материалы' }}
+    />
+    <Stack.Screen
+      name="VoilTech"
+      component={SCREENS.VoilTech}
+      options={{ title: 'Технология' }}
+    />
+    <Stack.Screen
+      name="VoilTools"
+      component={SCREENS.VoilTools}
+      options={{ title: 'Инструменты' }}
+    />
+
     <Stack.Screen
       name="Settings"
       component={SCREENS.Settings}

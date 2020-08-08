@@ -1,1 +1,7 @@
+export { Description as BerestDescription } from './Description'
 export { Main as BerestMain } from './Main'
+export { Sources as BerestSources } from './Sources'
+export { Stuff as BerestStuff } from './Stuff'
+export { Tech as BerestTech } from './Tech'
+export { Tools as BerestTools } from './Tools'
+export { Video as BerestVideo } from './Video'
