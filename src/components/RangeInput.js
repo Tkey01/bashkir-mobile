@@ -95,7 +95,6 @@ export const RangeInputComponent = ({
       style={CONTAINER}
       onPress={(e) => {
         moveThumb(e.nativeEvent.pageX)
-        console.log(e.nativeEvent)
       }}
     >
       <View style={CONTAINER}>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import Icon from 'react-native-vector-icons/FontAwesome5Pro'
 
 const colors = {
   blue: {
@@ -16,7 +17,8 @@ const colors = {
   },
 }
 
-export const IconComponent = ({ color, theme, ...restProps }) => {
+export const IconComponent = ({ color, theme, from, ...restProps }) => {
+  console.log('icon from - ', from, color)
   return <Icon {...restProps} color={colors[color][theme]} />
 }
 
@@ -26,4 +28,4 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = {}
 
-export const Icon = connect(mapStateToProps, mapDispatchToProps)(IconComponent)
+export const IconC = connect(mapStateToProps, mapDispatchToProps)(IconComponent)

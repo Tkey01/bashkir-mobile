@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, Image, TouchableOpacity } from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome5Pro'
 
-import { TextR } from '../components/TextR'
+import { TextC } from '../components/TextC'
+import { IconC } from '../components/IconC'
 
 const CONTAINER = {
   flexDirection: 'row',
@@ -43,37 +43,40 @@ export const ListItem = ({
     <TouchableOpacity style={CONTAINER} onPress={onPress}>
       <View style={VIEW}>
         <Image source={icon} style={ICON} />
-        <TextR style={TEXT}>{text}</TextR>
+        <TextC style={TEXT}>{text}</TextC>
       </View>
       <View style={VIEW}>
         {onPressFavor && (
           <TouchableOpacity onPress={onPressFavor}>
-            <Icon
+            <IconC
               size={19}
               name="bookmark"
               solid={isFavor}
               light={!isFavor}
-              color="#3269C8"
+              color="blue"
+              from="ListItem"
             />
           </TouchableOpacity>
         )}
         {onPressClose && (
           <TouchableOpacity onPress={onPressClose}>
-            <Icon
+            <IconC
               size={25}
               name="times"
               light
-              color="#3269C8"
+              color="blue"
+              from="ListItem"
               style={MARGIN_LEFT}
             />
           </TouchableOpacity>
         )}
         <TouchableOpacity>
-          <Icon
+          <IconC
             size={24}
             name="chevron-right"
             light
-            color="#3269C8"
+            color="blue"
+            from="ListItem"
             style={MARGIN_LEFT}
           />
         </TouchableOpacity>

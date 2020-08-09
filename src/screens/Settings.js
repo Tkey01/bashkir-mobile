@@ -1,8 +1,7 @@
 import React from 'react'
 import { ScrollView, Image, View, TouchableOpacity } from 'react-native'
 
-import { TextM } from '../components/TextM'
-import { TextR } from '../components/TextR'
+import { TextC } from '../components/TextC'
 import { RadioButton } from '../components/RadioButton'
 import { RangeInput } from '../components/RangeInput'
 
@@ -36,56 +35,62 @@ export const Settings = () => {
       <View style={BLOCK}>
         <View style={ROW}>
           <Image source={themeIcon} />
-          <TextM style={TITLE}>Тема</TextM>
+          <TextC type="m" style={TITLE}>
+            Тема
+          </TextC>
         </View>
         <TouchableOpacity
           style={[ROW, { marginTop: 15, paddingHorizontal: 21 }]}
         >
           <RadioButton active />
-          <TextR style={LABEL_TEXT}>Светлая</TextR>
+          <TextC style={LABEL_TEXT}>Светлая</TextC>
         </TouchableOpacity>
         <TouchableOpacity
           style={[ROW, { marginTop: 12, paddingHorizontal: 21 }]}
         >
           <RadioButton />
-          <TextR style={LABEL_TEXT}>Тёмная</TextR>
+          <TextC style={LABEL_TEXT}>Тёмная</TextC>
         </TouchableOpacity>
         <TouchableOpacity
           style={[ROW, { marginTop: 12, paddingHorizontal: 21 }]}
         >
           <RadioButton />
-          <TextR style={LABEL_TEXT}>Автоматически</TextR>
+          <TextC style={LABEL_TEXT}>Автоматически</TextC>
         </TouchableOpacity>
       </View>
       <View style={[BLOCK, { marginTop: 8 }]}>
         <View style={ROW}>
           <Image source={textSizeIcon} />
-          <TextM style={TITLE}>Размер текста</TextM>
+          <TextC type="m" style={TITLE}>
+            Размер текста
+          </TextC>
         </View>
         <RangeInput />
       </View>
       <View style={[BLOCK, { marginTop: 8 }]}>
         <View style={ROW}>
           <Image source={languagesIcon} />
-          <TextM style={TITLE}>Выбор языка</TextM>
+          <TextC type="m" style={TITLE}>
+            Выбор языка
+          </TextC>
         </View>
         <TouchableOpacity
           style={[ROW, { marginTop: 15, paddingHorizontal: 21 }]}
         >
           <RadioButton active />
-          <TextR style={LABEL_TEXT}>Русский</TextR>
+          <TextC style={LABEL_TEXT}>Русский</TextC>
         </TouchableOpacity>
         <TouchableOpacity
           style={[ROW, { marginTop: 12, paddingHorizontal: 21 }]}
         >
           <RadioButton />
-          <TextR style={LABEL_TEXT}>Башкирский</TextR>
+          <TextC style={LABEL_TEXT}>Башкирский</TextC>
         </TouchableOpacity>
         <TouchableOpacity
           style={[ROW, { marginTop: 12, paddingHorizontal: 21 }]}
         >
           <RadioButton />
-          <TextR style={LABEL_TEXT}>Английский</TextR>
+          <TextC style={LABEL_TEXT}>Английский</TextC>
         </TouchableOpacity>
       </View>
     </ScrollView>

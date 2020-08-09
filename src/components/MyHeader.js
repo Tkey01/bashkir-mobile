@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, TouchableOpacity } from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome5Pro'
 
-import { TextR } from './TextR'
+import { TextC } from './TextC'
+import { IconC } from './IconC'
 
 const CONTAINER = {
   backgroundColor: '#3269C8',
@@ -36,25 +36,25 @@ export const MyHeader = ({
     <View style={CONTAINER}>
       {previous && (
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Icon size={24} name="chevron-left" color="#fff" />
+          <IconC size={24} name="chevron-left" color="white" />
         </TouchableOpacity>
       )}
-      <TextR
+      <TextC
+        color="white"
         style={{
           fontSize: 20,
-          color: '#fff',
           marginLeft: previous ? 40 : 56,
           flex: 1,
         }}
       >
         {title}
-      </TextR>
+      </TextC>
       {!!playVideoAction && (
         <TouchableOpacity
           onPress={() => playVideoAction()}
           style={{ marginRight: 19 }}
         >
-          <Icon size={20} name="play" color="#fff" />
+          <IconC size={20} name="play" color="white" />
         </TouchableOpacity>
       )}
       {!!searchAction && (
@@ -62,7 +62,7 @@ export const MyHeader = ({
           onPress={() => searchAction()}
           style={{ marginRight: 21 }}
         >
-          <Icon size={22} name="search" color="#fff" />
+          <IconC size={22} name="search" color="white" />
         </TouchableOpacity>
       )}
       {!!toggleFavorite && (
@@ -70,7 +70,7 @@ export const MyHeader = ({
           onPress={() => toggleFavorite(scene.route.name)}
           style={{ marginRight: 25 }}
         >
-          <Icon size={20} name="bookmark" solid={isFavor} color="#fff" />
+          <IconC size={20} name="bookmark" solid={isFavor} color="white" />
         </TouchableOpacity>
       )}
       {!!sortByAction && (
@@ -78,16 +78,16 @@ export const MyHeader = ({
           onPress={() => sortByAction()}
           style={{ marginRight: 23 }}
         >
-          <Icon
+          <IconC
             size={22}
             name={sortByUp ? 'sort-alpha-up' : 'sort-alpha-down'}
             light
-            color="#fff"
+            color="white"
           />
         </TouchableOpacity>
       )}
       <TouchableOpacity onPress={() => toggleSideMenu()}>
-        <Icon size={24} name="bars" color="#fff" />
+        <IconC size={24} name="bars" color="white" />
       </TouchableOpacity>
     </View>
   )

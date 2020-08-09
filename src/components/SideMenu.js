@@ -1,13 +1,12 @@
 import React from 'react'
-import { View, ScrollView, TouchableOpacity, Dimensions } from 'react-native'
+import { View, ScrollView, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 
-import Icon from 'react-native-vector-icons/FontAwesome5Pro'
-
-import { TextR } from './TextR'
 import * as ACTIONS from '../redux/actions'
 import { languages } from '../global/languages'
 import { getLangText } from '../helpers/getLangText'
+import { IconC } from './IconC'
+import { TextC } from './TextC'
 
 const list = ['Notes', 'Favorites', 'NormBase', 'Settings', 'About']
 
@@ -15,10 +14,6 @@ const langs = ['RUS', 'BASH', 'ENG']
 
 const LANG = {
   paddingHorizontal: 5,
-}
-
-const LANG_ACTIVE = {
-  fontFamily: 'Roboto-Bold',
 }
 
 const CLOSE_CONTAINER = {
@@ -58,12 +53,12 @@ const SideMenuComponent = ({ language, selectLanguage, navigation }) => {
         style={CLOSE_CONTAINER}
         onPress={navigation.closeDrawer}
       >
-        <TextR>Закрыть</TextR>
-        <Icon
+        <TextC>Закрыть</TextC>
+        <IconC
           size={20}
           name="times"
           light
-          color="#565656"
+          color="gray"
           style={{ marginLeft: 20 }}
         />
       </TouchableOpacity>
@@ -75,19 +70,19 @@ const SideMenuComponent = ({ language, selectLanguage, navigation }) => {
             style={{ marginTop: index ? 30 : 0 }}
             onPress={() => navigation.navigate(item)}
           >
-            <TextR>
+            <TextC>
               {
                 getLangText(
                   languages.sideMenu.routes[language],
                   `sideMenu.routes.${language}`,
                 )[index]
               }
-            </TextR>
+            </TextC>
           </TouchableOpacity>
         ))}
       </View>
       <View style={DIVIDER_2} />
-      <TextR>Язык</TextR>
+      <TextC>Язык</TextC>
       <View style={LANG_CONTAINER}>
         {langs.map((lang, index) => (
           <TouchableOpacity
@@ -95,14 +90,12 @@ const SideMenuComponent = ({ language, selectLanguage, navigation }) => {
             style={{ marginLeft: 20 }}
             onPress={() => selectLanguage(lang.toLowerCase())}
           >
-            <TextR
-              style={[
-                LANG,
-                language === lang.toLowerCase() ? LANG_ACTIVE : null,
-              ]}
+            <TextC
+              type={language === lang.toLowerCase() ? 'b' : 'r'}
+              style={LANG}
             >
               {lang}
-            </TextR>
+            </TextC>
             <View
               style={{
                 borderColor: '#3269C8',

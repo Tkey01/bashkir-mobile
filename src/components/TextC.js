@@ -36,7 +36,6 @@ export const TextCComponent = ({
   style,
   ...restProps
 }) => {
-  console.log(color)
   return (
     <Text
       style={{
