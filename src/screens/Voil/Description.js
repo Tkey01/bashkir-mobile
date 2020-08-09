@@ -18,7 +18,10 @@ export const DescriptionComponent = ({ lang }) => {
     >
       <TemplateString>
         {getTemplateStringArray(
-          getLangText(languages.voil.desc[lang], `voil.desc.${lang}`),
+          getLangText(
+            languages.voil.description[lang],
+            `voil.description.${lang}`,
+          ),
         )}
       </TemplateString>
     </ScreenWrapper>

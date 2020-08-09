@@ -67,9 +67,9 @@ export const languages = {
       eng: 'About',
       bash: '',
     },
-    Note: {
-      rus: 'Заметка',
-      eng: 'Note',
+    Search: {
+      rus: 'О приложении',
+      eng: 'Search',
       bash: '',
     },
   },
@@ -87,7 +87,7 @@ export const languages = {
     },
   },
   nestedRoutes: {
-    desc: {
+    description: {
       rus: 'Описание',
       eng: 'Description',
       bash: '',

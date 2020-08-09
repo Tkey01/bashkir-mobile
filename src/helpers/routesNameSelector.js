@@ -4,8 +4,8 @@ import { getLangText } from './getLangText'
 export const routesNameSelector = (screenName, lang) => {
   if (screenName.includes('Description')) {
     return getLangText(
-      languages.nestedRoutes.desc[lang],
-      `nestedRoutes.desc.${lang}`,
+      languages.nestedRoutes.description[lang],
+      `nestedRoutes.description.${lang}`,
     )
   } else if (screenName.includes('Sources')) {
     return getLangText(

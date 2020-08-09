@@ -18,7 +18,10 @@ export const DescriptionComponent = ({ lang }) => {
     >
       <TemplateString>
         {getTemplateStringArray(
-          getLangText(languages.berest.desc[lang], `berest.desc.${lang}`),
+          getLangText(
+            languages.berest.description[lang],
+            `berest.description.${lang}`,
+          ),
         )}
       </TemplateString>
     </ScreenWrapper>

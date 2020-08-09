@@ -18,7 +18,10 @@ export const DescriptionComponent = ({ lang }) => {
     >
       <TemplateString>
         {getTemplateStringArray(
-          getLangText(languages.bort.desc[lang], `bort.desc.${lang}`),
+          getLangText(
+            languages.bort.description[lang],
+            `bort.description.${lang}`,
+          ),
         )}
       </TemplateString>
     </ScreenWrapper>

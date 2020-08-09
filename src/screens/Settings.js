@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, Image, View, TouchableOpacity } from 'react-native'
+import { Image, View, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 
 import * as ACTIONS from '../redux/actions'
@@ -32,7 +32,12 @@ const LABEL_TEXT = {
   marginLeft: 31,
 }
 
-export const SettingsComponent = ({ theme, setTheme }) => {
+export const SettingsComponent = ({
+  theme,
+  lang,
+  setTheme,
+  selectLanguage,
+}) => {
   return (
     <ScreenWrapper contentContainerStyle={{ paddingHorizontal: 16 }}>
       <View style={BLOCK}>
@@ -80,21 +85,24 @@ export const SettingsComponent = ({ theme, setTheme }) => {
           </TextC>
         </View>
         <TouchableOpacity
+          onPress={() => selectLanguage('rus')}
           style={[ROW, { marginTop: 15, paddingHorizontal: 21 }]}
         >
-          <RadioButton active />
+          <RadioButton active={lang === 'rus'} />
           <TextC style={LABEL_TEXT}>Русский</TextC>
         </TouchableOpacity>
         <TouchableOpacity
+          onPress={() => selectLanguage('bash')}
           style={[ROW, { marginTop: 12, paddingHorizontal: 21 }]}
         >
-          <RadioButton />
+          <RadioButton active={lang === 'bash'} />
           <TextC style={LABEL_TEXT}>Башкирский</TextC>
         </TouchableOpacity>
         <TouchableOpacity
+          onPress={() => selectLanguage('eng')}
           style={[ROW, { marginTop: 12, paddingHorizontal: 21 }]}
         >
-          <RadioButton />
+          <RadioButton active={lang === 'eng'} />
           <TextC style={LABEL_TEXT}>Английский</TextC>
         </TouchableOpacity>
       </View>
@@ -104,10 +112,12 @@ export const SettingsComponent = ({ theme, setTheme }) => {
 
 const mapStateToProps = (state, ownProps) => ({
   theme: state.theme,
+  lang: state.language,
 })
 
 const mapDispatchToProps = {
   setTheme: ACTIONS.setTheme,
+  selectLanguage: ACTIONS.selectLanguage,
 }
 
 export const Settings = connect(

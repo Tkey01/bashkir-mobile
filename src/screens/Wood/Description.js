@@ -18,7 +18,10 @@ export const DescriptionComponent = ({ lang }) => {
     >
       <TemplateString>
         {getTemplateStringArray(
-          getLangText(languages.wood.desc[lang], `wood.desc.${lang}`),
+          getLangText(
+            languages.wood.description[lang],
+            `wood.description.${lang}`,
+          ),
         )}
       </TemplateString>
     </ScreenWrapper>

@@ -9,7 +9,11 @@ import { MyHeader } from '../components/MyHeader'
 
 export const Stack = createStackNavigator()
 
-export const StackNavigatorComponent = ({ favorites, toggleFavorite }) => (
+export const StackNavigatorComponent = ({
+  navigation,
+  favorites,
+  toggleFavorite,
+}) => (
   <Stack.Navigator
     initialRouteName="Main"
     screenOptions={{
@@ -19,7 +23,7 @@ export const StackNavigatorComponent = ({ favorites, toggleFavorite }) => (
           <MyHeader
             {...props}
             isFavor={isFavor}
-            searchAction={() => {}}
+            searchAction={() => navigation.navigate('Search')}
             playVideoAction={() => {}}
             toggleFavorite={toggleFavorite}
             toggleSideMenu={props.navigation.toggleDrawer}
@@ -238,6 +242,11 @@ export const StackNavigatorComponent = ({ favorites, toggleFavorite }) => (
       name="Favorites"
       component={SCREENS.Favorites}
       options={{ title: 'Избранное' }}
+    />
+    <Stack.Screen
+      name="Search"
+      component={SCREENS.Search}
+      options={{ title: 'Поиск' }}
     />
   </Stack.Navigator>
 )
