@@ -15,7 +15,7 @@ export const SourcesComponent = ({ lang }) => {
         paddingHorizontal: 16,
       }}
     >
-      <TemplateString color="#505050">
+      <TemplateString>
         {getTemplateStringArray(
           getLangText(languages.berest.sources[lang], `berest.sources.${lang}`),
         )}

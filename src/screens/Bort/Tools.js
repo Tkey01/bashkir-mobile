@@ -15,7 +15,7 @@ export const ToolsComponent = ({ lang }) => {
         paddingHorizontal: 16,
       }}
     >
-      <TemplateString color="#505050">
+      <TemplateString>
         {getTemplateStringArray(
           getLangText(languages.bort.tools[lang], `bort.tools.${lang}`),
         )}

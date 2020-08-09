@@ -15,7 +15,7 @@ export const StuffComponent = ({ lang }) => {
         paddingHorizontal: 16,
       }}
     >
-      <TemplateString color="#505050">
+      <TemplateString>
         {getTemplateStringArray(
           getLangText(languages.shor.stuff[lang], `shor.stuff.${lang}`),
         )}

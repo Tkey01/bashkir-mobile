@@ -15,7 +15,7 @@ export const DescriptionComponent = ({ lang }) => {
         paddingHorizontal: 16,
       }}
     >
-      <TemplateString color="#505050">
+      <TemplateString>
         {getTemplateStringArray(
           getLangText(languages.berest.desc[lang], `berest.desc.${lang}`),
         )}

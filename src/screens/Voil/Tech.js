@@ -15,7 +15,7 @@ export const TechComponent = ({ lang }) => {
         paddingHorizontal: 16,
       }}
     >
-      <TemplateString color="#505050">
+      <TemplateString>
         {getTemplateStringArray(
           getLangText(languages.voil.tech[lang], `voil.tech.${lang}`),
         )}

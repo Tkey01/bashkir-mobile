@@ -14,7 +14,7 @@ export const TechComponent = ({ lang }) => {
         paddingHorizontal: 16,
       }}
     >
-      <TemplateString color="#505050">
+      <TemplateString>
         {getTemplateStringArray(
           getLangText(languages.wood.tech[lang], `wood.tech.${lang}`),
         )}
