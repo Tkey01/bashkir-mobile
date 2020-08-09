@@ -5,6 +5,7 @@ import { ScrollView } from 'react-native'
 import { TemplateString } from '../../components/TemplateString'
 import { languages } from '../../global/languages'
 import { getTemplateStringArray } from '../../helpers/getTemplateStringArray'
+import { getLangText } from '../../helpers/getLangText'
 
 export const DescriptionComponent = ({ lang }) => {
   return (
@@ -15,7 +16,9 @@ export const DescriptionComponent = ({ lang }) => {
       }}
     >
       <TemplateString color="#505050">
-        {getTemplateStringArray(languages.berest.desc[lang])}
+        {getTemplateStringArray(
+          getLangText(languages.berest.desc[lang], `berest.desc.${lang}`),
+        )}
       </TemplateString>
     </ScrollView>
   )

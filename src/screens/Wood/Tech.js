@@ -15,7 +15,9 @@ export const TechComponent = ({ lang }) => {
       }}
     >
       <TemplateString color="#505050">
-        {getTemplateStringArray(languages.wood.tech[lang])}
+        {getTemplateStringArray(
+          getLangText(languages.wood.tech[lang], `wood.tech.${lang}`),
+        )}
       </TemplateString>
     </ScrollView>
   )
