@@ -6,10 +6,11 @@ import { TemplateString } from '../../components/TemplateString'
 import { languages } from '../../global/languages'
 import { getTemplateStringArray } from '../../helpers/getTemplateStringArray'
 import { getLangText } from '../../helpers/getLangText'
+import { ScreenWrapper } from '../../components/ScreenWrapper'
 
 export const StuffComponent = ({ lang }) => {
   return (
-    <ScrollView
+    <ScreenWrapper
       contentContainerStyle={{
         paddingVertical: 46,
         paddingHorizontal: 16,
@@ -20,7 +21,7 @@ export const StuffComponent = ({ lang }) => {
           getLangText(languages.voil.stuff[lang], `voil.stuff.${lang}`),
         )}
       </TemplateString>
-    </ScrollView>
+    </ScreenWrapper>
   )
 }
 

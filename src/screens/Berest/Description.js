@@ -6,10 +6,11 @@ import { TemplateString } from '../../components/TemplateString'
 import { languages } from '../../global/languages'
 import { getTemplateStringArray } from '../../helpers/getTemplateStringArray'
 import { getLangText } from '../../helpers/getLangText'
+import { ScreenWrapper } from '../../components/ScreenWrapper'
 
 export const DescriptionComponent = ({ lang }) => {
   return (
-    <ScrollView
+    <ScreenWrapper
       contentContainerStyle={{
         paddingVertical: 46,
         paddingHorizontal: 16,
@@ -20,7 +21,7 @@ export const DescriptionComponent = ({ lang }) => {
           getLangText(languages.berest.desc[lang], `berest.desc.${lang}`),
         )}
       </TemplateString>
-    </ScrollView>
+    </ScreenWrapper>
   )
 }
 

@@ -8,6 +8,7 @@ import { RangeInput } from '../components/RangeInput'
 import themeIcon from '../assets/images/theme-icon.png'
 import textSizeIcon from '../assets/images/text-size-icon.png'
 import languagesIcon from '../assets/images/languages-icon.png'
+import { ScreenWrapper } from '../components/ScreenWrapper'
 
 const BLOCK = {
   paddingHorizontal: 10,
@@ -31,7 +32,7 @@ const LABEL_TEXT = {
 
 export const Settings = () => {
   return (
-    <ScrollView contentContainerStyle={{ paddingHorizontal: 16 }}>
+    <ScreenWrapper contentContainerStyle={{ paddingHorizontal: 16 }}>
       <View style={BLOCK}>
         <View style={ROW}>
           <Image source={themeIcon} />
@@ -93,6 +94,6 @@ export const Settings = () => {
           <TextC style={LABEL_TEXT}>Английский</TextC>
         </TouchableOpacity>
       </View>
-    </ScrollView>
+    </ScreenWrapper>
   )
 }

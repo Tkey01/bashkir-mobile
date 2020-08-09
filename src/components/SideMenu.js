@@ -7,6 +7,7 @@ import { languages } from '../global/languages'
 import { getLangText } from '../helpers/getLangText'
 import { IconC } from './IconC'
 import { TextC } from './TextC'
+import { ScreenWrapper } from './ScreenWrapper'
 
 const list = ['Notes', 'Favorites', 'NormBase', 'Settings', 'About']
 
@@ -43,7 +44,7 @@ const LANG_CONTAINER = {
 
 const SideMenuComponent = ({ language, selectLanguage, navigation }) => {
   return (
-    <ScrollView
+    <ScreenWrapper
       style={{
         paddingVertical: 20,
         paddingHorizontal: 25,
@@ -107,7 +108,7 @@ const SideMenuComponent = ({ language, selectLanguage, navigation }) => {
           </TouchableOpacity>
         ))}
       </View>
-    </ScrollView>
+    </ScreenWrapper>
   )
 }
 

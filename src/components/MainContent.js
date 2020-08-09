@@ -11,6 +11,7 @@ import sourcesIcon from '../assets/images/sources-icon.png'
 import { ListItem } from '../components/ListItem'
 import { routesNameSelector } from '../helpers/routesNameSelector'
 import * as ACTIONS from '../redux/actions'
+import { ScreenWrapper } from './ScreenWrapper'
 
 export const MainContentComponent = ({
   navigation,
@@ -42,7 +43,7 @@ export const MainContentComponent = ({
     },
   ])
   return (
-    <ScrollView
+    <ScreenWrapper
       contentContainerStyle={{
         paddingVertical: 46,
         paddingHorizontal: 16,
@@ -64,7 +65,7 @@ export const MainContentComponent = ({
           />
         ))}
       </View>
-    </ScrollView>
+    </ScreenWrapper>
   )
 }
 

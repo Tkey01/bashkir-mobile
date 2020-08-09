@@ -6,10 +6,11 @@ import { TemplateString } from '../../components/TemplateString'
 import { languages } from '../../global/languages'
 import { getTemplateStringArray } from '../../helpers/getTemplateStringArray'
 import { getLangText } from '../../helpers/getLangText'
+import { ScreenWrapper } from '../../components/ScreenWrapper'
 
 export const SourcesComponent = ({ lang }) => {
   return (
-    <ScrollView
+    <ScreenWrapper
       contentContainerStyle={{
         paddingVertical: 46,
         paddingHorizontal: 16,
@@ -23,7 +24,7 @@ export const SourcesComponent = ({ lang }) => {
           ),
         )}
       </TemplateString>
-    </ScrollView>
+    </ScreenWrapper>
   )
 }
 

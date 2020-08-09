@@ -10,6 +10,7 @@ import { selectFavorites } from '../redux/selectors'
 import { routesNameSelector } from '../helpers/routesNameSelector'
 import { ScalableText } from '../components/ScalableText'
 import { getLangText } from '../helpers/getLangText'
+import { ScreenWrapper } from '../components/ScreenWrapper'
 
 export const FavoritesComponent = ({
   lang,
@@ -18,7 +19,7 @@ export const FavoritesComponent = ({
   navigation,
 }) => {
   return favorites.length ? (
-    <ScrollView
+    <ScreenWrapper
       contentContainerStyle={{
         paddingVertical: 46,
         paddingHorizontal: 16,
@@ -35,7 +36,7 @@ export const FavoritesComponent = ({
           />
         )
       })}
-    </ScrollView>
+    </ScreenWrapper>
   ) : (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <ScalableText

@@ -5,10 +5,12 @@ import { ScrollView } from 'react-native'
 import { TemplateString } from '../../components/TemplateString'
 import { languages } from '../../global/languages'
 import { getTemplateStringArray } from '../../helpers/getTemplateStringArray'
+import { ScreenWrapper } from '../../components/ScreenWrapper'
+import { getLangText } from '../../helpers/getLangText'
 
 export const TechComponent = ({ lang }) => {
   return (
-    <ScrollView
+    <ScreenWrapper
       contentContainerStyle={{
         paddingVertical: 46,
         paddingHorizontal: 16,
@@ -19,7 +21,7 @@ export const TechComponent = ({ lang }) => {
           getLangText(languages.wood.tech[lang], `wood.tech.${lang}`),
         )}
       </TemplateString>
-    </ScrollView>
+    </ScreenWrapper>
   )
 }
 
