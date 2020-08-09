@@ -10,6 +10,7 @@ const initialState = {
     Main: true,
     Bort: true,
   },
+  notes: [],
 }
 
 const selectLanguage = (state, { language }) => ({

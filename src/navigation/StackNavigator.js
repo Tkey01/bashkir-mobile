@@ -248,6 +248,11 @@ export const StackNavigatorComponent = ({
       component={SCREENS.Search}
       options={{ title: 'Поиск' }}
     />
+    <Stack.Screen
+      name="Notes"
+      component={SCREENS.Notes}
+      options={{ title: 'Заметки' }}
+    />
   </Stack.Navigator>
 )
 

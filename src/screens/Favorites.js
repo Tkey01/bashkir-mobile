@@ -15,6 +15,7 @@ import { ScreenWrapper } from '../components/ScreenWrapper'
 export const FavoritesComponent = ({
   lang,
   favorites,
+  theme,
   toggleFavorite,
   navigation,
 }) => {
@@ -38,7 +39,14 @@ export const FavoritesComponent = ({
       })}
     </ScreenWrapper>
   ) : (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View
+      style={{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: theme === 'light' ? '#fff' : '#000',
+      }}
+    >
       <ScalableText
         style={{
           textAlign: 'center',
@@ -55,6 +63,7 @@ export const FavoritesComponent = ({
 
 const mapStateToProps = (state, ownProps) => ({
   lang: state.language,
+  theme: state.theme,
   favorites: selectFavorites(state.favorites),
 })
 
