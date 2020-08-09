@@ -1,6 +1,8 @@
 import React from 'react'
 import { ScrollView, Image, View, TouchableOpacity } from 'react-native'
+import { connect } from 'react-redux'
 
+import * as ACTIONS from '../redux/actions'
 import { TextC } from '../components/TextC'
 import { RadioButton } from '../components/RadioButton'
 import { RangeInput } from '../components/RangeInput'
@@ -30,7 +32,7 @@ const LABEL_TEXT = {
   marginLeft: 31,
 }
 
-export const Settings = () => {
+export const SettingsComponent = ({ theme, setTheme }) => {
   return (
     <ScreenWrapper contentContainerStyle={{ paddingHorizontal: 16 }}>
       <View style={BLOCK}>
@@ -41,23 +43,25 @@ export const Settings = () => {
           </TextC>
         </View>
         <TouchableOpacity
+          onPress={() => setTheme('light')}
           style={[ROW, { marginTop: 15, paddingHorizontal: 21 }]}
         >
-          <RadioButton active />
+          <RadioButton active={theme === 'light'} />
           <TextC style={LABEL_TEXT}>Светлая</TextC>
         </TouchableOpacity>
         <TouchableOpacity
+          onPress={() => setTheme('dark')}
           style={[ROW, { marginTop: 12, paddingHorizontal: 21 }]}
         >
-          <RadioButton />
+          <RadioButton active={theme === 'dark'} />
           <TextC style={LABEL_TEXT}>Тёмная</TextC>
         </TouchableOpacity>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={[ROW, { marginTop: 12, paddingHorizontal: 21 }]}
         >
           <RadioButton />
           <TextC style={LABEL_TEXT}>Автоматически</TextC>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
       <View style={[BLOCK, { marginTop: 8 }]}>
         <View style={ROW}>
@@ -97,3 +101,16 @@ export const Settings = () => {
     </ScreenWrapper>
   )
 }
+
+const mapStateToProps = (state, ownProps) => ({
+  theme: state.theme,
+})
+
+const mapDispatchToProps = {
+  setTheme: ACTIONS.setTheme,
+}
+
+export const Settings = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(SettingsComponent)

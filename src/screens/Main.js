@@ -1,9 +1,7 @@
 import React from 'react'
-import { View } from 'react-native'
 import { connect } from 'react-redux'
 
 import { ListItem } from '../components/ListItem'
-import { languages } from '../global'
 import * as ACTIONS from '../redux/actions'
 
 import bortIcon from '../assets/images/bort-icon.png'
@@ -13,9 +11,10 @@ import textileIcon from '../assets/images/textile-icon.png'
 import woodIcon from '../assets/images/wood-icon.png'
 import berestIcon from '../assets/images/berest-icon.png'
 import { routesNameSelector } from '../helpers/routesNameSelector'
+import { ScreenWrapper } from '../components/ScreenWrapper'
 
 const VIEW = {
-  marginTop: 24,
+  paddingTop: 24,
   paddingHorizontal: 20,
 }
 
@@ -53,7 +52,7 @@ export const MainComponent = ({
   favorites,
 }) => {
   return (
-    <View style={VIEW}>
+    <ScreenWrapper style={VIEW}>
       {PAGES.map((page, index) => {
         return (
           <ListItem
@@ -66,7 +65,7 @@ export const MainComponent = ({
           />
         )
       })}
-    </View>
+    </ScreenWrapper>
   )
 }
 

@@ -32,16 +32,16 @@ const setScale = (state, { scaleIndex }) => ({
   scale: textScales[scaleIndex],
 })
 
-const toggleTheme = (state) => ({
+const setTheme = (state, { theme }) => ({
   ...state,
-  theme: state.theme === 'light' ? 'dark' : 'light',
+  theme,
 })
 
 const handlers = {
   [TYPES.SELECT_LANGUAGE]: selectLanguage,
   [TYPES.TOGGLE_FAVORITE]: toggleFavorite,
   [TYPES.SET_SCALE]: setScale,
-  [TYPES.TOGGLE_THEME]: toggleTheme,
+  [TYPES.TOGGLE_THEME]: setTheme,
 }
 
 export const reducers = createReducer(initialState, handlers)

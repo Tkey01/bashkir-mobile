@@ -1,18 +1,18 @@
 import React from 'react'
 import { View, TouchableOpacity } from 'react-native'
+import { connect } from 'react-redux'
 
 import { TextC } from './TextC'
 import { IconC } from './IconC'
 
 const CONTAINER = {
-  backgroundColor: '#3269C8',
   height: 60,
   flexDirection: 'row',
   alignItems: 'center',
   paddingHorizontal: 16,
 }
 
-export const MyHeader = ({
+export const MyHeaderComponent = ({
   scene,
   previous,
   navigation,
@@ -23,6 +23,7 @@ export const MyHeader = ({
   sortByAction,
   playVideoAction,
   sortByUp,
+  theme,
 }) => {
   const { options } = scene.descriptor
   const title =
@@ -33,7 +34,14 @@ export const MyHeader = ({
       : scene.route.name
 
   return (
-    <View style={CONTAINER}>
+    <View
+      style={[
+        CONTAINER,
+        {
+          backgroundColor: theme === 'light' ? '#3269C8' : '#131354',
+        },
+      ]}
+    >
       {previous && (
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <IconC size={24} name="chevron-left" color="white" />
@@ -92,3 +100,14 @@ export const MyHeader = ({
     </View>
   )
 }
+
+const mapStateToProps = (state, ownProps) => ({
+  theme: state.theme,
+})
+
+const mapDispatchToProps = {}
+
+export const MyHeader = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(MyHeaderComponent)

@@ -19,9 +19,9 @@ export const setScale = (scaleIndex) => {
   }
 }
 
-export const toggleTheme = (theme) => {
+export const setTheme = (theme) => {
   return {
     type: TYPES.TOGGLE_THEME,
-    payload: {},
+    payload: { theme },
   }
 }
