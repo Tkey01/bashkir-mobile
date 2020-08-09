@@ -27,7 +27,7 @@ const VIEW = {
   alignItems: 'center',
 }
 
-const CHEVRON_RIGHT = {
+const MARGIN_LEFT = {
   marginLeft: 25,
 }
 
@@ -59,7 +59,13 @@ export const ListItem = ({
         )}
         {onPressClose && (
           <TouchableOpacity onPress={onPressClose}>
-            <Icon size={25} name="times" light color="#3269C8" />
+            <Icon
+              size={25}
+              name="times"
+              light
+              color="#3269C8"
+              style={MARGIN_LEFT}
+            />
           </TouchableOpacity>
         )}
         <TouchableOpacity>
@@ -68,7 +74,7 @@ export const ListItem = ({
             name="chevron-right"
             light
             color="#3269C8"
-            style={CHEVRON_RIGHT}
+            style={MARGIN_LEFT}
           />
         </TouchableOpacity>
       </View>

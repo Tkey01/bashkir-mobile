@@ -6,6 +6,7 @@ export const selectLanguage = (language) => ({
 })
 
 export const toggleFavorite = (favoriteName) => {
+  console.log('toggleFavorite', favoriteName)
   return {
     type: TYPES.TOGGLE_FAVORITE,
     payload: { favoriteName },

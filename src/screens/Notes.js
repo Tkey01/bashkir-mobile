@@ -19,7 +19,7 @@ export const NotesComponent = ({
         return (
           <ListItem
             key={index}
-            text={languages.screens[screenName][lang]}
+            text={languages.routes[screenName][lang]}
             icon={iconSelector(screenName)}
             // isFavor={screenName.isFavor}
             onPress={() => navigation.navigate(screenName)}

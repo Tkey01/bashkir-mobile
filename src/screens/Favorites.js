@@ -7,6 +7,7 @@ import { ListItem } from '../components/ListItem'
 import * as ACTIONS from '../redux/actions'
 import { iconSelector } from '../helpers/iconSelector'
 import { selectFavorites } from '../redux/selectors'
+import { routesNameSelector } from '../helpers/routesNameSelector'
 
 export const FavoritesComponent = ({
   lang,
@@ -22,11 +23,11 @@ export const FavoritesComponent = ({
       }}
     >
       {favorites.map((screenName, index) => {
-        console.log(languages.screens)
         return (
           <ListItem
             key={index}
-            text={languages.screens[screenName][lang]}
+            text={routesNameSelector(screenName, lang)}
+            // text={'asda'}
             icon={iconSelector(screenName)}
             // isFavor={screenName.isFavor}
             onPress={() => navigation.navigate(screenName)}

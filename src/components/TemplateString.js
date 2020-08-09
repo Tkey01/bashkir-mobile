@@ -3,7 +3,6 @@ import React from 'react'
 import { ScalableText } from './ScalableText'
 
 export const TemplateString = ({ children }) => {
-  console.log(children)
   return children.map((item, index) => (
     <ScalableText
       key={index}

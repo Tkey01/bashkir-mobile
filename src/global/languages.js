@@ -1,5 +1,5 @@
 export const languages = {
-  screens: {
+  routes: {
     Main: {
       rus: 'Главное меню',
       eng: 'Main menu',

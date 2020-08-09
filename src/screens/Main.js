@@ -13,8 +13,6 @@ import textileIcon from '../assets/images/textile-icon.png'
 import woodIcon from '../assets/images/wood-icon.png'
 import berestIcon from '../assets/images/berest-icon.png'
 
-console.log('icon - ', berestIcon, typeof berestIcon)
-
 const VIEW = {
   marginTop: 24,
   paddingHorizontal: 20,
@@ -59,7 +57,7 @@ export const MainComponent = ({
         return (
           <ListItem
             key={index}
-            text={languages.screens[page.screenName][language]}
+            text={languages.routes[page.screenName][language]}
             icon={page.icon}
             isFavor={favorites[page.screenName]}
             onPress={() => navigation.navigate(page.screenName)}

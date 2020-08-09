@@ -17,6 +17,7 @@ const selectLanguage = (state, { language }) => ({
 })
 
 const toggleFavorite = ({ favorites, ...state }, { favoriteName }) => {
+  console.log('toggleFavorite r', favoriteName)
   return {
     ...state,
     favorites: {

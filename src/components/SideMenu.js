@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5Pro'
 import { TextR } from './TextR'
 import * as ACTIONS from '../redux/actions'
 import { languages } from '../global/languages'
+import { getLangText } from '../helpers/getLangText'
 
 const list = ['Notes', 'Favorites', 'NormBase', 'Settings', 'About']
 
@@ -45,9 +46,6 @@ const LANG_CONTAINER = {
   flexDirection: 'row',
 }
 
-console.log(Dimensions.get('screen').width, Dimensions.get('screen').height)
-console.log(Dimensions.get('window').width, Dimensions.get('window').height)
-
 const SideMenuComponent = ({ language, selectLanguage, navigation }) => {
   return (
     <ScrollView
@@ -77,7 +75,14 @@ const SideMenuComponent = ({ language, selectLanguage, navigation }) => {
             style={{ marginTop: index ? 30 : 0 }}
             onPress={() => navigation.navigate(item)}
           >
-            <TextR>{languages.sideMenu.routes[language][index]}</TextR>
+            <TextR>
+              {
+                getLangText(
+                  languages.sideMenu.routes[language],
+                  `sideMenu.routes.${language}`,
+                )[index]
+              }
+            </TextR>
           </TouchableOpacity>
         ))}
       </View>
