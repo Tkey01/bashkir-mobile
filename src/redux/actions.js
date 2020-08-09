@@ -12,10 +12,10 @@ export const toggleFavorite = (favoriteName) => {
   }
 }
 
-export const setScale = (scale) => {
+export const setScale = (scaleIndex) => {
   return {
     type: TYPES.SET_SCALE,
-    payload: { scale },
+    payload: { scaleIndex },
   }
 }
 

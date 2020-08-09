@@ -1,9 +1,16 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { View, Text, PanResponder } from 'react-native'
-import Animated from 'react-native-reanimated'
+import { connect } from 'react-redux'
+import { View, Animated, TouchableWithoutFeedback, Easing } from 'react-native'
+
+import * as ACTIONS from '../redux/actions'
+import { textScales } from '../global/textScales'
+
+const THUMB_WIDTH = 11
+const MAGIC_MARGIN = 26
+const LINE_WIDTH = 300
 
 const CONTAINER = {
-  width: 300,
+  width: LINE_WIDTH,
   height: 13,
   marginTop: 18,
 }
@@ -34,72 +41,103 @@ const THUMB = {
   position: 'absolute',
   backgroundColor: '#3269C8',
   borderRadius: 5,
-  width: 11,
-  height: 11,
-  left: 145.5,
+  width: THUMB_WIDTH,
+  height: THUMB_WIDTH,
   top: 1,
+  left: 0,
 }
 
-export const RangeInput = ({ partsCount = 8, width = 300 }) => {
+const calculateNewScaleIndex = (value, width, partsCount) => {
+  const newValue = value - MAGIC_MARGIN
+  const partWidth = width / partsCount
+
+  return Math.round(newValue / partWidth)
+}
+
+const calculateOffsetX = (width, partsCount, scaleIndex) => {
+  const partWidth = width / partsCount
+
+  return scaleIndex * partWidth - THUMB_WIDTH / 2 + 0.5
+}
+
+export const RangeInputComponent = ({
+  partsCount = 8,
+  width = LINE_WIDTH,
+  setScale,
+  scale,
+}) => {
+  const initScaleIndex = textScales.findIndex((value) => value === scale)
+
+  const thumbAnim = useRef(
+    new Animated.Value(calculateOffsetX(width, partsCount, initScaleIndex)),
+  ).current
   const [serifs, setSerifs] = useState([...new Array(partsCount + 1)])
 
-  // const pan = useRef(new Animated.ValueXY()).current
-  const panResponder = React.useRef(
-    PanResponder.create({
-      // Ask to be the responder:
-      onStartShouldSetPanResponder: (evt, gestureState) => true,
-      onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
-      onMoveShouldSetPanResponder: (evt, gestureState) => true,
-      onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
+  const moveThumb = (value) => {
+    const scaleIndex = calculateNewScaleIndex(value, width, partsCount)
 
-      onPanResponderGrant: (evt, gestureState) => {
-        // The gesture has started. Show visual feedback so the user knows
-        // what is happening!
-        // gestureState.d{x,y} will be set to zero now
-      },
-      onPanResponderMove: (evt, gestureState) => {
-        // The most recent move distance is gestureState.move{X,Y}
-        // The accumulated gesture distance since becoming responder is
-        // gestureState.d{x,y}
-        console.log('move!!!', gestureState)
-      },
-      onPanResponderTerminationRequest: (evt, gestureState) => true,
-      onPanResponderRelease: (evt, gestureState) => {
-        // The user has released all touches while this view is the
-        // responder. This typically means a gesture has succeeded
-      },
-      onPanResponderTerminate: (evt, gestureState) => {
-        // Another component has become the responder, so this gesture
-        // should be cancelled
-      },
-      onShouldBlockNativeResponder: (evt, gestureState) => {
-        // Returns whether this component should block native components from becoming the JS
-        // responder. Returns true by default. Is currently only supported on android.
-        return true
-      },
-    }),
-  ).current
+    setScale(scaleIndex)
+
+    Animated.timing(thumbAnim, {
+      toValue: calculateOffsetX(width, partsCount, scaleIndex),
+      duration: 300,
+      useNativeDriver: true,
+      easing: Easing.ease,
+    }).start()
+  }
 
   useEffect(() => {
     setSerifs([...new Array(partsCount + 1)])
   }, [partsCount, width])
 
   return (
-    <View style={CONTAINER} {...panResponder.panHandlers}>
-      <View style={LINE} />
-      {serifs.map((_, index) => {
-        const x = index * (width / partsCount)
-        return (
-          <View
-            key={index}
-            style={[
-              index % 2 ? SERIF_2 : SERIF_1,
-              { left: x + 1 > width ? width - 1 : x, top: index % 2 ? 2 : 0 },
-            ]}
-          />
-        )
-      })}
-      <View style={THUMB} />
-    </View>
+    <TouchableWithoutFeedback
+      style={CONTAINER}
+      onPress={(e) => {
+        moveThumb(e.nativeEvent.pageX)
+        console.log(e.nativeEvent)
+      }}
+    >
+      <View style={CONTAINER}>
+        <View style={LINE} />
+        {serifs.map((_, index) => {
+          const x = index * (width / partsCount)
+          return (
+            <View
+              key={index}
+              style={[
+                index % 2 ? SERIF_2 : SERIF_1,
+                { left: x + 1 > width ? width - 1 : x, top: index % 2 ? 2 : 0 },
+              ]}
+            />
+          )
+        })}
+        <Animated.View
+          style={[
+            THUMB,
+            {
+              transform: [
+                {
+                  translateX: thumbAnim,
+                },
+              ],
+            },
+          ]}
+        />
+      </View>
+    </TouchableWithoutFeedback>
   )
 }
+
+const mapStateToProps = (state, ownProps) => ({
+  scale: state.scale,
+})
+
+const mapDispatchToProps = {
+  setScale: ACTIONS.setScale,
+}
+
+export const RangeInput = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(RangeInputComponent)

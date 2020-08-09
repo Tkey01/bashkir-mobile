@@ -1,5 +1,6 @@
 import * as TYPES from './constants'
 import { createReducer } from '../helpers'
+import { textScales } from '../global/textScales'
 
 const initialState = {
   language: 'rus', // rus | eng | bash
@@ -26,9 +27,9 @@ const toggleFavorite = ({ favorites, ...state }, { favoriteName }) => {
   }
 }
 
-const setScale = (state, { scale }) => ({
+const setScale = (state, { scaleIndex }) => ({
   ...state,
-  scale,
+  scale: textScales[scaleIndex],
 })
 
 const toggleTheme = (state) => ({
