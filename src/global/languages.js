@@ -132,8 +132,8 @@ export const languages = {
   },
   favorites: {
     notAdded: {
-      rus: 'На данный момент вы не добавили ни одной темы в избранное',
-      eng: 'No favorite have been added yet',
+      rus: 'На данный момент \n вы не добавили ни \n одной темы в избранное',
+      eng: 'No favorite \n have been added yet',
       bash: '',
     },
   },

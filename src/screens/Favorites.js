@@ -8,6 +8,8 @@ import * as ACTIONS from '../redux/actions'
 import { iconSelector } from '../helpers/iconSelector'
 import { selectFavorites } from '../redux/selectors'
 import { routesNameSelector } from '../helpers/routesNameSelector'
+import { ScalableText } from '../components/ScalableText'
+import { getLangText } from '../helpers/getLangText'
 
 export const FavoritesComponent = ({
   lang,
@@ -15,7 +17,7 @@ export const FavoritesComponent = ({
   toggleFavorite,
   navigation,
 }) => {
-  return (
+  return favorites.length ? (
     <ScrollView
       contentContainerStyle={{
         paddingVertical: 46,
@@ -27,16 +29,26 @@ export const FavoritesComponent = ({
           <ListItem
             key={index}
             text={routesNameSelector(screenName, lang)}
-            // text={'asda'}
             icon={iconSelector(screenName)}
-            // isFavor={screenName.isFavor}
             onPress={() => navigation.navigate(screenName)}
-            // onPressFavor={() => toggleFavorite(screenName)}
             onPressClose={() => toggleFavorite(screenName)}
           />
         )
       })}
     </ScrollView>
+  ) : (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <ScalableText
+        style={{
+          textAlign: 'center',
+        }}
+      >
+        {getLangText(
+          languages.favorites.notAdded[lang],
+          `favorites.notAdded.${lang}`,
+        )}
+      </ScalableText>
+    </View>
   )
 }
 
