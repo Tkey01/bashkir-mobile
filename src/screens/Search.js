@@ -1,21 +1,46 @@
 import React, { useState, useCallback } from 'react'
 import { connect } from 'react-redux'
-import { TextInput } from 'react-native'
+import { View, TextInput, Image } from 'react-native'
 
 import { routes } from '../global/routes'
 import { ScreenWrapper } from '../components/ScreenWrapper'
 import { ListItem } from '../components/ListItem'
 import { iconSelector } from '../helpers/iconSelector'
 import * as ACTIONS from '../redux/actions'
+import searchIcon from '../assets/images/search-icon.png'
+import { IconC } from '../components/IconC'
+
+const SEARCH_CONTAINER = {
+  borderWidth: 1,
+  padding: 10,
+  borderColor: '#447FE3',
+  height: 60,
+  borderRadius: 8,
+  flexDirection: 'row',
+  alignItems: 'center',
+  marginBottom: 25,
+}
+
+const SEARCH_ICON = {
+  width: 40,
+  height: 40,
+}
 
 const INPUT = {
-  padding: 20,
-  borderWidth: 1,
+  flex: 1,
+  marginLeft: 20,
+  fontSize: 12,
+}
+
+const CHEVRON_RIGHT = {
+  marginLeft: 20,
+  marginRight: 10,
 }
 
 export const SearchComponent = ({
   navigation,
   lang,
+  theme,
   favorites,
   toggleFavorite,
 }) => {
@@ -42,8 +67,22 @@ export const SearchComponent = ({
   )
 
   return (
-    <ScreenWrapper style={{ paddingTop: 24, paddingHorizontal: 20 }}>
-      <TextInput style={INPUT} value={value} onChangeText={onInputChange} />
+    <ScreenWrapper style={{ paddingTop: 8, paddingHorizontal: 16 }}>
+      <View style={SEARCH_CONTAINER}>
+        <Image source={searchIcon} style={SEARCH_ICON} />
+        <TextInput
+          style={[INPUT, { color: theme === 'light' ? '#5C6063' : '#fff' }]}
+          value={value}
+          onChangeText={onInputChange}
+        />
+        <IconC
+          name="chevron-right"
+          size={25}
+          light
+          color="blue"
+          style={CHEVRON_RIGHT}
+        />
+      </View>
       {results.map((route, index) => (
         <ListItem
           key={index}
@@ -61,6 +100,7 @@ export const SearchComponent = ({
 const mapStateToProps = (state, ownProps) => ({
   lang: state.language,
   favorites: state.favorites,
+  theme: state.theme,
 })
 
 const mapDispatchToProps = {
