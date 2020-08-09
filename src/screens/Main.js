@@ -13,6 +13,8 @@ import textileIcon from '../assets/images/textile-icon.png'
 import woodIcon from '../assets/images/wood-icon.png'
 import berestIcon from '../assets/images/berest-icon.png'
 
+console.log('icon - ', berestIcon, typeof berestIcon)
+
 const VIEW = {
   marginTop: 24,
   paddingHorizontal: 20,
@@ -45,18 +47,21 @@ const PAGES = [
   },
 ]
 
-export const MainComponent = ({ language, toggleFavorite, navigation }) => {
+export const MainComponent = ({
+  language,
+  toggleFavorite,
+  navigation,
+  favorites,
+}) => {
   return (
     <View style={VIEW}>
       {PAGES.map((page, index) => {
-        const name = page.screenName.toLowerCase()
-
         return (
           <ListItem
             key={index}
-            text={languages.screens[name][language]}
+            text={languages.screens[page.screenName][language]}
             icon={page.icon}
-            isFavor={page.isFavor}
+            isFavor={favorites[page.screenName]}
             onPress={() => navigation.navigate(page.screenName)}
             onPressFavor={() => toggleFavorite(page.screenName)}
           />

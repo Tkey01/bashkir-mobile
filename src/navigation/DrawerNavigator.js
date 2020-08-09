@@ -25,16 +25,6 @@ export const DrawerNavigatorComponent = () => (
         component={StackNavigator}
         options={{ title: 'Главная' }}
       />
-      <Drawer.Screen
-        name="Notes"
-        component={Notes}
-        options={{ title: 'Заметки' }}
-      />
-      <Drawer.Screen
-        name="Favorites"
-        component={Favorites}
-        options={{ title: 'Избранное' }}
-      />
     </Drawer.Navigator>
   </NavigationContainer>
 )

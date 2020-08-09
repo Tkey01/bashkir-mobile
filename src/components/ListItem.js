@@ -17,6 +17,11 @@ const TEXT = {
   marginLeft: 20,
 }
 
+const ICON = {
+  width: 40,
+  height: 40,
+}
+
 const VIEW = {
   flexDirection: 'row',
   alignItems: 'center',
@@ -26,23 +31,37 @@ const CHEVRON_RIGHT = {
   marginLeft: 25,
 }
 
-export const ListItem = ({ text, icon, isFavor, onPressFavor, onPress }) => {
+export const ListItem = ({
+  text,
+  icon,
+  isFavor,
+  onPressFavor,
+  onPress,
+  onPressClose,
+}) => {
   return (
     <TouchableOpacity style={CONTAINER} onPress={onPress}>
       <View style={VIEW}>
-        <Image source={icon} />
+        <Image source={icon} style={ICON} />
         <TextR style={TEXT}>{text}</TextR>
       </View>
       <View style={VIEW}>
-        <TouchableOpacity onPress={onPressFavor}>
-          <Icon
-            size={19}
-            name="bookmark"
-            solid={isFavor}
-            light={!isFavor}
-            color="#3269C8"
-          />
-        </TouchableOpacity>
+        {onPressFavor && (
+          <TouchableOpacity onPress={onPressFavor}>
+            <Icon
+              size={19}
+              name="bookmark"
+              solid={isFavor}
+              light={!isFavor}
+              color="#3269C8"
+            />
+          </TouchableOpacity>
+        )}
+        {onPressClose && (
+          <TouchableOpacity onPress={onPressClose}>
+            <Icon size={25} name="times" light color="#3269C8" />
+          </TouchableOpacity>
+        )}
         <TouchableOpacity>
           <Icon
             size={24}

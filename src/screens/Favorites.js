@@ -1,10 +1,54 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { connect } from 'react-redux'
+import { View, ScrollView } from 'react-native'
 
-export const Favorites = () => {
+import { languages } from '../global/languages'
+import { ListItem } from '../components/ListItem'
+import * as ACTIONS from '../redux/actions'
+import { iconSelector } from '../helpers/iconSelector'
+import { selectFavorites } from '../redux/selectors'
+
+export const FavoritesComponent = ({
+  lang,
+  favorites,
+  toggleFavorite,
+  navigation,
+}) => {
   return (
-    <View>
-      <Text>Favorites</Text>
-    </View>
+    <ScrollView
+      contentContainerStyle={{
+        paddingVertical: 46,
+        paddingHorizontal: 16,
+      }}
+    >
+      {favorites.map((screenName, index) => {
+        console.log(languages.screens)
+        return (
+          <ListItem
+            key={index}
+            text={languages.screens[screenName][lang]}
+            icon={iconSelector(screenName)}
+            // isFavor={screenName.isFavor}
+            onPress={() => navigation.navigate(screenName)}
+            // onPressFavor={() => toggleFavorite(screenName)}
+            onPressClose={() => toggleFavorite(screenName)}
+          />
+        )
+      })}
+    </ScrollView>
   )
 }
+
+const mapStateToProps = (state, ownProps) => ({
+  lang: state.language,
+  favorites: selectFavorites(state.favorites),
+})
+
+const mapDispatchToProps = {
+  toggleFavorite: ACTIONS.toggleFavorite,
+}
+
+export const Favorites = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(FavoritesComponent)

@@ -234,6 +234,11 @@ export const StackNavigatorComponent = ({ favorites, toggleFavorite }) => (
       component={SCREENS.AddNote}
       options={{ title: 'Добавить заметку' }}
     />
+    <Stack.Screen
+      name="Favorites"
+      component={SCREENS.Favorites}
+      options={{ title: 'Избранное' }}
+    />
   </Stack.Navigator>
 )
 

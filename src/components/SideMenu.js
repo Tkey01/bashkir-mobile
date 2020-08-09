@@ -1,27 +1,16 @@
 import React from 'react'
-import {
-  View,
-  ScrollView,
-  TouchableOpacity,
-  StyleSheet,
-  Dimensions,
-} from 'react-native'
+import { View, ScrollView, TouchableOpacity, Dimensions } from 'react-native'
 import { connect } from 'react-redux'
 
 import Icon from 'react-native-vector-icons/FontAwesome5Pro'
 
 import { TextR } from './TextR'
 import * as ACTIONS from '../redux/actions'
+import { languages } from '../global/languages'
 
-const list = [
-  'Заметки',
-  'Избранное',
-  'Нормативная база',
-  'Настройки',
-  'О приложении',
-]
+const list = ['Notes', 'Favorites', 'NormBase', 'Settings', 'About']
 
-const languages = ['RUS', 'BASH', 'ENG']
+const langs = ['RUS', 'BASH', 'ENG']
 
 const LANG = {
   paddingHorizontal: 5,
@@ -86,16 +75,16 @@ const SideMenuComponent = ({ language, selectLanguage, navigation }) => {
           <TouchableOpacity
             key={index}
             style={{ marginTop: index ? 30 : 0 }}
-            onPress={() => navigation.navigate('Settings')}
+            onPress={() => navigation.navigate(item)}
           >
-            <TextR>{item}</TextR>
+            <TextR>{languages.sideMenu.routes[language][index]}</TextR>
           </TouchableOpacity>
         ))}
       </View>
       <View style={DIVIDER_2} />
       <TextR>Язык</TextR>
       <View style={LANG_CONTAINER}>
-        {languages.map((lang, index) => (
+        {langs.map((lang, index) => (
           <TouchableOpacity
             key={index}
             style={{ marginLeft: 20 }}
