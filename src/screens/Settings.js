@@ -14,7 +14,7 @@ const BLOCK = {
   paddingHorizontal: 10,
   paddingTop: 10,
   paddingBottom: 17,
-  borderWidth: 1,
+  // borderWidth: 1,
 }
 
 const ROW = {

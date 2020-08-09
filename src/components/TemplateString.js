@@ -6,7 +6,7 @@ export const TemplateString = ({ children }) => {
   return children.map((item, index) => (
     <ScalableText
       key={index}
-      color={item.type === 'bold' ? '#000' : '#505050'}
+      color={item.type === 'bold' ? 'black' : 'gray'}
       type={item.type === 'bold' ? 'b' : 'r'}
     >
       {item.text}
