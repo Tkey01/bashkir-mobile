@@ -54,7 +54,6 @@ export const ListItem = ({
               solid={isFavor}
               light={!isFavor}
               color="blue"
-              from="ListItem"
             />
           </TouchableOpacity>
         )}
@@ -65,7 +64,6 @@ export const ListItem = ({
               name="times"
               light
               color="blue"
-              from="ListItem"
               style={MARGIN_LEFT}
             />
           </TouchableOpacity>
@@ -76,7 +74,6 @@ export const ListItem = ({
             name="chevron-right"
             light
             color="blue"
-            from="ListItem"
             style={MARGIN_LEFT}
           />
         </TouchableOpacity>

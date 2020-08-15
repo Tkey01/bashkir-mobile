@@ -17,9 +17,13 @@ const colors = {
   },
 }
 
-export const IconComponent = ({ color, theme, from, ...restProps }) => {
-  console.log('icon from - ', from, color)
-  return <Icon {...restProps} color={colors[color][theme]} />
+export const IconComponent = ({
+  color = 'blue',
+  theme,
+  style,
+  ...restProps
+}) => {
+  return <Icon {...restProps} style={style} color={colors[color][theme]} />
 }
 
 const mapStateToProps = (state, ownProps) => ({

@@ -1,35 +1,47 @@
-import React, { Component } from 'react'
-import { AppRegistry, StyleSheet, View, Text } from 'react-native'
+import React, { useRef } from 'react'
+import { StyleSheet, View, TouchableOpacity } from 'react-native'
 
 import { SketchCanvas } from '@terrylinla/react-native-sketch-canvas'
+import { IconC } from './IconC'
 
 const styles = StyleSheet.create({
   canvas: {
     flex: 1,
-    height: 400,
+    height: 200,
     backgroundColor: 'white',
   },
 })
 
 const CONTAINER = {
-  flex: 1,
-  backgroundColor: 'red',
+  height: 200,
   borderWidth: 1,
-  borderColor: 'red',
+  borderColor: '#bebebe',
 }
 
-export class Drawer extends Component {
-  render() {
-    return (
-      <View style={CONTAINER}>
-        <SketchCanvas
-          ref={(ref) => (this._canvas = ref)}
-          style={styles.canvas}
-          strokeColor={'black'}
-          strokeWidth={7}
-          onStrokeStart={this.onStrokeStart}
-        />
-      </View>
-    )
+const SAVE_BUTTON = {
+  position: 'absolute',
+  right: 10,
+  top: 10,
+}
+
+export const Drawer = ({ onSave }) => {
+  const sketch = useRef(null)
+
+  const onPressSave = () => {
+    sketch.current.getBase64('jpg', false, false, false, false, onSave)
   }
+
+  return (
+    <View style={CONTAINER}>
+      <SketchCanvas
+        ref={sketch}
+        style={styles.canvas}
+        strokeColor={'black'}
+        strokeWidth={7}
+      />
+      <TouchableOpacity style={SAVE_BUTTON} onPress={onPressSave}>
+        <IconC name="save" size={20} />
+      </TouchableOpacity>
+    </View>
+  )
 }

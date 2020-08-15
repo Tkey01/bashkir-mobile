@@ -15,7 +15,7 @@ export const StackNavigatorComponent = ({
   toggleFavorite,
 }) => (
   <Stack.Navigator
-    initialRouteName="Main"
+    initialRouteName="AddNote"
     screenOptions={{
       header: (props) => {
         const isFavor = favorites[props.scene.route.name]
