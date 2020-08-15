@@ -7,6 +7,7 @@ import { ScreenWrapper } from '../components/ScreenWrapper'
 import { IconC } from '../components/IconC'
 import { TextC } from '../components/TextC'
 import { Drawer } from '../components/Drawer'
+import { ColorPicker } from '../components/ColorPicker'
 
 const CONTROLLERS_CONTAINER = {
   padding: 10,
@@ -46,7 +47,7 @@ const TITLE_TEXT = {
 }
 
 const CONTENT_TEXT = {
-  marginTop: 20,
+  // marginTop: 20,
 }
 
 const CONTENT_IMAGE = {
@@ -64,7 +65,7 @@ const TITLE_INPUT = {
   marginLeft: 20,
 }
 
-const Elem = ({ elem, onSave }) => {
+const Elem = ({ elem, onSave, color }) => {
   if (elem.type === 'text') {
     return <TextC style={CONTENT_TEXT}>{elem.content}</TextC>
   } else if (elem.type === 'image') {
@@ -76,14 +77,14 @@ const Elem = ({ elem, onSave }) => {
       />
     )
   } else if (elem.type === 'drawer') {
-    return <Drawer onSave={onSave} />
+    return <Drawer onSave={onSave} color={color} />
   }
 }
 
 const withDumbZero = (number) => (number > 9 ? number : `0${number}`)
 
 const getDateString = () => {
-  const date = new Date(2011, 0, 1, 2, 3, 4, 567)
+  const date = new Date()
   const day = withDumbZero(date.getDate())
   const month = withDumbZero(date.getMonth() + 1)
   const year = date.getFullYear()
@@ -93,10 +94,13 @@ const getDateString = () => {
   return `Заметка от ${day}.${month}.${year} ${hours}:${minutes}`
 }
 
-export const AddNoteComponent = ({ title, elementsArr }) => {
+export const AddNoteComponent = ({ title, elementsArr, color }) => {
   const [elements, setElements] = useState(elementsArr || [])
   const [currentTitle, setCurrentTitle] = useState(title || getDateString())
   const [titleEditing, setTitleEditing] = useState(false)
+
+  const [currentColor, setCurrentColor] = useState(color || 'black')
+  const [colorEditing, setColorEditing] = useState(false)
 
   const [editing, toggleEditing] = useState(false)
   const [actionType, setActionType] = useState('')
@@ -175,12 +179,31 @@ export const AddNoteComponent = ({ title, elementsArr }) => {
       toggleEditing(true)
       setActionType('draw')
       pushElement({ type: 'drawer' })
+    } else if (actionType === 'draw') {
+      let newElements = [...elements]
+      newElements.pop()
+
+      setElements(newElements)
+      toggleEditing(false)
+      setActionType('')
     }
   }
 
   const onPressTitleEdit = () => {
     setTitleEditing(!titleEditing)
   }
+
+  const onSelectColor = (c) => {
+    console.log(c)
+    setColorEditing(false)
+    setCurrentColor(c)
+  }
+
+  const onPressPalette = () => {
+    setColorEditing(!colorEditing)
+  }
+
+  console.log('cc', currentColor)
 
   return (
     <ScreenWrapper style={{ paddingHorizontal: 16, paddingTop: 40 }}>
@@ -194,7 +217,13 @@ export const AddNoteComponent = ({ title, elementsArr }) => {
           />
         </TouchableOpacity>
         <IconC name="save" size={20} style={ICON} />
-        <IconC name="palette" size={20} style={ICON} />
+        <TouchableOpacity onPress={onPressPalette}>
+          <IconC
+            name="palette"
+            size={20}
+            style={[ICON, colorEditing ? ICON_ACTIVE : null]}
+          />
+        </TouchableOpacity>
         <TouchableOpacity onPress={attachImage}>
           <IconC
             name="paperclip"
@@ -205,6 +234,8 @@ export const AddNoteComponent = ({ title, elementsArr }) => {
         <IconC name="bookmark" size={20} style={ICON} />
       </View>
       <View style={CONTENT_CONTAINER}>
+        {colorEditing && <ColorPicker onChange={onSelectColor} />}
+
         <View style={TITLE_CONTAINER}>
           <TouchableOpacity onPress={onPressTitleEdit}>
             <IconC
@@ -230,6 +261,7 @@ export const AddNoteComponent = ({ title, elementsArr }) => {
             key={index}
             elem={elem}
             onSave={elem.type === 'drawer' ? onSaveDrawer : null}
+            color={elem.type === 'drawer' ? currentColor : null}
           />
         ))}
 

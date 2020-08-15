@@ -24,7 +24,8 @@ const SAVE_BUTTON = {
   top: 10,
 }
 
-export const Drawer = ({ onSave }) => {
+export const Drawer = ({ onSave, color = 'black' }) => {
+  console.log(color)
   const sketch = useRef(null)
 
   const onPressSave = () => {
@@ -36,7 +37,7 @@ export const Drawer = ({ onSave }) => {
       <SketchCanvas
         ref={sketch}
         style={styles.canvas}
-        strokeColor={'black'}
+        strokeColor={color}
         strokeWidth={7}
       />
       <TouchableOpacity style={SAVE_BUTTON} onPress={onPressSave}>
