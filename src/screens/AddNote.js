@@ -96,7 +96,14 @@ const getDateString = () => {
   return `Заметка от ${day}.${month}.${year} ${hours}:${minutes}`
 }
 
-export const AddNoteComponent = ({ route, addNote, editNote, navigation }) => {
+export const AddNoteComponent = ({
+  route,
+  addNote,
+  editNote,
+  favorites,
+  toggleFavorite,
+  navigation,
+}) => {
   const initTittle = route.params && route.params.note.title
   const initElements = route.params && route.params.note.elements
 
@@ -210,6 +217,12 @@ export const AddNoteComponent = ({ route, addNote, editNote, navigation }) => {
     setColorEditing(!colorEditing)
   }
 
+  const onPressFavor = () => {
+    if (route.name !== 'AddNote') {
+      toggleFavorite(route.name)
+    }
+  }
+
   const saveNote = () => {
     if (route.name === 'AddNote') {
       addNote({
@@ -256,7 +269,14 @@ export const AddNoteComponent = ({ route, addNote, editNote, navigation }) => {
             style={[ICON, actionType === 'attach-image' ? ICON_ACTIVE : null]}
           />
         </TouchableOpacity>
-        <IconC name="bookmark" size={20} style={ICON} />
+        <TouchableOpacity onPress={onPressFavor}>
+          <IconC
+            name="bookmark"
+            size={20}
+            style={ICON}
+            solid={favorites[route.name]}
+          />
+        </TouchableOpacity>
       </View>
       <View style={CONTENT_CONTAINER}>
         {colorEditing && <ColorPicker onChange={onSelectColor} />}
@@ -305,11 +325,14 @@ export const AddNoteComponent = ({ route, addNote, editNote, navigation }) => {
   )
 }
 
-const mapStateToProps = (state, ownProps) => ({})
+const mapStateToProps = (state, ownProps) => ({
+  favorites: state.favorites,
+})
 
 const mapDispatchToProps = {
   addNote: ACTIONS.addNote,
   editNote: ACTIONS.editNote,
+  toggleFavorite: ACTIONS.toggleFavorite,
 }
 
 export const AddNote = connect(
