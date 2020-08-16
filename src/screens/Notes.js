@@ -8,7 +8,6 @@ import { languages } from '../global/languages'
 import addIcon from '../assets/images/add-icon.png'
 import { ListItem } from '../components/ListItem'
 import { ScreenWrapper } from '../components/ScreenWrapper'
-import { routesNameSelector } from '../helpers/routesNameSelector'
 import { iconSelector } from '../helpers/iconSelector'
 import * as ACTIONS from '../redux/actions'
 
@@ -28,6 +27,22 @@ const ADD_ICON = {
   height: 40,
 }
 
+const FOOTER = {
+  paddingHorizontal: 16,
+  paddingTop: 10,
+  height: 100,
+}
+
+const ADD_BUTTON = {
+  height: 60,
+  padding: 10,
+  flexDirection: 'row',
+  alignItems: 'center',
+  borderRadius: 8,
+  borderWidth: 1,
+  borderColor: '#3269C8',
+}
+
 export const NotesComponent = ({
   notes,
   favorites,
@@ -35,30 +50,43 @@ export const NotesComponent = ({
   theme,
   navigation,
   toggleFavorite,
-  addNote,
   deleteNote,
 }) => {
   return notes.length ? (
-    <ScreenWrapper
-      contentContainerStyle={{
-        paddingVertical: 24,
-        paddingHorizontal: 16,
-      }}
-    >
-      {notes.map((note) => {
-        return (
-          <ListItem
-            key={note.routeName}
-            text={note.title}
-            icon={iconSelector(note.routeName)}
-            onPress={() => navigation.navigate(note.routeName)}
-            isFavor={favorites[note.routeName]}
-            onPressFavor={() => toggleFavorite(note.routeName)}
-            onPressClose={() => deleteNote(note.routeName)}
-          />
-        )
-      })}
-    </ScreenWrapper>
+    <View style={{ flex: 1 }}>
+      <ScreenWrapper
+        contentContainerStyle={{
+          paddingVertical: 24,
+          paddingHorizontal: 16,
+        }}
+      >
+        {notes.map((note) => {
+          return (
+            <ListItem
+              key={note.routeName}
+              text={note.title}
+              icon={iconSelector(note.routeName)}
+              onPress={() => navigation.navigate(note.routeName)}
+              isFavor={favorites[note.routeName]}
+              onPressFavor={() => toggleFavorite(note.routeName)}
+              onPressClose={() => deleteNote(note.routeName)}
+            />
+          )
+        })}
+      </ScreenWrapper>
+      <View style={FOOTER}>
+        <TouchableOpacity
+          style={ADD_BUTTON}
+          onPress={() => {
+            console.log('onpress add btn')
+            navigation.navigate('AddNote')
+          }}
+        >
+          <Image source={addIcon} style={ADD_ICON} />
+          <TextC style={{ marginLeft: 20 }}>Добавить</TextC>
+        </TouchableOpacity>
+      </View>
+    </View>
   ) : (
     <View
       style={{
@@ -94,7 +122,6 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = {
   toggleFavorite: ACTIONS.toggleFavorite,
   deleteNote: ACTIONS.deleteNote,
-  addNote: ACTIONS.addNote,
 }
 
 export const Notes = connect(
