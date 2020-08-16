@@ -44,6 +44,7 @@ export const TextCComponent = ({
         ...style,
       }}
       {...restProps}
+      selectable
     >
       {children}
     </Text>

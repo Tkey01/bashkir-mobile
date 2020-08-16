@@ -96,6 +96,16 @@ export const languages = {
       eng: ['Notes', 'Favorites', 'Normative base', 'Settings', 'About'],
       bash: [],
     },
+    close: {
+      rus: 'Закрыть',
+      eng: 'Close',
+      bash: '',
+    },
+    lang: {
+      rus: 'Язык',
+      eng: 'Language',
+      bash: '',
+    },
   },
   nestedRoutes: {
     description: {

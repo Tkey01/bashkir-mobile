@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, ScrollView, TouchableOpacity } from 'react-native'
+import { View, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 
 import * as ACTIONS from '../redux/actions'
@@ -54,7 +54,12 @@ const SideMenuComponent = ({ language, selectLanguage, navigation }) => {
         style={CLOSE_CONTAINER}
         onPress={navigation.closeDrawer}
       >
-        <TextC>Закрыть</TextC>
+        <TextC>
+          {getLangText(
+            languages.sideMenu.close[language],
+            `sideMenu.close.${language}`,
+          )}
+        </TextC>
         <IconC
           size={20}
           name="times"
@@ -83,7 +88,12 @@ const SideMenuComponent = ({ language, selectLanguage, navigation }) => {
         ))}
       </View>
       <View style={DIVIDER_2} />
-      <TextC>Язык</TextC>
+      <TextC>
+        {getLangText(
+          languages.sideMenu.lang[language],
+          `sideMenu.lang.${language}`,
+        )}
+      </TextC>
       <View style={LANG_CONTAINER}>
         {langs.map((lang, index) => (
           <TouchableOpacity
