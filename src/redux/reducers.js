@@ -6,17 +6,8 @@ const initialState = {
   language: 'rus', // rus | eng | bash
   theme: 'light', // dark | light
   scale: 1, // 0.8 | 0.85 | 0.9 | 0.95 | 1 | 1.05 | 1.10 | 1.15 | 1.2
-  favorites: {
-    Main: true,
-    Bort: true,
-  },
-  notes: [
-    {
-      title: 'Тест заметка №1',
-      routeName: 'Note-FQFQasF124=',
-      elements: [],
-    },
-  ],
+  favorites: {},
+  notes: [],
 }
 
 const selectLanguage = (state, { language }) => ({
