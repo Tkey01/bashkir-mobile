@@ -4,14 +4,9 @@ import { connect } from 'react-redux'
 import { ListItem } from '../components/ListItem'
 import * as ACTIONS from '../redux/actions'
 
-import bortIcon from '../assets/images/bort-icon.png'
-import shorIcon from '../assets/images/shor-icon.png'
-import voilIcon from '../assets/images/voil-icon.png'
-import textileIcon from '../assets/images/textile-icon.png'
-import woodIcon from '../assets/images/wood-icon.png'
-import berestIcon from '../assets/images/berest-icon.png'
 import { routesNameSelector } from '../helpers/routesNameSelector'
 import { ScreenWrapper } from '../components/ScreenWrapper'
+import { iconSelector } from '../helpers/iconSelector'
 
 const VIEW = {
   paddingTop: 24,
@@ -20,28 +15,25 @@ const VIEW = {
 
 const PAGES = [
   {
-    icon: bortIcon,
     screenName: 'Bort',
   },
   {
-    icon: shorIcon,
     screenName: 'Shor',
   },
   {
-    icon: voilIcon,
     screenName: 'Voil',
   },
   {
-    icon: textileIcon,
     screenName: 'Textile',
   },
   {
-    icon: woodIcon,
     screenName: 'Wood',
   },
   {
-    icon: berestIcon,
     screenName: 'Berest',
+  },
+  {
+    screenName: 'Settings',
   },
 ]
 
@@ -58,7 +50,7 @@ export const MainComponent = ({
           <ListItem
             key={index}
             text={routesNameSelector(page.screenName, language)}
-            icon={page.icon}
+            icon={iconSelector(page.screenName)}
             isFavor={favorites[page.screenName]}
             onPress={() => navigation.navigate(page.screenName)}
             onPressFavor={() => toggleFavorite(page.screenName)}
