@@ -16,11 +16,11 @@ const selectFontFamily = (type) => {
 const colors = {
   black: {
     light: '#000',
-    dark: '#fff',
+    dark: '#fff4e6',
   },
   gray: {
     light: '#505050',
-    dark: '#fff',
+    dark: '#fff4e6',
   },
   white: {
     light: '#fff',

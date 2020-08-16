@@ -38,7 +38,7 @@ export const MyHeaderComponent = ({
       style={[
         CONTAINER,
         {
-          backgroundColor: theme === 'light' ? '#3269C8' : '#131354',
+          backgroundColor: theme === 'light' ? '#3269C8' : '#a14a0b',
         },
       ]}
     >

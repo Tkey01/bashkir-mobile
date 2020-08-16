@@ -24,11 +24,11 @@ const SAVE_BUTTON = {
   top: 10,
 }
 
-export const Drawer = ({ onSave, color = 'black' }) => {
+export const Drawer = ({ onSave, color = '#505050' }) => {
   const sketch = useRef(null)
 
   const onPressSave = () => {
-    sketch.current.getBase64('jpg', false, false, false, false, onSave)
+    sketch.current.getBase64('png', true, false, false, false, onSave)
   }
 
   return (
@@ -40,7 +40,7 @@ export const Drawer = ({ onSave, color = 'black' }) => {
         strokeWidth={7}
       />
       <TouchableOpacity style={SAVE_BUTTON} onPress={onPressSave}>
-        <IconC name="save" size={20} />
+        <IconC name="save" size={20} color="blueMain" />
       </TouchableOpacity>
     </View>
   )

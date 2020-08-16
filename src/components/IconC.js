@@ -5,7 +5,11 @@ import Icon from 'react-native-vector-icons/FontAwesome5Pro'
 const colors = {
   blue: {
     light: '#3269C8',
-    dark: '#fff',
+    dark: '#e6ddd1',
+  },
+  blueMain: {
+    light: '#3269C8',
+    dark: '#3269C8',
   },
   white: {
     light: '#fff',
@@ -13,7 +17,7 @@ const colors = {
   },
   gray: {
     light: '#565656',
-    dark: '#fff',
+    dark: '#e6ddd1',
   },
 }
 

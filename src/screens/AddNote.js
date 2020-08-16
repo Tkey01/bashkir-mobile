@@ -32,14 +32,20 @@ const TEXT_INPUT = {
   paddingBottom: 40,
 }
 
-const ICON_ACTIVE = {
-  backgroundColor: '#dae5f9',
+const ICON_ACTIVE_DARK = {
   borderRadius: 6,
+  backgroundColor: '#b55007',
+}
+
+const ICON_ACTIVE_LIGHT = {
+  borderRadius: 6,
+  backgroundColor: '#dae5f9',
 }
 
 const TITLE_CONTAINER = {
   flexDirection: 'row',
   alignItems: 'center',
+  marginBottom: 10,
 }
 
 const CONTENT_CONTAINER = {
@@ -106,6 +112,7 @@ export const AddNoteComponent = ({
   addNote,
   editNote,
   favorites,
+  theme,
   toggleFavorite,
   navigation,
 }) => {
@@ -154,7 +161,11 @@ export const AddNoteComponent = ({
   const onKeyPress = ({ nativeEvent }) => {
     if (nativeEvent.key === 'Backspace' && currentText === '') {
       let newElements = [...elements]
-      newElements.pop()
+      const deletedElem = newElements.pop()
+
+      if (deletedElem && deletedElem.type === 'text') {
+        setCurrentText(deletedElem.content)
+      }
 
       setElements(newElements)
       toggleEditing(false)
@@ -186,7 +197,7 @@ export const AddNoteComponent = ({
     newElements.pop()
     newElements.push({
       type: 'image',
-      content: `data:image/jpg;base64,${res}`,
+      content: `data:image/png;base64,${res}`,
     })
     setElements(newElements)
     toggleEditing(false)
@@ -210,6 +221,10 @@ export const AddNoteComponent = ({
 
   const onPressTitleEdit = () => {
     setTitleEditing(!titleEditing)
+  }
+
+  const onBlurTitleInput = () => {
+    setTitleEditing(false)
   }
 
   const onSelectColor = (c) => {
@@ -258,7 +273,14 @@ export const AddNoteComponent = ({
           <IconC
             name="wave-sine"
             size={20}
-            style={[ICON, actionType === 'draw' ? ICON_ACTIVE : null]}
+            style={[
+              ICON,
+              actionType === 'draw'
+                ? theme === 'light'
+                  ? ICON_ACTIVE_LIGHT
+                  : ICON_ACTIVE_DARK
+                : null,
+            ]}
           />
         </TouchableOpacity>
         <TouchableOpacity onPress={saveNote}>
@@ -268,14 +290,28 @@ export const AddNoteComponent = ({
           <IconC
             name="palette"
             size={20}
-            style={[ICON, colorEditing ? ICON_ACTIVE : null]}
+            style={[
+              ICON,
+              colorEditing
+                ? theme === 'light'
+                  ? ICON_ACTIVE_LIGHT
+                  : ICON_ACTIVE_DARK
+                : null,
+            ]}
           />
         </TouchableOpacity>
         <TouchableOpacity onPress={attachImage}>
           <IconC
             name="paperclip"
             size={20}
-            style={[ICON, actionType === 'attach-image' ? ICON_ACTIVE : null]}
+            style={[
+              ICON,
+              actionType === 'attach-image'
+                ? theme === 'light'
+                  ? ICON_ACTIVE_LIGHT
+                  : ICON_ACTIVE_DARK
+                : null,
+            ]}
           />
         </TouchableOpacity>
         <TouchableOpacity onPress={onPressFavor}>
@@ -295,14 +331,29 @@ export const AddNoteComponent = ({
             <IconC
               name="text"
               size={20}
-              style={[ICON, titleEditing ? ICON_ACTIVE : null]}
+              style={[
+                ICON,
+                titleEditing
+                  ? theme === 'light'
+                    ? ICON_ACTIVE_LIGHT
+                    : ICON_ACTIVE_DARK
+                  : null,
+              ]}
             />
           </TouchableOpacity>
           {titleEditing ? (
             <TextInput
               value={currentTitle}
               onChangeText={setCurrentTitle}
-              style={TITLE_INPUT}
+              style={[
+                TITLE_INPUT,
+                {
+                  color: theme === 'light' ? '#505050' : '#fff',
+                },
+              ]}
+              autoFocus={true}
+              blurOnSubmit={true}
+              onBlur={onBlurTitleInput}
             />
           ) : (
             <TextC color="gray" style={TITLE_TEXT}>
@@ -326,7 +377,13 @@ export const AddNoteComponent = ({
           multiline
           blurOnSubmit
           onKeyPress={onKeyPress}
-          style={TEXT_INPUT}
+          placeholderTextColor={theme === 'light' ? '#505050' : '#fff'}
+          style={[
+            TEXT_INPUT,
+            {
+              color: theme === 'light' ? '#505050' : '#fff',
+            },
+          ]}
           placeholder=">"
         />
       </View>
@@ -336,6 +393,7 @@ export const AddNoteComponent = ({
 
 const mapStateToProps = (state, ownProps) => ({
   favorites: state.favorites,
+  theme: state.theme,
 })
 
 const mapDispatchToProps = {

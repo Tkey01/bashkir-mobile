@@ -10,7 +10,10 @@ export const ScreenWrapperComponent = ({
 }) => {
   return (
     <ScrollView
-      style={{ backgroundColor: theme === 'light' ? '#fff' : '#000', ...style }}
+      style={{
+        backgroundColor: theme === 'light' ? '#fff' : '#222',
+        ...style,
+      }}
       {...restProps}
     >
       {children}

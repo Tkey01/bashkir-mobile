@@ -50,7 +50,7 @@ export const FavoritesComponent = ({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: theme === 'light' ? '#fff' : '#000',
+        backgroundColor: theme === 'light' ? '#fff' : '#222',
       }}
     >
       <ScalableText
