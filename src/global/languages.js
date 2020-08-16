@@ -17,23 +17,23 @@ export const languages = {
       bash: '',
     },
     Voil: {
-      rus: 'Изготовление войлочных \n изделий',
-      eng: '',
+      rus: 'Войлочные изделия',
+      eng: 'Felt products',
       bash: '',
     },
     Textile: {
-      rus: 'Изготовление текстильных \n изделий',
-      eng: '',
+      rus: 'Текстильные изделия',
+      eng: 'Textile products',
       bash: '',
     },
     Wood: {
       rus: 'Резьба по дереву',
-      eng: '',
+      eng: 'Wood carving',
       bash: '',
     },
     Berest: {
       rus: 'Резьба по бересте',
-      eng: '',
+      eng: 'Birch bark carving',
       bash: '',
     },
 
@@ -47,6 +47,17 @@ export const languages = {
       eng: 'Notes',
       bash: '',
     },
+    AddNote: {
+      rus: 'Добавить заметку',
+      eng: 'Add note',
+      bash: '',
+    },
+    Note: {
+      rus: 'Заметка',
+      eng: 'Note',
+      bash: '',
+    },
+
     Favorites: {
       rus: 'Избранное',
       eng: 'Favorites',

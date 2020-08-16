@@ -41,7 +41,7 @@ export const NotesComponent = ({
   return notes.length ? (
     <ScreenWrapper
       contentContainerStyle={{
-        paddingVertical: 46,
+        paddingVertical: 24,
         paddingHorizontal: 16,
       }}
     >
