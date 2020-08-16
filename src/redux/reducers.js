@@ -10,7 +10,13 @@ const initialState = {
     Main: true,
     Bort: true,
   },
-  notes: [],
+  notes: [
+    {
+      title: 'Тест заметка №1',
+      routeName: 'Note-FQFQasF124=',
+      elements: [],
+    },
+  ],
 }
 
 const selectLanguage = (state, { language }) => ({
@@ -38,11 +44,43 @@ const setTheme = (state, { theme }) => ({
   theme,
 })
 
+const addNote = (state, { note }) => ({
+  ...state,
+  notes: [...state.notes, note],
+})
+
+const deleteNote = (state, { routeName }) => {
+  let newNotes = [...state.notes]
+  const deleteIndex = newNotes.findIndex((note) => note.routeName === routeName)
+  newNotes.splice(deleteIndex, 1)
+
+  return {
+    ...state,
+    notes: newNotes,
+  }
+}
+
+const editNote = (state, { note }) => {
+  let newNotes = [...state.notes]
+  const insertIndex = newNotes.findIndex(
+    (item) => item.routeName === note.routeName,
+  )
+  newNotes.splice(insertIndex, 1, note)
+
+  return {
+    ...state,
+    notes: newNotes,
+  }
+}
+
 const handlers = {
   [TYPES.SELECT_LANGUAGE]: selectLanguage,
   [TYPES.TOGGLE_FAVORITE]: toggleFavorite,
   [TYPES.SET_SCALE]: setScale,
   [TYPES.TOGGLE_THEME]: setTheme,
+  [TYPES.ADD_NOTE]: addNote,
+  [TYPES.DELETE_NOTE]: deleteNote,
+  [TYPES.EDIT_NOTE]: editNote,
 }
 
 export const reducers = createReducer(initialState, handlers)

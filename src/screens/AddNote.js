@@ -8,6 +8,8 @@ import { IconC } from '../components/IconC'
 import { TextC } from '../components/TextC'
 import { Drawer } from '../components/Drawer'
 import { ColorPicker } from '../components/ColorPicker'
+import * as ACTIONS from '../redux/actions'
+import { encode } from 'base-64'
 
 const CONTROLLERS_CONTAINER = {
   padding: 10,
@@ -94,12 +96,17 @@ const getDateString = () => {
   return `Заметка от ${day}.${month}.${year} ${hours}:${minutes}`
 }
 
-export const AddNoteComponent = ({ title, elementsArr, color }) => {
-  const [elements, setElements] = useState(elementsArr || [])
-  const [currentTitle, setCurrentTitle] = useState(title || getDateString())
+export const AddNoteComponent = ({ route, addNote, editNote, navigation }) => {
+  const initTittle = route.params && route.params.note.title
+  const initElements = route.params && route.params.note.elements
+
+  const [elements, setElements] = useState(initElements || [])
+  const [currentTitle, setCurrentTitle] = useState(
+    initTittle || getDateString(),
+  )
   const [titleEditing, setTitleEditing] = useState(false)
 
-  const [currentColor, setCurrentColor] = useState(color || 'black')
+  const [currentColor, setCurrentColor] = useState('black')
   const [colorEditing, setColorEditing] = useState(false)
 
   const [editing, toggleEditing] = useState(false)
@@ -203,7 +210,23 @@ export const AddNoteComponent = ({ title, elementsArr, color }) => {
     setColorEditing(!colorEditing)
   }
 
-  console.log('cc', currentColor)
+  const saveNote = () => {
+    if (route.name === 'AddNote') {
+      addNote({
+        title: currentTitle,
+        routeName: encode(Date.now()),
+        elements,
+      })
+    } else {
+      editNote({
+        title: currentTitle,
+        routeName: route.name,
+        elements,
+      })
+    }
+
+    navigation.goBack()
+  }
 
   return (
     <ScreenWrapper style={{ paddingHorizontal: 16, paddingTop: 40 }}>
@@ -216,7 +239,9 @@ export const AddNoteComponent = ({ title, elementsArr, color }) => {
             style={[ICON, actionType === 'draw' ? ICON_ACTIVE : null]}
           />
         </TouchableOpacity>
-        <IconC name="save" size={20} style={ICON} />
+        <TouchableOpacity onPress={saveNote}>
+          <IconC name="save" size={20} style={ICON} />
+        </TouchableOpacity>
         <TouchableOpacity onPress={onPressPalette}>
           <IconC
             name="palette"
@@ -282,7 +307,10 @@ export const AddNoteComponent = ({ title, elementsArr, color }) => {
 
 const mapStateToProps = (state, ownProps) => ({})
 
-const mapDispatchToProps = {}
+const mapDispatchToProps = {
+  addNote: ACTIONS.addNote,
+  editNote: ACTIONS.editNote,
+}
 
 export const AddNote = connect(
   mapStateToProps,

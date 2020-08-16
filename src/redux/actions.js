@@ -25,3 +25,24 @@ export const setTheme = (theme) => {
     payload: { theme },
   }
 }
+
+export const addNote = (note) => {
+  return {
+    type: TYPES.ADD_NOTE,
+    payload: { note },
+  }
+}
+
+export const deleteNote = (routeName) => {
+  return {
+    type: TYPES.DELETE_NOTE,
+    payload: { routeName },
+  }
+}
+
+export const editNote = (note) => {
+  return {
+    type: TYPES.EDIT_NOTE,
+    payload: { note },
+  }
+}
