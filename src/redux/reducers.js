@@ -45,9 +45,15 @@ const deleteNote = (state, { routeName }) => {
   const deleteIndex = newNotes.findIndex((note) => note.routeName === routeName)
   newNotes.splice(deleteIndex, 1)
 
+  let newFavorites = { ...state.favorites }
+  if (newFavorites.hasOwnProperty(routeName)) {
+    delete newFavorites[routeName]
+  }
+
   return {
     ...state,
     notes: newNotes,
+    favorites: newFavorites,
   }
 }
 

@@ -46,6 +46,11 @@ export const ListItem = ({
         <TextC style={TEXT}>{text}</TextC>
       </View>
       <View style={VIEW}>
+        {onPressClose && (
+          <TouchableOpacity onPress={onPressClose}>
+            <IconC size={25} name="times" light color="blue" />
+          </TouchableOpacity>
+        )}
         {onPressFavor && (
           <TouchableOpacity onPress={onPressFavor}>
             <IconC
@@ -53,16 +58,6 @@ export const ListItem = ({
               name="bookmark"
               solid={isFavor}
               light={!isFavor}
-              color="blue"
-            />
-          </TouchableOpacity>
-        )}
-        {onPressClose && (
-          <TouchableOpacity onPress={onPressClose}>
-            <IconC
-              size={25}
-              name="times"
-              light
               color="blue"
               style={MARGIN_LEFT}
             />

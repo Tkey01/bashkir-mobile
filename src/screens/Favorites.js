@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { View, ScrollView } from 'react-native'
+import { View } from 'react-native'
 
 import { languages } from '../global/languages'
 import { ListItem } from '../components/ListItem'
@@ -18,6 +18,7 @@ export const FavoritesComponent = ({
   theme,
   toggleFavorite,
   navigation,
+  notes,
 }) => {
   return favorites.length ? (
     <ScreenWrapper
@@ -27,10 +28,15 @@ export const FavoritesComponent = ({
       }}
     >
       {favorites.map((screenName, index) => {
+        const favoriteNote = notes.find((note) => note.routeName === screenName)
+        const text = favoriteNote
+          ? favoriteNote.title
+          : routesNameSelector(screenName, lang)
+
         return (
           <ListItem
             key={index}
-            text={routesNameSelector(screenName, lang)}
+            text={text}
             icon={iconSelector(screenName)}
             onPress={() => navigation.navigate(screenName)}
             onPressClose={() => toggleFavorite(screenName)}
@@ -65,6 +71,7 @@ const mapStateToProps = (state, ownProps) => ({
   lang: state.language,
   theme: state.theme,
   favorites: selectFavorites(state.favorites),
+  notes: state.notes,
 })
 
 const mapDispatchToProps = {

@@ -214,7 +214,7 @@ export const AddNoteComponent = ({ route, addNote, editNote, navigation }) => {
     if (route.name === 'AddNote') {
       addNote({
         title: currentTitle,
-        routeName: encode(Date.now()),
+        routeName: `Note-${encode(Date.now())}`,
         elements,
       })
     } else {

@@ -2,6 +2,7 @@ import { languages } from '../global/languages'
 import { getLangText } from './getLangText'
 
 export const routesNameSelector = (screenName, lang) => {
+  console.log(screenName)
   if (screenName.includes('Description')) {
     return getLangText(
       languages.nestedRoutes.description[lang],
@@ -32,6 +33,8 @@ export const routesNameSelector = (screenName, lang) => {
       languages.nestedRoutes.video[lang],
       `nestedRoutes.video.${lang}`,
     )
+  } else if (screenName.includes('Note-')) {
+    return 'Заметка'
   } else {
     return getLangText(
       languages.routes[screenName][lang],
