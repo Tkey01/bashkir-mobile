@@ -15,9 +15,9 @@ const CONTROLLERS_CONTAINER = {
   padding: 10,
   justifyContent: 'space-between',
   flexDirection: 'row',
-  borderWidth: 1,
   borderColor: '#3269C8',
   borderRadius: 8,
+  borderWidth: 1,
 }
 
 const ICON = {
@@ -25,6 +25,11 @@ const ICON = {
   height: 40,
   lineHeight: 40,
   textAlign: 'center',
+}
+
+const TEXT_INPUT = {
+  textAlignVertical: 'top',
+  paddingBottom: 40,
 }
 
 const ICON_ACTIVE = {
@@ -208,7 +213,6 @@ export const AddNoteComponent = ({
   }
 
   const onSelectColor = (c) => {
-    console.log(c)
     setColorEditing(false)
     setCurrentColor(c)
   }
@@ -242,7 +246,12 @@ export const AddNoteComponent = ({
   }
 
   return (
-    <ScreenWrapper style={{ paddingHorizontal: 16, paddingTop: 40 }}>
+    <ScreenWrapper
+      contentContainerStyle={{
+        paddingVertical: 40,
+        paddingHorizontal: 16,
+      }}
+    >
       <View style={CONTROLLERS_CONTAINER}>
         {/* <IconC name="pencil" size={20} style={ICON} /> */}
         <TouchableOpacity onPress={attachDrawingImage}>
@@ -317,7 +326,7 @@ export const AddNoteComponent = ({
           multiline
           blurOnSubmit
           onKeyPress={onKeyPress}
-          style={CONTENT_TEXT}
+          style={TEXT_INPUT}
           placeholder=">"
         />
       </View>

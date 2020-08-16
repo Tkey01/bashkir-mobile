@@ -45,8 +45,9 @@ const LANG_CONTAINER = {
 const SideMenuComponent = ({ language, selectLanguage, navigation }) => {
   return (
     <ScreenWrapper
-      style={{
-        paddingVertical: 20,
+      contentContainerStyle={{
+        paddingTop: 20,
+        paddingBottom: 50,
         paddingHorizontal: 25,
       }}
     >

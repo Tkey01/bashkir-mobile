@@ -67,7 +67,9 @@ export const SearchComponent = ({
   )
 
   return (
-    <ScreenWrapper style={{ paddingTop: 8, paddingHorizontal: 16 }}>
+    <ScreenWrapper
+      contentContainerStyle={{ paddingTop: 8, paddingHorizontal: 16 }}
+    >
       <View style={SEARCH_CONTAINER}>
         <Image source={searchIcon} style={SEARCH_ICON} />
         <TextInput

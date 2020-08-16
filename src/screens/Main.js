@@ -44,7 +44,7 @@ export const MainComponent = ({
   favorites,
 }) => {
   return (
-    <ScreenWrapper style={VIEW}>
+    <ScreenWrapper contentContainerStyle={VIEW}>
       {PAGES.map((page, index) => {
         return (
           <ListItem

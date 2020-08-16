@@ -50,6 +50,5 @@ export const getTemplateStringArray = (str) => {
     i++
   }
 
-  console.log(res)
   return res
 }

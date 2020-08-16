@@ -28,6 +28,7 @@ const ADD_ICON = {
 }
 
 const FOOTER = {
+  backgroundColor: '#fff',
   paddingHorizontal: 16,
   paddingTop: 10,
   height: 100,
@@ -78,7 +79,6 @@ export const NotesComponent = ({
         <TouchableOpacity
           style={ADD_BUTTON}
           onPress={() => {
-            console.log('onpress add btn')
             navigation.navigate('AddNote')
           }}
         >

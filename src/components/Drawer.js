@@ -25,7 +25,6 @@ const SAVE_BUTTON = {
 }
 
 export const Drawer = ({ onSave, color = 'black' }) => {
-  console.log(color)
   const sketch = useRef(null)
 
   const onPressSave = () => {
