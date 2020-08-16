@@ -155,6 +155,11 @@ export const languages = {
       eng: 'Add',
       bash: '',
     },
+    defaultTitle: {
+      rus: 'Заметка от',
+      eng: 'Note dated',
+      bash: '',
+    },
   },
   favorites: {
     notAdded: {

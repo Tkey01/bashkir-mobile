@@ -1,82 +1,23 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { View, TextInput, TouchableOpacity, Image } from 'react-native'
+import { View, TextInput, Image } from 'react-native'
 import ImagePicker from 'react-native-image-crop-picker'
-
-import { ScreenWrapper } from '../components/ScreenWrapper'
-import { IconC } from '../components/IconC'
-import { TextC } from '../components/TextC'
-import { Drawer } from '../components/Drawer'
-import { ColorPicker } from '../components/ColorPicker'
-import * as ACTIONS from '../redux/actions'
 import { encode } from 'base-64'
 
-const CONTROLLERS_CONTAINER = {
-  padding: 10,
-  justifyContent: 'space-between',
-  flexDirection: 'row',
-  borderColor: '#3269C8',
-  borderRadius: 8,
-  borderWidth: 1,
-}
-
-const ICON = {
-  width: 40,
-  height: 40,
-  lineHeight: 40,
-  textAlign: 'center',
-}
-
-const TEXT_INPUT = {
-  textAlignVertical: 'top',
-  paddingBottom: 40,
-}
-
-const ICON_ACTIVE_DARK = {
-  borderRadius: 6,
-  backgroundColor: '#b55007',
-}
-
-const ICON_ACTIVE_LIGHT = {
-  borderRadius: 6,
-  backgroundColor: '#dae5f9',
-}
-
-const TITLE_CONTAINER = {
-  flexDirection: 'row',
-  alignItems: 'center',
-  marginBottom: 10,
-}
-
-const CONTENT_CONTAINER = {
-  flex: 1,
-  marginTop: 8,
-  padding: 10,
-}
-
-const TITLE_TEXT = {
-  fontSize: 12,
-  marginLeft: 20,
-}
-
-const CONTENT_TEXT = {
-  // marginTop: 20,
-}
-
-const CONTENT_IMAGE = {
-  marginTop: 20,
-  height: 200,
-}
-
-const TITLE_INPUT = {
-  borderWidth: 1,
-  borderColor: '#bebebe',
-  height: 30,
-  paddingVertical: 0,
-  paddingHorizontal: 20,
-  fontSize: 12,
-  marginLeft: 20,
-}
+import { ScreenWrapper } from '../../components/ScreenWrapper'
+import { TextC } from '../../components/TextC'
+import { Drawer } from '../../components/Drawer'
+import { ColorPicker } from '../../components/ColorPicker'
+import * as ACTIONS from '../../redux/actions'
+import { Controllers } from './Controllers'
+import { Title } from './Title'
+import {
+  CONTENT_TEXT,
+  CONTENT_IMAGE,
+  CONTENT_CONTAINER,
+  TEXT_INPUT,
+} from './styles'
+import { createNoteTitle } from '../../helpers/createNoteTitle'
 
 const Elem = ({ elem, onSave, color }) => {
   if (elem.type === 'text') {
@@ -94,21 +35,9 @@ const Elem = ({ elem, onSave, color }) => {
   }
 }
 
-const withDumbZero = (number) => (number > 9 ? number : `0${number}`)
-
-const getDateString = () => {
-  const date = new Date()
-  const day = withDumbZero(date.getDate())
-  const month = withDumbZero(date.getMonth() + 1)
-  const year = date.getFullYear()
-  const hours = withDumbZero(date.getHours())
-  const minutes = withDumbZero(date.getMinutes())
-
-  return `Заметка от ${day}.${month}.${year} ${hours}:${minutes}`
-}
-
 export const AddNoteComponent = ({
   route,
+  lang,
   addNote,
   editNote,
   favorites,
@@ -121,7 +50,7 @@ export const AddNoteComponent = ({
 
   const [elements, setElements] = useState(initElements || [])
   const [currentTitle, setCurrentTitle] = useState(
-    initTittle || getDateString(),
+    initTittle || createNoteTitle(lang),
   )
   const [titleEditing, setTitleEditing] = useState(false)
 
@@ -267,100 +196,30 @@ export const AddNoteComponent = ({
         paddingHorizontal: 16,
       }}
     >
-      <View style={CONTROLLERS_CONTAINER}>
-        {/* <IconC name="pencil" size={20} style={ICON} /> */}
-        <TouchableOpacity onPress={attachDrawingImage}>
-          <IconC
-            name="wave-sine"
-            size={20}
-            style={[
-              ICON,
-              actionType === 'draw'
-                ? theme === 'light'
-                  ? ICON_ACTIVE_LIGHT
-                  : ICON_ACTIVE_DARK
-                : null,
-            ]}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={saveNote}>
-          <IconC name="save" size={20} style={ICON} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={onPressPalette}>
-          <IconC
-            name="palette"
-            size={20}
-            style={[
-              ICON,
-              colorEditing
-                ? theme === 'light'
-                  ? ICON_ACTIVE_LIGHT
-                  : ICON_ACTIVE_DARK
-                : null,
-            ]}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={attachImage}>
-          <IconC
-            name="paperclip"
-            size={20}
-            style={[
-              ICON,
-              actionType === 'attach-image'
-                ? theme === 'light'
-                  ? ICON_ACTIVE_LIGHT
-                  : ICON_ACTIVE_DARK
-                : null,
-            ]}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={onPressFavor}>
-          <IconC
-            name="bookmark"
-            size={20}
-            style={ICON}
-            solid={favorites[route.name]}
-          />
-        </TouchableOpacity>
-      </View>
+      <Controllers
+        theme={theme}
+        favorites={favorites}
+        route={route}
+        actionType={actionType}
+        colorEditing={colorEditing}
+        attachDrawingImage={attachDrawingImage}
+        saveNote={saveNote}
+        onPressPalette={onPressPalette}
+        attachImage={attachImage}
+        onPressFavor={onPressFavor}
+      />
       <View style={CONTENT_CONTAINER}>
         {colorEditing && <ColorPicker onChange={onSelectColor} />}
 
-        <View style={TITLE_CONTAINER}>
-          <TouchableOpacity onPress={onPressTitleEdit}>
-            <IconC
-              name="text"
-              size={20}
-              style={[
-                ICON,
-                titleEditing
-                  ? theme === 'light'
-                    ? ICON_ACTIVE_LIGHT
-                    : ICON_ACTIVE_DARK
-                  : null,
-              ]}
-            />
-          </TouchableOpacity>
-          {titleEditing ? (
-            <TextInput
-              value={currentTitle}
-              onChangeText={setCurrentTitle}
-              style={[
-                TITLE_INPUT,
-                {
-                  color: theme === 'light' ? '#505050' : '#fff',
-                },
-              ]}
-              autoFocus={true}
-              blurOnSubmit={true}
-              onBlur={onBlurTitleInput}
-            />
-          ) : (
-            <TextC color="gray" style={TITLE_TEXT}>
-              {currentTitle}
-            </TextC>
-          )}
-        </View>
+        <Title
+          theme={theme}
+          currentTitle={currentTitle}
+          setCurrentTitle={setCurrentTitle}
+          onPressTitleEdit={onPressTitleEdit}
+          titleEditing={titleEditing}
+          onBlurTitleInput={onBlurTitleInput}
+        />
+
         {elements.map((elem, index) => (
           <Elem
             key={index}
@@ -394,6 +253,7 @@ export const AddNoteComponent = ({
 const mapStateToProps = (state, ownProps) => ({
   favorites: state.favorites,
   theme: state.theme,
+  lang: state.lang,
 })
 
 const mapDispatchToProps = {

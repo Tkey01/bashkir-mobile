@@ -1,5 +1,5 @@
 import * as TYPES from './constants'
-import { createReducer } from '../helpers'
+import { createReducer } from '../helpers/createReducer'
 import { textScales } from '../global/textScales'
 
 const initialState = {
