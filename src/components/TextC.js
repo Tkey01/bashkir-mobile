@@ -26,6 +26,10 @@ const colors = {
     light: '#fff',
     dark: '#fff',
   },
+  blue: {
+    light: '#3269C8',
+    dark: '#3269C8',
+  },
 }
 
 export const TextCComponent = ({
