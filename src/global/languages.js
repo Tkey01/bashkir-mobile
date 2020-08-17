@@ -73,27 +73,16 @@ export const languages = {
       eng: 'Legal act',
       bash: '',
     },
-    About: {
-      rus: 'О приложении',
-      eng: 'About',
-      bash: '',
-    },
     Search: {
-      rus: 'О приложении',
+      rus: 'Поиск',
       eng: 'Search',
       bash: '',
     },
   },
   sideMenu: {
     routes: {
-      rus: [
-        'Заметки',
-        'Избранное',
-        'Нормативная база',
-        'Настройки',
-        'О приложении',
-      ],
-      eng: ['Notes', 'Favorites', 'Normative base', 'Settings', 'About'],
+      rus: ['Заметки', 'Избранное', 'Нормативная база', 'Настройки'],
+      eng: ['Notes', 'Favorites', 'Normative base', 'Settings'],
       bash: [],
     },
     close: {
@@ -101,9 +90,51 @@ export const languages = {
       eng: 'Close',
       bash: '',
     },
-    lang: {
+  },
+  settings: {
+    themeText: {
+      rus: 'Тема',
+      eng: 'Theme',
+      bash: '',
+    },
+    textSize: {
+      rus: 'Размер текста',
+      eng: 'Text size',
+      bash: '',
+    },
+    themeLight: {
+      rus: 'Светлая',
+      eng: 'Light',
+      bash: '',
+    },
+    themeDark: {
+      rus: 'Темная',
+      eng: 'Dark',
+      bash: '',
+    },
+    langText: {
       rus: 'Язык',
       eng: 'Language',
+      bash: '',
+    },
+    changeLangText: {
+      rus: 'Выбор языка',
+      eng: 'Select language',
+      bash: '',
+    },
+    langRus: {
+      rus: 'Русский',
+      eng: 'Russian',
+      bash: '',
+    },
+    langEng: {
+      rus: 'Английский',
+      eng: 'English',
+      bash: '',
+    },
+    langBash: {
+      rus: 'Башкирский',
+      eng: 'Bashkir',
       bash: '',
     },
   },
@@ -818,6 +849,7 @@ export const languages = {
     description: {
       rus: `
       Валяние — техника, при которой из пышной, воздушной шерсти получают плотный войлок. Существует два вида валяния: сухое и мокрое.
+      Сухое валяние — процесс создания из непряденой шерсти игрушек, обуви, одежды, декора. Техника заключается в том, что с помощью специальных игл часто протыкают кусочек шерсти.
       Мокрое валяние — техника валяния, где используется способность волокон шерсти к сцеплению и переплетению в мокрой щелочной среде. Такая среда создаётся мыльным раствором.`,
       eng: `
       Felting is a technique in which dense felt is obtained from fluffy, airy wool. There are two types of felting: dry and wet.

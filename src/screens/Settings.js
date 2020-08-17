@@ -11,12 +11,13 @@ import themeIcon from '../assets/images/theme-icon.png'
 import textSizeIcon from '../assets/images/text-size-icon.png'
 import languagesIcon from '../assets/images/languages-icon.png'
 import { ScreenWrapper } from '../components/ScreenWrapper'
+import { getLangText } from '../helpers/getLangText'
+import { languages } from '../global/languages'
 
 const BLOCK = {
   paddingHorizontal: 10,
   paddingTop: 10,
   paddingBottom: 17,
-  // borderWidth: 1,
 }
 
 const ROW = {
@@ -44,7 +45,10 @@ export const SettingsComponent = ({
         <View style={ROW}>
           <Image source={themeIcon} />
           <TextC type="m" style={TITLE}>
-            Тема
+            {getLangText(
+              languages.settings.themeText[lang],
+              `settings.themeText.${lang}`,
+            )}
           </TextC>
         </View>
         <TouchableOpacity
@@ -52,27 +56,34 @@ export const SettingsComponent = ({
           style={[ROW, { marginTop: 15, paddingHorizontal: 21 }]}
         >
           <RadioButton active={theme === 'light'} />
-          <TextC style={LABEL_TEXT}>Светлая</TextC>
+          <TextC style={LABEL_TEXT}>
+            {getLangText(
+              languages.settings.themeLight[lang],
+              `settings.themeLight.${lang}`,
+            )}
+          </TextC>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => setTheme('dark')}
           style={[ROW, { marginTop: 12, paddingHorizontal: 21 }]}
         >
           <RadioButton active={theme === 'dark'} />
-          <TextC style={LABEL_TEXT}>Тёмная</TextC>
+          <TextC style={LABEL_TEXT}>
+            {getLangText(
+              languages.settings.themeDark[lang],
+              `settings.themeDark.${lang}`,
+            )}
+          </TextC>
         </TouchableOpacity>
-        {/* <TouchableOpacity
-          style={[ROW, { marginTop: 12, paddingHorizontal: 21 }]}
-        >
-          <RadioButton />
-          <TextC style={LABEL_TEXT}>Автоматически</TextC>
-        </TouchableOpacity> */}
       </View>
       <View style={[BLOCK, { marginTop: 8 }]}>
         <View style={ROW}>
           <Image source={textSizeIcon} />
           <TextC type="m" style={TITLE}>
-            Размер текста
+            {getLangText(
+              languages.settings.textSize[lang],
+              `settings.textSize.${lang}`,
+            )}
           </TextC>
         </View>
         <RangeInput />
@@ -81,7 +92,10 @@ export const SettingsComponent = ({
         <View style={ROW}>
           <Image source={languagesIcon} />
           <TextC type="m" style={TITLE}>
-            Выбор языка
+            {getLangText(
+              languages.settings.changeLangText[lang],
+              `settings.changeLangText.${lang}`,
+            )}
           </TextC>
         </View>
         <TouchableOpacity
@@ -89,21 +103,36 @@ export const SettingsComponent = ({
           style={[ROW, { marginTop: 15, paddingHorizontal: 21 }]}
         >
           <RadioButton active={lang === 'rus'} />
-          <TextC style={LABEL_TEXT}>Русский</TextC>
+          <TextC style={LABEL_TEXT}>
+            {getLangText(
+              languages.settings.langRus[lang],
+              `settings.langRus.${lang}`,
+            )}
+          </TextC>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => selectLanguage('bash')}
           style={[ROW, { marginTop: 12, paddingHorizontal: 21 }]}
         >
           <RadioButton active={lang === 'bash'} />
-          <TextC style={LABEL_TEXT}>Башкирский</TextC>
+          <TextC style={LABEL_TEXT}>
+            {getLangText(
+              languages.settings.langBash[lang],
+              `settings.langBash.${lang}`,
+            )}
+          </TextC>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => selectLanguage('eng')}
           style={[ROW, { marginTop: 12, paddingHorizontal: 21 }]}
         >
           <RadioButton active={lang === 'eng'} />
-          <TextC style={LABEL_TEXT}>Английский</TextC>
+          <TextC style={LABEL_TEXT}>
+            {getLangText(
+              languages.settings.langEng[lang],
+              `settings.langEng.${lang}`,
+            )}
+          </TextC>
         </TouchableOpacity>
       </View>
     </ScreenWrapper>

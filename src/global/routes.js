@@ -55,10 +55,6 @@ export const routes = [
     title: languages.routes.NormBase,
   },
   {
-    routeName: 'About',
-    title: languages.routes.About,
-  },
-  {
     routeName: 'RulesAct',
     title: languages.routes.RulesAct,
   },

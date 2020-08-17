@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, TouchableOpacity } from 'react-native'
+import { View, TouchableOpacity, Image } from 'react-native'
 import { connect } from 'react-redux'
 
 import * as ACTIONS from '../redux/actions'
@@ -8,13 +8,23 @@ import { getLangText } from '../helpers/getLangText'
 import { IconC } from './IconC'
 import { TextC } from './TextC'
 import { ScreenWrapper } from './ScreenWrapper'
+import themeIcon from '../assets/images/theme-icon.png'
+import { RadioButton } from './RadioButton'
 
-const list = ['Notes', 'Favorites', 'NormBase', 'Settings', 'About']
-
+const list = ['Notes', 'Favorites', 'NormBase', 'Settings']
 const langs = ['RUS', 'BASH', 'ENG']
 
 const LANG = {
   paddingHorizontal: 5,
+}
+
+const ROW = {
+  flexDirection: 'row',
+  alignItems: 'center',
+}
+
+const LABEL_TEXT = {
+  marginLeft: 15,
 }
 
 const CLOSE_CONTAINER = {
@@ -42,7 +52,22 @@ const LANG_CONTAINER = {
   flexDirection: 'row',
 }
 
-const SideMenuComponent = ({ language, selectLanguage, navigation }) => {
+const THEME_CONTAINER = {
+  paddingVertical: 20,
+}
+
+const THEME_PICKER_CONTAINER = {
+  flexDirection: 'row',
+  alignItems: 'center',
+}
+
+const SideMenuComponent = ({
+  language,
+  selectLanguage,
+  navigation,
+  setTheme,
+  theme,
+}) => {
   return (
     <ScreenWrapper
       contentContainerStyle={{
@@ -91,8 +116,8 @@ const SideMenuComponent = ({ language, selectLanguage, navigation }) => {
       <View style={DIVIDER_2} />
       <TextC>
         {getLangText(
-          languages.sideMenu.lang[language],
-          `sideMenu.lang.${language}`,
+          languages.settings.langText[language],
+          `settings.langText.${language}`,
         )}
       </TextC>
       <View style={LANG_CONTAINER}>
@@ -119,15 +144,51 @@ const SideMenuComponent = ({ language, selectLanguage, navigation }) => {
           </TouchableOpacity>
         ))}
       </View>
+      <View style={THEME_CONTAINER}>
+        <TextC>
+          {getLangText(
+            languages.settings.themeText[language],
+            `settings.themeText.${language}`,
+          )}
+        </TextC>
+        <View style={THEME_PICKER_CONTAINER}>
+          <TouchableOpacity
+            onPress={() => setTheme('light')}
+            style={[ROW, { marginTop: 15 }]}
+          >
+            <RadioButton active={theme === 'light'} />
+            <TextC style={LABEL_TEXT}>
+              {getLangText(
+                languages.settings.themeLight[language],
+                `settings.themeLight.${language}`,
+              )}
+            </TextC>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => setTheme('dark')}
+            style={[ROW, { marginTop: 15, marginLeft: 20 }]}
+          >
+            <RadioButton active={theme === 'dark'} />
+            <TextC style={LABEL_TEXT}>
+              {getLangText(
+                languages.settings.themeDark[language],
+                `settings.themeDark.${language}`,
+              )}
+            </TextC>
+          </TouchableOpacity>
+        </View>
+      </View>
     </ScreenWrapper>
   )
 }
 
 const mapStateToProps = (state) => ({
   language: state.language,
+  theme: state.theme,
 })
 const mapDispatchToProps = {
   selectLanguage: ACTIONS.selectLanguage,
+  setTheme: ACTIONS.setTheme,
 }
 
 export const SideMenu = connect(

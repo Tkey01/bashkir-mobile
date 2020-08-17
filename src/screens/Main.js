@@ -32,9 +32,6 @@ const PAGES = [
   {
     screenName: 'Berest',
   },
-  {
-    screenName: 'Settings',
-  },
 ]
 
 export const MainComponent = ({
