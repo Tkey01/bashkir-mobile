@@ -76,6 +76,7 @@ export const SearchComponent = ({
           style={[INPUT, { color: theme === 'light' ? '#5C6063' : '#fff' }]}
           value={value}
           onChangeText={onInputChange}
+          autoFocus
         />
         <IconC
           name="chevron-right"
