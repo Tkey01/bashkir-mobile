@@ -12,6 +12,9 @@ const getTextFromPath = (obj, path) => {
 }
 
 export const getLangText = (elem, path) => {
+  if (!elem) {
+    console.log(path)
+  }
   if (elem.length === 0) {
     let newPath = path.split('.')
     newPath.pop()

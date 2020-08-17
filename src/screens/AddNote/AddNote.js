@@ -45,13 +45,12 @@ export const AddNoteComponent = ({
   toggleFavorite,
   navigation,
 }) => {
-  const initTittle = route.params && route.params.note.title
+  const initTittle =
+    (route.params && route.params.note.title) || createNoteTitle(lang)
   const initElements = route.params && route.params.note.elements
 
   const [elements, setElements] = useState(initElements || [])
-  const [currentTitle, setCurrentTitle] = useState(
-    initTittle || createNoteTitle(lang),
-  )
+  const [currentTitle, setCurrentTitle] = useState(initTittle)
   const [titleEditing, setTitleEditing] = useState(false)
 
   const [currentColor, setCurrentColor] = useState('black')
@@ -102,7 +101,7 @@ export const AddNoteComponent = ({
     }
   }
 
-  const onBlur = () => {
+  const onBlurTextInput = () => {
     if (!editing && currentText !== '') {
       pushElement({ type: 'text', content: currentText })
       setCurrentText('')
@@ -230,7 +229,7 @@ export const AddNoteComponent = ({
         ))}
 
         <TextInput
-          onBlur={onBlur}
+          onBlur={onBlurTextInput}
           value={currentText}
           onChangeText={setCurrentText}
           multiline
@@ -253,7 +252,7 @@ export const AddNoteComponent = ({
 const mapStateToProps = (state, ownProps) => ({
   favorites: state.favorites,
   theme: state.theme,
-  lang: state.lang,
+  lang: state.language,
 })
 
 const mapDispatchToProps = {
