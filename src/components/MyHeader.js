@@ -12,6 +12,21 @@ const CONTAINER = {
   paddingHorizontal: 16,
 }
 
+const BACK_BUTTON = {
+  width: 30,
+  height: 30,
+  alignItems: 'center',
+  justifyContent: 'center',
+}
+
+const BUTTON = {
+  width: 30,
+  height: 30,
+  marginLeft: 22,
+  alignItems: 'center',
+  justifyContent: 'center',
+}
+
 export const MyHeaderComponent = ({
   scene,
   previous,
@@ -43,7 +58,10 @@ export const MyHeaderComponent = ({
       ]}
     >
       {previous && (
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+        <TouchableOpacity
+          style={BACK_BUTTON}
+          onPress={() => navigation.goBack()}
+        >
           <IconC size={24} name="chevron-left" color="white" />
         </TouchableOpacity>
       )}
@@ -51,41 +69,32 @@ export const MyHeaderComponent = ({
         color="white"
         style={{
           fontSize: 20,
-          marginLeft: previous ? 40 : 56,
+          marginLeft: previous ? 30 : 46,
           flex: 1,
         }}
       >
         {title}
       </TextC>
       {!!playVideoAction && (
-        <TouchableOpacity
-          onPress={() => playVideoAction()}
-          style={{ marginRight: 19 }}
-        >
+        <TouchableOpacity onPress={() => playVideoAction()} style={BUTTON}>
           <IconC size={20} name="play" color="white" />
         </TouchableOpacity>
       )}
       {!!searchAction && (
-        <TouchableOpacity
-          onPress={() => searchAction()}
-          style={{ marginRight: 21 }}
-        >
+        <TouchableOpacity onPress={() => searchAction()} style={BUTTON}>
           <IconC size={22} name="search" color="white" />
         </TouchableOpacity>
       )}
       {!!toggleFavorite && (
         <TouchableOpacity
           onPress={() => toggleFavorite(scene.route.name)}
-          style={{ marginRight: 25 }}
+          style={BUTTON}
         >
           <IconC size={20} name="bookmark" solid={isFavor} color="white" />
         </TouchableOpacity>
       )}
       {!!sortByAction && (
-        <TouchableOpacity
-          onPress={() => sortByAction()}
-          style={{ marginRight: 23 }}
-        >
+        <TouchableOpacity onPress={() => sortByAction()} style={BUTTON}>
           <IconC
             size={22}
             name={sortByUp ? 'sort-alpha-up' : 'sort-alpha-down'}
@@ -94,7 +103,7 @@ export const MyHeaderComponent = ({
           />
         </TouchableOpacity>
       )}
-      <TouchableOpacity onPress={() => toggleSideMenu()}>
+      <TouchableOpacity style={BUTTON} onPress={() => toggleSideMenu()}>
         <IconC size={24} name="bars" color="white" />
       </TouchableOpacity>
     </View>
