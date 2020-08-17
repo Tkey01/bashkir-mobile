@@ -79,7 +79,7 @@ export const ListItem = ({
           </TouchableOpacity>
         )}
         {!onPressSave && (
-          <TouchableOpacity style={BUTTON}>
+          <TouchableOpacity style={BUTTON} onPress={onPress}>
             <IconC size={24} name="chevron-right" light color="blue" />
           </TouchableOpacity>
         )}
