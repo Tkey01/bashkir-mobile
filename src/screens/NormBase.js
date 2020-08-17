@@ -1,13 +1,11 @@
 import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
-import { View, Text, TouchableOpacity, Alert } from 'react-native'
 
 import { ScreenWrapper } from '../components/ScreenWrapper'
-import { TextC } from '../components/TextC'
 import { ListItem } from '../components/ListItem'
-import actIcon from '../assets/images/act-icon.png'
 import { getLangText } from '../helpers/getLangText'
 import { languages } from '../global/languages'
+import actIcon from '../assets/images/act-icon.png'
 
 const acts = [
   'RuleAct-1',
