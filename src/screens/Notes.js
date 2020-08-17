@@ -28,7 +28,6 @@ const ADD_ICON = {
 }
 
 const FOOTER = {
-  backgroundColor: '#fff',
   paddingHorizontal: 16,
   paddingTop: 10,
   height: 100,
@@ -75,7 +74,14 @@ export const NotesComponent = ({
           )
         })}
       </ScreenWrapper>
-      <View style={FOOTER}>
+      <View
+        style={[
+          FOOTER,
+          {
+            backgroundColor: theme === 'light' ? '#fff' : '#222',
+          },
+        ]}
+      >
         <TouchableOpacity
           style={ADD_BUTTON}
           onPress={() => {

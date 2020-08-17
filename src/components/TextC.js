@@ -35,7 +35,7 @@ const colors = {
 export const TextCComponent = ({
   type = 'r',
   color = 'black',
-  theme,
+  theme = 'light',
   children,
   style,
   ...restProps

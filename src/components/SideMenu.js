@@ -53,10 +53,11 @@ const LANG_CONTAINER = {
 }
 
 const THEME_CONTAINER = {
-  paddingVertical: 20,
+  marginTop: 30,
 }
 
 const THEME_PICKER_CONTAINER = {
+  marginTop: 15,
   flexDirection: 'row',
   alignItems: 'center',
 }
