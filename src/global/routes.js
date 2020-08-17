@@ -66,6 +66,10 @@ export const routes = [
     routeName: 'Search',
     title: languages.routes.Search,
   },
+  {
+    routeName: 'NormBase',
+    title: languages.routes.NormBase,
+  },
 
   ...createNestedRoutes('Bort'),
   ...createNestedRoutes('Shor'),

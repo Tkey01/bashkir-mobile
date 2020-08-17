@@ -20,7 +20,7 @@ export const StackNavigatorComponent = ({
 }) => {
   return (
     <Stack.Navigator
-      initialRouteName="AddNote"
+      initialRouteName="Main"
       screenOptions={{
         header: (props) => {
           const isFavor = favorites[props.scene.route.name]
@@ -479,6 +479,16 @@ export const StackNavigatorComponent = ({
           title: getLangText(
             languages.routes.AddNote[lang],
             `routes.AddNote.${lang}`,
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="NormBase"
+        component={SCREENS.NormBase}
+        options={{
+          title: getLangText(
+            languages.routes.NormBase[lang],
+            `routes.NormBase.${lang}`,
           ),
         }}
       />
