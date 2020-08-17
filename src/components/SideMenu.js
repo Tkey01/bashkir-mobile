@@ -60,6 +60,7 @@ const THEME_PICKER_CONTAINER = {
   marginTop: 15,
   flexDirection: 'row',
   alignItems: 'center',
+  justifyContent: 'center',
 }
 
 const SideMenuComponent = ({

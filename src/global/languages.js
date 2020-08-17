@@ -91,6 +91,27 @@ export const languages = {
       bash: '',
     },
   },
+  normBase: {
+    acts: {
+      rus: [
+        'Правовой акт номер 1',
+        'Правовой акт номер 2',
+        'Правовой акт номер 3',
+        'Правовой акт номер 4',
+        'Правовой акт номер 5',
+        'Правовой акт номер 6',
+      ],
+      eng: [
+        'Legal act 1',
+        'Legal act 2',
+        'Legal act 3',
+        'Legal act 4',
+        'Legal act 5',
+        'Legal act 6',
+      ],
+      bash: [],
+    },
+  },
   settings: {
     themeText: {
       rus: 'Тема',

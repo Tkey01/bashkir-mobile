@@ -38,6 +38,7 @@ export const ListItem = ({
   onPressFavor,
   onPress,
   onPressClose,
+  onPressSave,
 }) => {
   return (
     <TouchableOpacity style={CONTAINER} onPress={onPress}>
@@ -63,15 +64,28 @@ export const ListItem = ({
             />
           </TouchableOpacity>
         )}
-        <TouchableOpacity>
-          <IconC
-            size={24}
-            name="chevron-right"
-            light
-            color="blue"
-            style={MARGIN_LEFT}
-          />
-        </TouchableOpacity>
+        {onPressSave && (
+          <TouchableOpacity onPress={onPressSave}>
+            <IconC
+              size={20}
+              name="download"
+              light
+              color="blue"
+              style={MARGIN_LEFT}
+            />
+          </TouchableOpacity>
+        )}
+        {!onPressSave && (
+          <TouchableOpacity>
+            <IconC
+              size={24}
+              name="chevron-right"
+              light
+              color="blue"
+              style={MARGIN_LEFT}
+            />
+          </TouchableOpacity>
+        )}
       </View>
     </TouchableOpacity>
   )
