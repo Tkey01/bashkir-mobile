@@ -1,39 +1,17 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { View, TextInput, Image } from 'react-native'
+import { View, TextInput } from 'react-native'
 import ImagePicker from 'react-native-image-crop-picker'
 import { encode } from 'base-64'
 
-import { ScreenWrapper } from '../../components/ScreenWrapper'
-import { TextC } from '../../components/TextC'
-import { Drawer } from '../../components/Drawer'
-import { ColorPicker } from '../../components/ColorPicker'
 import * as ACTIONS from '../../redux/actions'
+import { ScreenWrapper } from '../../components/ScreenWrapper'
+import { ColorPicker } from '../../components/ColorPicker'
 import { Controllers } from './Controllers'
 import { Title } from './Title'
-import {
-  CONTENT_TEXT,
-  CONTENT_IMAGE,
-  CONTENT_CONTAINER,
-  TEXT_INPUT,
-} from './styles'
+import { Elem } from './Elem'
+import { CONTENT_CONTAINER, TEXT_INPUT } from './styles'
 import { createNoteTitle } from '../../helpers/createNoteTitle'
-
-const Elem = ({ elem, onSave, color }) => {
-  if (elem.type === 'text') {
-    return <TextC style={CONTENT_TEXT}>{elem.content}</TextC>
-  } else if (elem.type === 'image') {
-    return (
-      <Image
-        style={CONTENT_IMAGE}
-        resizeMode="contain"
-        source={{ uri: elem.content }}
-      />
-    )
-  } else if (elem.type === 'drawer') {
-    return <Drawer onSave={onSave} color={color} />
-  }
-}
 
 export const AddNoteComponent = ({
   route,
