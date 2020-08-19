@@ -23,7 +23,6 @@ const SAVE_BUTTON = {
   height: 30,
   alignItems: 'center',
   justifyContent: 'center',
-  borderWidth: 1,
   position: 'absolute',
   right: 10,
   top: 10,
