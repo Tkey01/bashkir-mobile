@@ -23,12 +23,12 @@ export const AddNoteComponent = ({
   toggleFavorite,
   navigation,
 }) => {
-  const initTittle =
-    (route.params && route.params.note.title) || createNoteTitle(lang)
   const initElements = route.params && route.params.note.elements
 
   const [elements, setElements] = useState(initElements || [])
-  const [currentTitle, setCurrentTitle] = useState(initTittle)
+  const [currentTitle, setCurrentTitle] = useState(
+    () => (route.params && route.params.note.title) || createNoteTitle(lang),
+  )
   const [titleEditing, setTitleEditing] = useState(false)
 
   const [currentColor, setCurrentColor] = useState('black')

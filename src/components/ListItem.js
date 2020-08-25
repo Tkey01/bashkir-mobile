@@ -24,6 +24,7 @@ const ICON = {
 
 const VIEW1 = {
   flex: 1,
+  paddingRight: 20,
   flexDirection: 'row',
   alignItems: 'center',
 }

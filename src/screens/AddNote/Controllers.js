@@ -26,7 +26,6 @@ export const Controllers = ({
 }) => {
   return (
     <View style={CONTROLLERS_CONTAINER}>
-      {/* <IconC name="pencil" size={20} style={ICON} /> */}
       <TouchableOpacity onPress={attachDrawingImage}>
         <IconC
           name="wave-sine"

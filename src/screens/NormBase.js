@@ -3,22 +3,44 @@ import { connect } from 'react-redux'
 
 import { ScreenWrapper } from '../components/ScreenWrapper'
 import { ListItem } from '../components/ListItem'
-import { getLangText } from '../helpers/getLangText'
-import { languages } from '../global/languages'
 import actIcon from '../assets/images/act-icon.png'
+import { Linking } from 'react-native'
+
+const path = 'https://uniprolings.ru/remeslo'
 
 const acts = [
-  'RuleAct-1',
-  'RuleAct-2',
-  'RuleAct-3',
-  'RuleAct-4',
-  'RuleAct-5',
-  'RuleAct-6',
+  {
+    name: 'Федеральный закон N 7-ФЗ',
+    link: `${path}/prom.rtf`,
+  },
+  {
+    name:
+      'Протокол президиума по стратегическому развитию и национальным проектам',
+    link: `${path}/prez.rtf`,
+  },
+  { name: 'Отраслевое соглашение', link: `${path}/otrasl.rtf` },
+  {
+    name: 'Приказ Минпромторга РФ от 15.04.2009 N 273',
+    link: `${path}/prikaz_1.rtf`,
+  },
+  {
+    name: 'Приказ Минпромторга РФ от 15.04.2009 N 274',
+    link: `${path}/prikaz_2.rtf`,
+  },
 ]
 
 export const NormBaseComponent = ({ lang }) => {
-  const onSave = useCallback(() => {
-    console.log('save act action')
+  const onSave = useCallback((link) => {
+    Linking.canOpenURL(link)
+      .then((canOpen) => {
+        if (canOpen) {
+          Linking.openURL(link)
+        } else {
+          // eslint-disable-next-line quotes
+          console.log(`Cant open url`, link)
+        }
+      })
+      .catch((err) => console.log('Error while trying open url', err))
   }, [])
   return (
     <ScreenWrapper
@@ -29,14 +51,10 @@ export const NormBaseComponent = ({ lang }) => {
     >
       {acts.map((act, index) => (
         <ListItem
-          key={act}
+          key={index}
           icon={actIcon}
-          text={
-            getLangText(languages.normBase.acts[lang], `normBase.acts.${lang}`)[
-              index
-            ]
-          }
-          onPressSave={onSave}
+          text={act.name}
+          onPressSave={() => onSave(act.link)}
         />
       ))}
     </ScreenWrapper>
