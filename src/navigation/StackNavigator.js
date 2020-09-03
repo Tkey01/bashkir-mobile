@@ -13,10 +13,6 @@ export const Stack = createStackNavigator()
 
 import { generateCommonRoutes } from '../helpers/generateCommonRoutes'
 
-const testFn = () => (
-  <Stack.Screen name="TermsR" component={SCREENS.Terms} options={{}} />
-)
-
 export const StackNavigatorComponent = ({
   navigation,
   favorites,
@@ -83,6 +79,46 @@ export const StackNavigatorComponent = ({
         }}
       />
       <Stack.Screen
+        name="TextileQuilt"
+        component={SCREENS.TextileQuiltMain}
+        options={{
+          title: getLangText(
+            languages.routes.TextileQuilt[lang],
+            `routes.TextileQuilt.${lang}`,
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="TextileBatik"
+        component={SCREENS.TextileBatikMain}
+        options={{
+          title: getLangText(
+            languages.routes.TextileBatik[lang],
+            `routes.TextileBatik.${lang}`,
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="TextileChen"
+        component={SCREENS.TextileChenMain}
+        options={{
+          title: getLangText(
+            languages.routes.TextileChen[lang],
+            `routes.TextileChen.${lang}`,
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="TextilePatch"
+        component={SCREENS.TextilePatchMain}
+        options={{
+          title: getLangText(
+            languages.routes.TextilePatch[lang],
+            `routes.TextilePatch.${lang}`,
+          ),
+        }}
+      />
+      <Stack.Screen
         name="Wood"
         component={SCREENS.WoodMain}
         options={{
@@ -115,7 +151,10 @@ export const StackNavigatorComponent = ({
 
       {generateCommonRoutes({ routeName: 'Bort', lang })}
       {generateCommonRoutes({ routeName: 'Shor', lang })}
-      {generateCommonRoutes({ routeName: 'Textile', lang })}
+      {generateCommonRoutes({ routeName: 'TextileQuilt', lang })}
+      {generateCommonRoutes({ routeName: 'TextileChen', lang })}
+      {generateCommonRoutes({ routeName: 'TextileBatik', lang })}
+      {generateCommonRoutes({ routeName: 'TextilePatch', lang })}
       {generateCommonRoutes({ routeName: 'Wood', lang })}
       {generateCommonRoutes({ routeName: 'Berest', lang })}
       {generateCommonRoutes({ routeName: 'Voil', lang })}

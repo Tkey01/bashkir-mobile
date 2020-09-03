@@ -2,13 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { ScrollView } from 'react-native'
 
-import { TemplateString } from '../../components/TemplateString'
-import { languages } from '../../global/languages'
-import { getTemplateStringArray } from '../../helpers/getTemplateStringArray'
-import { getLangText } from '../../helpers/getLangText'
-import { ScreenWrapper } from '../../components/ScreenWrapper'
+import { TemplateString } from '../../../components/TemplateString'
+import { languages } from '../../../global/languages'
+import { getTemplateStringArray } from '../../../helpers/getTemplateStringArray'
+import { getLangText } from '../../../helpers/getLangText'
+import { ScreenWrapper } from '../../../components/ScreenWrapper'
 
-export const SourcesComponent = ({ lang }) => {
+export const DescriptionComponent = ({ lang }) => {
   return (
     <ScreenWrapper
       contentContainerStyle={{
@@ -19,8 +19,8 @@ export const SourcesComponent = ({ lang }) => {
       <TemplateString>
         {getTemplateStringArray(
           getLangText(
-            languages.textile.sources[lang],
-            `textile.sources.${lang}`,
+            languages.textile.description[lang],
+            `textile.description.${lang}`,
           ),
         )}
       </TemplateString>
@@ -34,7 +34,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = {}
 
-export const Sources = connect(
+export const Description = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(SourcesComponent)
+)(DescriptionComponent)

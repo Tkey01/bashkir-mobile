@@ -2,13 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { ScrollView } from 'react-native'
 
-import { TemplateString } from '../../components/TemplateString'
-import { languages } from '../../global/languages'
-import { getTemplateStringArray } from '../../helpers/getTemplateStringArray'
-import { getLangText } from '../../helpers/getLangText'
-import { ScreenWrapper } from '../../components/ScreenWrapper'
+import { TemplateString } from '../../../components/TemplateString'
+import { languages } from '../../../global/languages'
+import { getTemplateStringArray } from '../../../helpers/getTemplateStringArray'
+import { getLangText } from '../../../helpers/getLangText'
+import { ScreenWrapper } from '../../../components/ScreenWrapper'
 
-export const StuffComponent = ({ lang }) => {
+export const ToolsComponent = ({ lang }) => {
   return (
     <ScreenWrapper
       contentContainerStyle={{
@@ -18,7 +18,7 @@ export const StuffComponent = ({ lang }) => {
     >
       <TemplateString>
         {getTemplateStringArray(
-          getLangText(languages.textile.stuff[lang], `textile.stuff.${lang}`),
+          getLangText(languages.textile.tools[lang], `textile.tools.${lang}`),
         )}
       </TemplateString>
     </ScreenWrapper>
@@ -31,7 +31,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = {}
 
-export const Stuff = connect(
+export const Tools = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(StuffComponent)
+)(ToolsComponent)

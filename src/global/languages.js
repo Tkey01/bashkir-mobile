@@ -26,6 +26,26 @@ export const languages = {
       eng: 'Textile products',
       bash: '',
     },
+    TextileQuilt: {
+      rus: 'Квилтинг',
+      eng: 'Quilting',
+      bash: '',
+    },
+    TextileChen: {
+      rus: 'Синель',
+      eng: 'Chenille',
+      bash: '',
+    },
+    TextilePatch: {
+      rus: 'Пэчворк',
+      eng: 'Patchwork',
+      bash: '',
+    },
+    TextileBatik: {
+      rus: 'Батик',
+      eng: 'Batik',
+      bash: '',
+    },
     Wood: {
       rus: 'Резьба по дереву',
       eng: 'Wood carving',
