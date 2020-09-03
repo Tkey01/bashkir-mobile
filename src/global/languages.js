@@ -78,12 +78,62 @@ export const languages = {
       eng: 'Search',
       bash: '',
     },
+    About: {
+      rus: 'О приложении',
+      eng: 'About',
+      bash: 'Мобиль ҡушымта тураһында',
+    },
+    Terms: {
+      rus: 'Пользовательское соглашение',
+      eng: 'Terms of use',
+      bash: 'Ҡулланыусылар килешеүе',
+    },
+    PrivacyPolicy: {
+      rus: 'Политика конфиденциальности',
+      eng: 'Privacy policy',
+      bash: 'Конфиденциаллек сәйәсәте',
+    },
+    Feedback: {
+      rus: 'Обратная связь',
+      eng: 'Feedback',
+      bash: 'Кире бәйләнеш',
+    },
   },
   sideMenu: {
     routes: {
-      rus: ['Заметки', 'Избранное', 'Нормативная база', 'Настройки'],
-      eng: ['Notes', 'Favorites', 'Normative base', 'Settings'],
-      bash: [],
+      rus: [
+        'Заметки',
+        'Избранное',
+        'Нормативная база',
+        'Настройки',
+        'О приложении',
+        'Пользовательское соглашение',
+        'Политика конфиденциальности',
+        'Обратная связь',
+        'Поделиться',
+      ],
+      eng: [
+        'Notes',
+        'Favorites',
+        'Normative base',
+        'Settings',
+        'About',
+        'Terms of use',
+        'Privacy policy',
+        'Feedback',
+        'Share',
+      ],
+      bash: [
+        'Заметки',
+        'Избранное',
+        'Нормативная база',
+        'Настройки',
+        'Мобиль ҡушымта тураһында',
+        'Ҡулланыусылар килешеүе',
+        'Конфиденциаллек сәйәсәте',
+        'Кире бәйләнеш',
+        'Бүлешергә',
+      ],
     },
     close: {
       rus: 'Закрыть',
@@ -1209,5 +1259,11 @@ export const languages = {
       <a>7. https://nsportal.ru/shkola/tekhnologiya/library/2017/01/27/master-klass-sheynyy-platok-v-tehnike-uzelkovogo-batika<a>`,
       bash: '',
     },
+  },
+
+  share: {
+    rus: 'Поделиться',
+    eng: 'Share',
+    bash: 'Бүлешергә',
   },
 }

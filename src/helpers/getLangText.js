@@ -12,14 +12,18 @@ const getTextFromPath = (obj, path) => {
 }
 
 export const getLangText = (elem, path) => {
-  if (elem.length === 0) {
-    let newPath = path.split('.')
-    newPath.pop()
-    newPath.push('rus')
-    newPath = newPath.join('.')
+  try {
+    if (elem.length === 0) {
+      let newPath = path.split('.')
+      newPath.pop()
+      newPath.push('rus')
+      newPath = newPath.join('.')
 
-    return getTextFromPath(languages, newPath)
+      return getTextFromPath(languages, newPath)
+    }
+
+    return elem
+  } catch (e) {
+    console.log('getLangText', elem, path, languages.routes.Feedback)
   }
-
-  return elem
 }

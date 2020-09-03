@@ -492,6 +492,46 @@ export const StackNavigatorComponent = ({
           ),
         }}
       />
+      <Stack.Screen
+        name="About"
+        component={SCREENS.About}
+        options={{
+          title: getLangText(
+            languages.routes.About[lang],
+            `routes.About.${lang}`,
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="Feedback"
+        component={SCREENS.Feedback}
+        options={{
+          title: getLangText(
+            languages.routes.Feedback[lang],
+            `routes.Feedback.${lang}`,
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="PrivacyPolicy"
+        component={SCREENS.PrivacyPolicy}
+        options={{
+          title: getLangText(
+            languages.routes.PrivacyPolicy[lang],
+            `routes.PrivacyPolicy.${lang}`,
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="Terms"
+        component={SCREENS.Terms}
+        options={{
+          title: getLangText(
+            languages.routes.Terms[lang],
+            `routes.Terms.${lang}`,
+          ),
+        }}
+      />
       {notes.map((note) => (
         <Stack.Screen
           key={note.routeName}

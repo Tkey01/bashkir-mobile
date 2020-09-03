@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, TouchableOpacity, Image } from 'react-native'
+import { View, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 
 import * as ACTIONS from '../redux/actions'
@@ -8,10 +8,18 @@ import { getLangText } from '../helpers/getLangText'
 import { IconC } from './IconC'
 import { TextC } from './TextC'
 import { ScreenWrapper } from './ScreenWrapper'
-import themeIcon from '../assets/images/theme-icon.png'
 import { RadioButton } from './RadioButton'
 
-const list = ['Notes', 'Favorites', 'NormBase', 'Settings']
+const list = [
+  'Notes',
+  'Favorites',
+  'NormBase',
+  'Settings',
+  'About',
+  'Terms',
+  'PrivacyPolicy',
+  'Feedback',
+]
 const langs = ['RUS', 'BASH', 'ENG']
 
 const LANG = {
@@ -105,15 +113,21 @@ const SideMenuComponent = ({
             onPress={() => navigation.navigate(item)}
           >
             <TextC>
-              {
-                getLangText(
-                  languages.sideMenu.routes[language],
-                  `sideMenu.routes.${language}`,
-                )[index]
-              }
+              {getLangText(
+                languages.routes[item][language],
+                `languages.routes.${item}.${language}`,
+              )}
             </TextC>
           </TouchableOpacity>
         ))}
+        <TouchableOpacity style={{ marginTop: 30 }} onPress={() => {}}>
+          <TextC>
+            {getLangText(
+              languages.share[language],
+              `languages.share.${language}`,
+            )}
+          </TextC>
+        </TouchableOpacity>
       </View>
       <View style={DIVIDER_2} />
       <TextC>
