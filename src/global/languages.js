@@ -119,42 +119,45 @@ export const languages = {
       bash: 'Кире бәйләнеш',
     },
   },
-  sideMenu: {
-    routes: {
-      rus: [
-        'Заметки',
-        'Избранное',
-        'Нормативная база',
-        'Настройки',
-        'О приложении',
-        'Пользовательское соглашение',
-        'Политика конфиденциальности',
-        'Обратная связь',
-        'Поделиться',
-      ],
-      eng: [
-        'Notes',
-        'Favorites',
-        'Normative base',
-        'Settings',
-        'About',
-        'Terms of use',
-        'Privacy policy',
-        'Feedback',
-        'Share',
-      ],
-      bash: [
-        'Заметки',
-        'Избранное',
-        'Нормативная база',
-        'Настройки',
-        'Мобиль ҡушымта тураһында',
-        'Ҡулланыусылар килешеүе',
-        'Конфиденциаллек сәйәсәте',
-        'Кире бәйләнеш',
-        'Бүлешергә',
-      ],
+  nestedRoutes: {
+    Description: {
+      rus: 'Описание',
+      eng: 'Description',
+      bash: '',
     },
+    Stuff: {
+      rus: 'Материалы',
+      eng: 'Stuff',
+      bash: '',
+    },
+    Tools: {
+      rus: 'Инструменты',
+      eng: 'Tools',
+      bash: '',
+    },
+    Tech: {
+      rus: 'Технология',
+      eng: 'Technology',
+      bash: '',
+    },
+    Video: {
+      rus: 'Видео',
+      eng: 'Video',
+      bash: '',
+    },
+    Audio: {
+      rus: 'Аудио',
+      eng: 'Audio',
+      bash: '',
+    },
+    Sources: {
+      rus: 'Источники',
+      eng: 'Sources',
+      bash: '',
+    },
+  },
+
+  sideMenu: {
     close: {
       rus: 'Закрыть',
       eng: 'Close',
@@ -226,43 +229,6 @@ export const languages = {
     langBash: {
       rus: 'Башкирский',
       eng: 'Bashkir',
-      bash: '',
-    },
-  },
-  nestedRoutes: {
-    Description: {
-      rus: 'Описание',
-      eng: 'Description',
-      bash: '',
-    },
-    Stuff: {
-      rus: 'Материалы',
-      eng: 'Stuff',
-      bash: '',
-    },
-    Tools: {
-      rus: 'Инструменты',
-      eng: 'Tools',
-      bash: '',
-    },
-    Tech: {
-      rus: 'Технология',
-      eng: 'Technology',
-      bash: '',
-    },
-    Video: {
-      rus: 'Видео',
-      eng: 'Video',
-      bash: '',
-    },
-    Audio: {
-      rus: 'Аудио',
-      eng: 'Audio',
-      bash: '',
-    },
-    Sources: {
-      rus: 'Источники',
-      eng: 'Sources',
       bash: '',
     },
   },
@@ -1280,7 +1246,6 @@ export const languages = {
       bash: '',
     },
   },
-
   share: {
     rus: 'Поделиться',
     eng: 'Share',
