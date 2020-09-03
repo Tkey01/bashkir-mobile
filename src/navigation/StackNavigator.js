@@ -11,6 +11,12 @@ import { getLangText } from '../helpers/getLangText'
 
 export const Stack = createStackNavigator()
 
+import { generateCommonRoutes } from '../helpers/generateCommonRoutes'
+
+const testFn = () => (
+  <Stack.Screen name="TermsR" component={SCREENS.Terms} options={{}} />
+)
+
 export const StackNavigatorComponent = ({
   navigation,
   favorites,
@@ -57,112 +63,12 @@ export const StackNavigatorComponent = ({
         }}
       />
       <Stack.Screen
-        name="BortDescription"
-        component={SCREENS.BortDescription}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.description[lang],
-            `nestedRoutes.description.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="BortSources"
-        component={SCREENS.BortSources}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.sources[lang],
-            `nestedRoutes.sources.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="BortStuff"
-        component={SCREENS.BortStuff}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.stuff[lang],
-            `nestedRoutes.stuff.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="BortTech"
-        component={SCREENS.BortTech}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.tech[lang],
-            `nestedRoutes.tech.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="BortTools"
-        component={SCREENS.BortTools}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.tools[lang],
-            `nestedRoutes.tools.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
         name="Shor"
         component={SCREENS.ShorMain}
         options={{
           title: getLangText(
             languages.routes.Shor[lang],
             `routes.Shor.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="ShorDescription"
-        component={SCREENS.ShorDescription}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.description[lang],
-            `nestedRoutes.description.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="ShorSources"
-        component={SCREENS.ShorSources}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.sources[lang],
-            `nestedRoutes.sources.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="ShorStuff"
-        component={SCREENS.ShorStuff}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.stuff[lang],
-            `nestedRoutes.stuff.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="ShorTech"
-        component={SCREENS.ShorTech}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.tech[lang],
-            `nestedRoutes.tech.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="ShorTools"
-        component={SCREENS.ShorTools}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.tools[lang],
-            `nestedRoutes.tools.${lang}`,
           ),
         }}
       />
@@ -177,112 +83,12 @@ export const StackNavigatorComponent = ({
         }}
       />
       <Stack.Screen
-        name="TextileDescription"
-        component={SCREENS.TextileDescription}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.description[lang],
-            `nestedRoutes.description.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="TextileSources"
-        component={SCREENS.TextileSources}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.sources[lang],
-            `nestedRoutes.sources.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="TextileStuff"
-        component={SCREENS.TextileStuff}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.stuff[lang],
-            `nestedRoutes.stuff.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="TextileTech"
-        component={SCREENS.TextileTech}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.tech[lang],
-            `nestedRoutes.tech.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="TextileTools"
-        component={SCREENS.TextileTools}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.tools[lang],
-            `nestedRoutes.tools.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
         name="Wood"
         component={SCREENS.WoodMain}
         options={{
           title: getLangText(
             languages.routes.Wood[lang],
             `routes.Wood.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="WoodDescription"
-        component={SCREENS.WoodDescription}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.description[lang],
-            `nestedRoutes.description.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="WoodSources"
-        component={SCREENS.WoodSources}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.sources[lang],
-            `nestedRoutes.sources.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="WoodStuff"
-        component={SCREENS.WoodStuff}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.stuff[lang],
-            `nestedRoutes.stuff.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="WoodTech"
-        component={SCREENS.WoodTech}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.tech[lang],
-            `nestedRoutes.tech.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="WoodTools"
-        component={SCREENS.WoodTools}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.tools[lang],
-            `nestedRoutes.tools.${lang}`,
           ),
         }}
       />
@@ -297,56 +103,6 @@ export const StackNavigatorComponent = ({
         }}
       />
       <Stack.Screen
-        name="BerestDescription"
-        component={SCREENS.BerestDescription}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.description[lang],
-            `nestedRoutes.description.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="BerestSources"
-        component={SCREENS.BerestSources}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.sources[lang],
-            `nestedRoutes.sources.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="BerestStuff"
-        component={SCREENS.BerestStuff}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.stuff[lang],
-            `nestedRoutes.stuff.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="BerestTech"
-        component={SCREENS.BerestTech}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.tech[lang],
-            `nestedRoutes.tech.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="BerestTools"
-        component={SCREENS.BerestTools}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.tools[lang],
-            `nestedRoutes.tools.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
         name="Voil"
         component={SCREENS.VoilMain}
         options={{
@@ -356,56 +112,14 @@ export const StackNavigatorComponent = ({
           ),
         }}
       />
-      <Stack.Screen
-        name="VoilDescription"
-        component={SCREENS.VoilDescription}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.description[lang],
-            `nestedRoutes.description.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="VoilSources"
-        component={SCREENS.VoilSources}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.sources[lang],
-            `nestedRoutes.sources.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="VoilStuff"
-        component={SCREENS.VoilStuff}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.stuff[lang],
-            `nestedRoutes.stuff.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="VoilTech"
-        component={SCREENS.VoilTech}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.tech[lang],
-            `nestedRoutes.tech.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
-        name="VoilTools"
-        component={SCREENS.VoilTools}
-        options={{
-          title: getLangText(
-            languages.nestedRoutes.tools[lang],
-            `nestedRoutes.tools.${lang}`,
-          ),
-        }}
-      />
+
+      {generateCommonRoutes({ routeName: 'Bort', lang })}
+      {generateCommonRoutes({ routeName: 'Shor', lang })}
+      {generateCommonRoutes({ routeName: 'Textile', lang })}
+      {generateCommonRoutes({ routeName: 'Wood', lang })}
+      {generateCommonRoutes({ routeName: 'Berest', lang })}
+      {generateCommonRoutes({ routeName: 'Voil', lang })}
+
       <Stack.Screen
         name="Settings"
         component={SCREENS.Settings}

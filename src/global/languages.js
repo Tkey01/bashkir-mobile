@@ -210,37 +210,37 @@ export const languages = {
     },
   },
   nestedRoutes: {
-    description: {
+    Description: {
       rus: 'Описание',
       eng: 'Description',
       bash: '',
     },
-    stuff: {
+    Stuff: {
       rus: 'Материалы',
       eng: 'Stuff',
       bash: '',
     },
-    tools: {
+    Tools: {
       rus: 'Инструменты',
       eng: 'Tools',
       bash: '',
     },
-    tech: {
+    Tech: {
       rus: 'Технология',
       eng: 'Technology',
       bash: '',
     },
-    video: {
+    Video: {
       rus: 'Видео',
       eng: 'Video',
       bash: '',
     },
-    audio: {
+    Audio: {
       rus: 'Аудио',
       eng: 'Audio',
       bash: '',
     },
-    sources: {
+    Sources: {
       rus: 'Источники',
       eng: 'Sources',
       bash: '',

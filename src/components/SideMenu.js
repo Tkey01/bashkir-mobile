@@ -120,7 +120,12 @@ const SideMenuComponent = ({
             </TextC>
           </TouchableOpacity>
         ))}
-        <TouchableOpacity style={{ marginTop: 30 }} onPress={() => {}}>
+        <TouchableOpacity
+          style={{ marginTop: 30 }}
+          onPress={() => {
+            navigation.navigate('TermsR')
+          }}
+        >
           <TextC>
             {getLangText(
               languages.share[language],
