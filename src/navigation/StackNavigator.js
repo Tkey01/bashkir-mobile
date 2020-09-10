@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-
+import PlayerScreen from 'react-native-sound-playerview'
 import { createStackNavigator } from '@react-navigation/stack'
 
 import * as SCREENS from '../screens'
@@ -12,6 +12,7 @@ import { getLangText } from '../helpers/getLangText'
 export const Stack = createStackNavigator()
 
 import { generateCommonRoutes } from '../helpers/generateCommonRoutes'
+import { audioMapping } from '../global/audioMapping'
 
 export const StackNavigatorComponent = ({
   navigation,
@@ -25,7 +26,10 @@ export const StackNavigatorComponent = ({
       initialRouteName="Main"
       screenOptions={{
         header: (props) => {
-          const isFavor = favorites[props.scene.route.name]
+          const routeName = props.scene.route.name
+          const isFavor = favorites[routeName]
+          const audioFile = audioMapping[routeName]
+
           return (
             <MyHeader
               {...props}
@@ -33,11 +37,29 @@ export const StackNavigatorComponent = ({
               searchAction={() => navigation.navigate('Search')}
               toggleFavorite={toggleFavorite}
               toggleSideMenu={props.navigation.toggleDrawer}
+              playVideoAction={
+                audioFile
+                  ? () =>
+                      navigation.navigate('AudioPlayer', {
+                        filepath: audioFile,
+                      })
+                  : null
+              }
             />
           )
         },
       }}
     >
+      <Stack.Screen
+        name="AudioPlayer"
+        component={PlayerScreen}
+        options={{
+          title: getLangText(
+            languages.routes.AudioPlayer[lang],
+            `routes.AudioPlayer.${lang}`,
+          ),
+        }}
+      />
       <Stack.Screen
         name="Main"
         component={SCREENS.Main}

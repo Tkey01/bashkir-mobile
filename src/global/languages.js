@@ -5,6 +5,11 @@ export const languages = {
       eng: 'Main menu',
       bash: '',
     },
+    AudioPlayer: {
+      rus: 'Аудио',
+      eng: 'Audio',
+      bash: '',
+    },
 
     Bort: {
       rus: 'Бортничество',

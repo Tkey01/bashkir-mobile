@@ -22,7 +22,7 @@ const BACK_BUTTON = {
 const BUTTON = {
   width: 30,
   height: 30,
-  marginLeft: 22,
+  marginLeft: 16,
   alignItems: 'center',
   justifyContent: 'center',
 }

@@ -4,5 +4,11 @@ module.exports = {
   rules: {
     'react-native/no-inline-styles': 0,
     semi: 0,
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
   },
 }
