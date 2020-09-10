@@ -14,63 +14,63 @@ export const languages = {
     Bort: {
       rus: 'Бортничество',
       eng: 'Bortnichestvo',
-      bash: '',
+      bash: 'Солоҡсолоҡ',
     },
     Shor: {
       rus: 'Шорничество',
       eng: 'Saddlery',
-      bash: '',
+      bash: 'Ат егеү кәрәк-ярағын етештереү кәсебе',
     },
     Voil: {
       rus: 'Войлочные изделия',
       eng: 'Felt products',
-      bash: '',
+      bash: 'Кейеҙ әйберҙәрҙе етештереү',
     },
     Textile: {
       rus: 'Текстильные изделия',
       eng: 'Textile products',
-      bash: '',
+      bash: 'Туҡыманан әйберҙәр  эшләү',
     },
     TextileQuilt: {
       rus: 'Квилтинг',
       eng: 'Quilting',
-      bash: '',
+      bash: 'Квилтинг',
     },
     TextileChen: {
       rus: 'Синель',
       eng: 'Chenille',
-      bash: '',
+      bash: 'Синель',
     },
     TextilePatch: {
       rus: 'Пэчворк',
       eng: 'Patchwork',
-      bash: '',
+      bash: 'Пэчворк',
     },
     TextileBatik: {
       rus: 'Батик',
       eng: 'Batik',
-      bash: '',
+      bash: 'Батик',
     },
     Wood: {
       rus: 'Резьба по дереву',
       eng: 'Wood carving',
-      bash: '',
+      bash: 'Ағас семәрләү сәнғәте',
     },
     Berest: {
       rus: 'Резьба по бересте',
       eng: 'Birch bark carving',
-      bash: '',
+      bash: 'Туҙ семәрләү сәнғәте',
     },
 
     Settings: {
       rus: 'Настройки',
       eng: 'Settings',
-      bash: '',
+      bash: 'Көйләү',
     },
     Notes: {
       rus: 'Заметки',
       eng: 'Notes',
-      bash: '',
+      bash: 'Яҙмалар',
     },
     AddNote: {
       rus: 'Добавить заметку',
@@ -86,12 +86,12 @@ export const languages = {
     Favorites: {
       rus: 'Избранное',
       eng: 'Favorites',
-      bash: '',
+      bash: 'Һайлап  алынған',
     },
     NormBase: {
       rus: 'Нормативная база',
       eng: 'Normative base',
-      bash: '',
+      bash: 'Норматив база',
     },
     RulesAct: {
       rus: 'Правовой акт',
@@ -128,22 +128,22 @@ export const languages = {
     Description: {
       rus: 'Описание',
       eng: 'Description',
-      bash: '',
+      bash: 'Һүрәтләмә',
     },
     Stuff: {
       rus: 'Материалы',
       eng: 'Stuff',
-      bash: '',
+      bash: 'Материалдар',
     },
     Tools: {
       rus: 'Инструменты',
       eng: 'Tools',
-      bash: '',
+      bash: 'Ҡорамалдар',
     },
     Tech: {
       rus: 'Технология',
       eng: 'Technology',
-      bash: '',
+      bash: 'Эшләү ысулы',
     },
     Video: {
       rus: 'Видео',
@@ -158,7 +158,7 @@ export const languages = {
     Sources: {
       rus: 'Источники',
       eng: 'Sources',
-      bash: '',
+      bash: 'Ҡулланылған сығанаҡтар',
     },
   },
 
@@ -172,12 +172,11 @@ export const languages = {
   normBase: {
     acts: {
       rus: [
-        'Правовой акт номер 1',
-        'Правовой акт номер 2',
-        'Правовой акт номер 3',
-        'Правовой акт номер 4',
-        'Правовой акт номер 5',
-        'Правовой акт номер 6',
+        'Федеральный закон N 7-ФЗ',
+        'Протокол президиума по стратегическому развитию и национальным проектам',
+        'Отраслевое соглашение',
+        'Приказ Минпромторга РФ от 15.04.2009 N 273',
+        'Приказ Минпромторга РФ от 15.04.2009 N 274',
       ],
       eng: [
         'Legal act 1',
@@ -185,63 +184,68 @@ export const languages = {
         'Legal act 3',
         'Legal act 4',
         'Legal act 5',
-        'Legal act 6',
       ],
-      bash: [],
+      bash: [
+        'Федераль закон N 7-ФЗ',
+        'Стратегик үҫеш һәм милли проекттар  буйынса президиум протоколы',
+        'Тармаҡ килешеүе',
+        'РФ Промышленность һәм  сауҙа министрлығының  2009 йылдың 15 апрелендәге   273-се һанлы приказы.',
+        'РФ Промышленность һәм  сауҙа министрлығының  2009 йылдың 15 апрелендәге   274-се һанлы приказы',
+      ],
     },
   },
   settings: {
     themeText: {
       rus: 'Тема',
       eng: 'Theme',
-      bash: '',
+      bash: 'Тема',
     },
     textSize: {
       rus: 'Размер текста',
       eng: 'Text size',
-      bash: '',
+      bash: 'Текстың размеры',
     },
     themeLight: {
       rus: 'Светлая',
       eng: 'Light',
-      bash: '',
+      bash: 'Яҡты',
     },
     themeDark: {
       rus: 'Темная',
       eng: 'Dark',
-      bash: '',
+      bash: 'Ҡараңғы',
     },
     langText: {
       rus: 'Язык',
       eng: 'Language',
-      bash: '',
+      bash: 'Тел',
     },
     changeLangText: {
       rus: 'Выбор языка',
       eng: 'Select language',
-      bash: '',
+      bash: 'Телде һайлау',
     },
     langRus: {
       rus: 'Русский',
       eng: 'Russian',
-      bash: '',
+      bash: 'Русса',
     },
     langEng: {
       rus: 'Английский',
       eng: 'English',
-      bash: '',
+      bash: 'Инглизсә',
     },
     langBash: {
       rus: 'Башкирский',
       eng: 'Bashkir',
-      bash: '',
+      bash: 'Инглизсә',
     },
   },
   notes: {
     notAdded: {
       rus: 'На данный момент\n не добавлено ни\n одной заметки',
       eng: 'No notes have been added yet',
-      bash: '',
+      bash: 'Әлеге мәлдә бер яҙма ла юҡ',
     },
     addText: {
       rus: 'Добавить',

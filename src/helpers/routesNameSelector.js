@@ -5,35 +5,35 @@ export const routesNameSelector = (screenName, lang) => {
   if (screenName.includes('Description')) {
     return getLangText(
       languages.nestedRoutes.Description[lang],
-      `nestedRoutes.description.${lang}`,
+      `nestedRoutes.Description.${lang}`,
     )
   } else if (screenName.includes('Sources')) {
     return getLangText(
       languages.nestedRoutes.Sources[lang],
-      `nestedRoutes.sources.${lang}`,
+      `nestedRoutes.Sources.${lang}`,
     )
   } else if (screenName.includes('Stuff')) {
     return getLangText(
       languages.nestedRoutes.Stuff[lang],
-      `nestedRoutes.stuff.${lang}`,
+      `nestedRoutes.Stuff.${lang}`,
     )
   } else if (screenName.includes('Tech')) {
     return getLangText(
       languages.nestedRoutes.Tech[lang],
-      `nestedRoutes.tech.${lang}`,
+      `nestedRoutes.Tech.${lang}`,
     )
   } else if (screenName.includes('Tools')) {
     return getLangText(
       languages.nestedRoutes.Tools[lang],
-      `nestedRoutes.tools.${lang}`,
+      `nestedRoutes.Tools.${lang}`,
     )
   } else if (screenName.includes('Video')) {
     return getLangText(
       languages.nestedRoutes.Video[lang],
-      `nestedRoutes.video.${lang}`,
+      `nestedRoutes.Video.${lang}`,
     )
   } else if (screenName.includes('Note-')) {
-    return 'Заметка'
+    return getLangText(languages.routes.Note[lang], `routes.Note.${lang}`)
   } else {
     return getLangText(
       languages.routes[screenName][lang],

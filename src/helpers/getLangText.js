@@ -24,6 +24,6 @@ export const getLangText = (elem, path) => {
 
     return elem
   } catch (e) {
-    console.log('getLangText', elem, path, languages.routes.Feedback)
+    console.log('Error getLangText', elem, path, e)
   }
 }

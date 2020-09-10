@@ -106,20 +106,22 @@ const SideMenuComponent = ({
       </TouchableOpacity>
       <View style={DIVIDER_1} />
       <View>
-        {list.map((item, index) => (
-          <TouchableOpacity
-            key={index}
-            style={{ marginTop: index ? 30 : 0 }}
-            onPress={() => navigation.navigate(item)}
-          >
-            <TextC>
-              {getLangText(
-                languages.routes[item][language],
-                `languages.routes.${item}.${language}`,
-              )}
-            </TextC>
-          </TouchableOpacity>
-        ))}
+        {list.map((item, index) => {
+          return (
+            <TouchableOpacity
+              key={index}
+              style={{ marginTop: index ? 30 : 0 }}
+              onPress={() => navigation.navigate(item)}
+            >
+              <TextC>
+                {getLangText(
+                  languages.routes[item][language],
+                  `routes.${item}.${language}`,
+                )}
+              </TextC>
+            </TouchableOpacity>
+          )
+        })}
         <TouchableOpacity
           style={{ marginTop: 30 }}
           onPress={() => {
@@ -127,10 +129,7 @@ const SideMenuComponent = ({
           }}
         >
           <TextC>
-            {getLangText(
-              languages.share[language],
-              `languages.share.${language}`,
-            )}
+            {getLangText(languages.share[language], `share.${language}`)}
           </TextC>
         </TouchableOpacity>
       </View>

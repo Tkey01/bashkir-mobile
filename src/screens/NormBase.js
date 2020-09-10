@@ -5,6 +5,8 @@ import { ScreenWrapper } from '../components/ScreenWrapper'
 import { ListItem } from '../components/ListItem'
 import actIcon from '../assets/images/act-icon.png'
 import { Linking } from 'react-native'
+import { getLangText } from '../helpers/getLangText'
+import { languages } from '../global/languages'
 
 const path = 'https://uniprolings.ru/remeslo'
 
@@ -53,7 +55,10 @@ export const NormBaseComponent = ({ lang }) => {
         <ListItem
           key={index}
           icon={actIcon}
-          text={act.name}
+          text={getLangText(
+            languages.normBase.acts[lang][index],
+            `normBase.acts.${lang}.${index}`,
+          )}
           onPressSave={() => onSave(act.link)}
         />
       ))}
