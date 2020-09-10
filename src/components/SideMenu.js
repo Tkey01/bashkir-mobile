@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, TouchableOpacity } from 'react-native'
+import { View, TouchableOpacity, Share } from 'react-native'
 import { connect } from 'react-redux'
 
 import * as ACTIONS from '../redux/actions'
@@ -78,6 +78,16 @@ const SideMenuComponent = ({
   setTheme,
   theme,
 }) => {
+  const onShare = async () => {
+    try {
+      // eslint-disable-next-line no-unused-vars
+      const result = await Share.share({
+        message: 'Message to share',
+      })
+    } catch (error) {
+      console.log('Error while trying share - ', error)
+    }
+  }
   return (
     <ScreenWrapper
       contentContainerStyle={{
@@ -122,12 +132,7 @@ const SideMenuComponent = ({
             </TouchableOpacity>
           )
         })}
-        <TouchableOpacity
-          style={{ marginTop: 30 }}
-          onPress={() => {
-            navigation.navigate('TermsR')
-          }}
-        >
+        <TouchableOpacity style={{ marginTop: 30 }} onPress={onShare}>
           <TextC>
             {getLangText(languages.share[language], `share.${language}`)}
           </TextC>
