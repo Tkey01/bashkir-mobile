@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { View, TouchableOpacity, Share } from 'react-native'
 import { connect } from 'react-redux'
 
@@ -78,7 +78,7 @@ const SideMenuComponent = ({
   setTheme,
   theme,
 }) => {
-  const onShare = async () => {
+  const onShare = useCallback(async () => {
     try {
       // eslint-disable-next-line no-unused-vars
       const result = await Share.share({
@@ -87,7 +87,7 @@ const SideMenuComponent = ({
     } catch (error) {
       console.log('Error while trying share - ', error)
     }
-  }
+  }, [])
   return (
     <ScreenWrapper
       contentContainerStyle={{

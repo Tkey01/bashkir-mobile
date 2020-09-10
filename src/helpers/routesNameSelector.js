@@ -35,9 +35,13 @@ export const routesNameSelector = (screenName, lang) => {
   } else if (screenName.includes('Note-')) {
     return getLangText(languages.routes.Note[lang], `routes.Note.${lang}`)
   } else {
-    return getLangText(
-      languages.routes[screenName][lang],
-      `routes.${screenName}.${lang}`,
-    )
+    try {
+      return getLangText(
+        languages.routes[screenName][lang],
+        `routes.${screenName}.${lang}`,
+      )
+    } catch (e) {
+      console.log('routeNameSelector - ', screenName, lang)
+    }
   }
 }

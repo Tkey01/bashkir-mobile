@@ -93,11 +93,6 @@ export const languages = {
       eng: 'Normative base',
       bash: 'Норматив база',
     },
-    RulesAct: {
-      rus: 'Правовой акт',
-      eng: 'Legal act',
-      bash: '',
-    },
     Search: {
       rus: 'Поиск',
       eng: 'Search',
@@ -144,16 +139,6 @@ export const languages = {
       rus: 'Технология',
       eng: 'Technology',
       bash: 'Эшләү ысулы',
-    },
-    Video: {
-      rus: 'Видео',
-      eng: 'Video',
-      bash: '',
-    },
-    Audio: {
-      rus: 'Аудио',
-      eng: 'Audio',
-      bash: '',
     },
     Sources: {
       rus: 'Источники',

@@ -26,6 +26,22 @@ export const routes = [
     title: languages.routes.Voil,
   },
   {
+    routeName: 'TextileBatik',
+    title: languages.routes.Textile,
+  },
+  {
+    routeName: 'TextileQuilt',
+    title: languages.routes.TextileQuilt,
+  },
+  {
+    routeName: 'TextileChen',
+    title: languages.routes.TextileChen,
+  },
+  {
+    routeName: 'TextilePatch',
+    title: languages.routes.TextilePatch,
+  },
+  {
     routeName: 'Textile',
     title: languages.routes.Textile,
   },
@@ -55,22 +71,33 @@ export const routes = [
     title: languages.routes.NormBase,
   },
   {
-    routeName: 'RulesAct',
-    title: languages.routes.RulesAct,
-  },
-  {
     routeName: 'Search',
     title: languages.routes.Search,
   },
   {
-    routeName: 'NormBase',
-    title: languages.routes.NormBase,
+    routeName: 'About',
+    title: languages.routes.About,
+  },
+  {
+    routeName: 'Terms',
+    title: languages.routes.Terms,
+  },
+  {
+    routeName: 'PrivacyPolicy',
+    title: languages.routes.PrivacyPolicy,
+  },
+  {
+    routeName: 'Feedback',
+    title: languages.routes.Feedback,
   },
 
   ...createNestedRoutes('Bort'),
   ...createNestedRoutes('Shor'),
   ...createNestedRoutes('Voil'),
-  ...createNestedRoutes('Textile'),
+  ...createNestedRoutes('TextileBatik'),
+  ...createNestedRoutes('TextilePatch'),
+  ...createNestedRoutes('TextileChen'),
+  ...createNestedRoutes('TextileQuilt'),
   ...createNestedRoutes('Wood'),
   ...createNestedRoutes('Berest'),
 ]

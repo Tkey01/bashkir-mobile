@@ -9,6 +9,7 @@ import { iconSelector } from '../helpers/iconSelector'
 import * as ACTIONS from '../redux/actions'
 import searchIcon from '../assets/images/search-icon.png'
 import { IconC } from '../components/IconC'
+import { routesNameSelector } from '../helpers/routesNameSelector'
 
 const SEARCH_CONTAINER = {
   borderWidth: 1,
@@ -89,10 +90,10 @@ export const SearchComponent = ({
       {results.map((route, index) => (
         <ListItem
           key={index}
-          text={route.title[lang]}
+          text={routesNameSelector(route.routeName, lang)}
           icon={iconSelector(route.routeName)}
           isFavor={favorites[route.routeName]}
-          onPressFavor={toggleFavorite}
+          onPressFavor={() => toggleFavorite(route.routeName)}
           onPress={() => navigation.navigate(route.routeName)}
         />
       ))}
