@@ -1,5 +1,4 @@
 import React, { useRef } from 'react'
-import { View } from 'react-native'
 import { connect } from 'react-redux'
 
 import materialsIcon from '../assets/images/materials-icon.png'

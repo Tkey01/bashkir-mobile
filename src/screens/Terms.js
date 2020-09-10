@@ -1,16 +1,28 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { View, Text } from 'react-native'
+import { ScreenWrapper } from '../components/ScreenWrapper'
+import { ScalableText } from '../components/ScalableText'
+import { getLangText } from '../helpers/getLangText'
+import { languages } from '../global/languages'
 
-export const TermsComponent = () => {
+export const TermsComponent = ({ lang }) => {
   return (
-    <View>
-      <Text>Terms</Text>
-    </View>
+    <ScreenWrapper
+      contentContainerStyle={{
+        paddingVertical: 46,
+        paddingHorizontal: 16,
+      }}
+    >
+      <ScalableText>
+        {getLangText(languages.routes.Terms[lang], `routes.Terms.${lang}`)}
+      </ScalableText>
+    </ScreenWrapper>
   )
 }
 
-const mapStateToProps = (state, ownProps) => ({})
+const mapStateToProps = (state, ownProps) => ({
+  lang: state.language,
+})
 
 const mapDispatchToProps = {}
 

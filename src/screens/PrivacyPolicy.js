@@ -1,16 +1,31 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { View, Text } from 'react-native'
+import { ScreenWrapper } from '../components/ScreenWrapper'
+import { ScalableText } from '../components/ScalableText'
+import { getLangText } from '../helpers/getLangText'
+import { languages } from '../global/languages'
 
-export const PrivacyPolicyComponent = () => {
+export const PrivacyPolicyComponent = ({ lang }) => {
   return (
-    <View>
-      <Text>PrivacyPolicy</Text>
-    </View>
+    <ScreenWrapper
+      contentContainerStyle={{
+        paddingVertical: 46,
+        paddingHorizontal: 16,
+      }}
+    >
+      <ScalableText>
+        {getLangText(
+          languages.routes.PrivacyPolicy[lang],
+          `routes.PrivacyPolicy.${lang}`,
+        )}
+      </ScalableText>
+    </ScreenWrapper>
   )
 }
 
-const mapStateToProps = (state, ownProps) => ({})
+const mapStateToProps = (state, ownProps) => ({
+  lang: state.language,
+})
 
 const mapDispatchToProps = {}
 
