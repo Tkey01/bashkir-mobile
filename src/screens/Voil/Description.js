@@ -1,12 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { ScrollView } from 'react-native'
+import { Image } from 'react-native'
 
 import { TemplateString } from '../../components/TemplateString'
 import { languages } from '../../global/languages'
 import { getTemplateStringArray } from '../../helpers/getTemplateStringArray'
 import { getLangText } from '../../helpers/getLangText'
 import { ScreenWrapper } from '../../components/ScreenWrapper'
+import voil from '../../assets/images/content/voil.jpg'
 
 export const DescriptionComponent = ({ lang }) => {
   return (
@@ -16,6 +17,16 @@ export const DescriptionComponent = ({ lang }) => {
         paddingHorizontal: 16,
       }}
     >
+      <Image
+        source={voil}
+        resizeMethod="scale"
+        resizeMode="cover"
+        style={{
+          width: '100%',
+          height: 300,
+          marginBottom: 10,
+        }}
+      />
       <TemplateString>
         {getTemplateStringArray(
           getLangText(

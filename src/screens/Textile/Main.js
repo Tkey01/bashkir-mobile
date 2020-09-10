@@ -1,5 +1,4 @@
 import React from 'react'
-import { View } from 'react-native'
 import { connect } from 'react-redux'
 
 import { ListItem } from '../../components/ListItem'
@@ -24,27 +23,21 @@ export const MainComponent = ({
         paddingHorizontal: 16,
       }}
     >
-      <View
-        style={{
-          marginTop: 40,
-        }}
-      >
-        {routes.map((routeName, index) => {
-          return (
-            <ListItem
-              key={index}
-              text={getLangText(
-                languages.routes[routeName][lang],
-                `routes.${routeName}.${lang}`,
-              )}
-              icon={iconSelector(routeName)}
-              isFavor={favorites[routeName]}
-              onPress={() => navigation.navigate(routeName)}
-              onPressFavor={() => toggleFavorite(routeName)}
-            />
-          )
-        })}
-      </View>
+      {routes.map((routeName, index) => {
+        return (
+          <ListItem
+            key={index}
+            text={getLangText(
+              languages.routes[routeName][lang],
+              `routes.${routeName}.${lang}`,
+            )}
+            icon={iconSelector(routeName)}
+            isFavor={favorites[routeName]}
+            onPress={() => navigation.navigate(routeName)}
+            onPressFavor={() => toggleFavorite(routeName)}
+          />
+        )
+      })}
     </ScreenWrapper>
   )
 }

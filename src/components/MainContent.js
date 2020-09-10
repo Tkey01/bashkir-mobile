@@ -49,22 +49,16 @@ export const MainContentComponent = ({
         paddingHorizontal: 16,
       }}
     >
-      <View
-        style={{
-          marginTop: 40,
-        }}
-      >
-        {pages.current.map((page, index) => (
-          <ListItem
-            key={index}
-            text={routesNameSelector(page.screenName, language)}
-            icon={page.icon}
-            isFavor={favorites[page.screenName]}
-            onPress={() => navigation.navigate(page.screenName)}
-            onPressFavor={() => toggleFavorite(page.screenName)}
-          />
-        ))}
-      </View>
+      {pages.current.map((page, index) => (
+        <ListItem
+          key={index}
+          text={routesNameSelector(page.screenName, language)}
+          icon={page.icon}
+          isFavor={favorites[page.screenName]}
+          onPress={() => navigation.navigate(page.screenName)}
+          onPressFavor={() => toggleFavorite(page.screenName)}
+        />
+      ))}
     </ScreenWrapper>
   )
 }
