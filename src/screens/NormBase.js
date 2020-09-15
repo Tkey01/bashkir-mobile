@@ -31,7 +31,7 @@ const acts = [
   },
 ]
 
-export const NormBaseComponent = ({ lang }) => {
+export const NormBaseComponent = ({ lang, navigation }) => {
   const onSave = useCallback((link) => {
     Linking.canOpenURL(link)
       .then((canOpen) => {
@@ -59,6 +59,7 @@ export const NormBaseComponent = ({ lang }) => {
             languages.normBase.acts[lang][index],
             `normBase.acts.${lang}.${index}`,
           )}
+          onPress={() => navigation.navigate('RulesAct', { index })}
           onPressSave={() => onSave(act.link)}
         />
       ))}

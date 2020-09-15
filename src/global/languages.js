@@ -113,6 +113,11 @@ export const languages = {
       eng: 'Feedback',
       bash: 'Кире бәйләнеш',
     },
+    RulesAct: {
+      rus: 'Правовой акт',
+      eng: 'Rules act',
+      bash: '',
+    },
   },
   nestedRoutes: {
     Description: {

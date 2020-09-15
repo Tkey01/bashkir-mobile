@@ -310,6 +310,18 @@ export const StackNavigatorComponent = ({
           ),
         }}
       />
+      <Stack.Screen
+        name="RulesAct"
+        component={SCREENS.RulesAct}
+        options={{
+          title: cutLongTitle(
+            getLangText(
+              languages.routes.RulesAct[lang],
+              `routes.RulesAct.${lang}`,
+            ),
+          ),
+        }}
+      />
       {notes.map((note) => (
         <Stack.Screen
           key={note.routeName}
