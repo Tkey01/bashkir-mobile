@@ -30,8 +30,8 @@ export const DescriptionComponent = ({ lang }) => {
       <TemplateString>
         {getTemplateStringArray(
           getLangText(
-            languages.textile.description[lang],
-            `textile.description.${lang}`,
+            languages.textile.quilt.description[lang],
+            `textile.quilt.description.${lang}`,
           ),
         )}
       </TemplateString>

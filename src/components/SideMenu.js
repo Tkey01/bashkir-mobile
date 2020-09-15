@@ -81,7 +81,7 @@ const SideMenuComponent = ({
     try {
       // eslint-disable-next-line no-unused-vars
       const result = await Share.share({
-        message: 'Message to share',
+        message: 'https://uniprolings.ru/bash_remeslo',
       })
     } catch (error) {
       console.log('Error while trying share - ', error)

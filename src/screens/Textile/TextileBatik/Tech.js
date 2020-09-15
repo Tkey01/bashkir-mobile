@@ -18,7 +18,10 @@ export const TechComponent = ({ lang }) => {
     >
       <TemplateString>
         {getTemplateStringArray(
-          getLangText(languages.textile.tech[lang], `textile.tech.${lang}`),
+          getLangText(
+            languages.textile.batik.tech[lang],
+            `textile.batik.tech.${lang}`,
+          ),
         )}
       </TemplateString>
     </ScreenWrapper>

@@ -19,8 +19,8 @@ export const SourcesComponent = ({ lang }) => {
       <TemplateString>
         {getTemplateStringArray(
           getLangText(
-            languages.textile.sources[lang],
-            `textile.sources.${lang}`,
+            languages.textile.quilt.sources[lang],
+            `textile.quilt.sources.${lang}`,
           ),
         )}
       </TemplateString>

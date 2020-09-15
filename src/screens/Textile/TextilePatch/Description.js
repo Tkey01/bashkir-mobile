@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { ScrollView, Image } from 'react-native'
+import { Image } from 'react-native'
 
 import { TemplateString } from '../../../components/TemplateString'
 import { languages } from '../../../global/languages'
@@ -30,8 +30,8 @@ export const DescriptionComponent = ({ lang }) => {
       <TemplateString>
         {getTemplateStringArray(
           getLangText(
-            languages.textile.description[lang],
-            `textile.description.${lang}`,
+            languages.textile.patch.description[lang],
+            `textile.patch.description.${lang}`,
           ),
         )}
       </TemplateString>

@@ -18,7 +18,10 @@ export const StuffComponent = ({ lang }) => {
     >
       <TemplateString>
         {getTemplateStringArray(
-          getLangText(languages.textile.stuff[lang], `textile.stuff.${lang}`),
+          getLangText(
+            languages.textile.quilt.stuff[lang],
+            `textile.quilt.stuff.${lang}`,
+          ),
         )}
       </TemplateString>
     </ScreenWrapper>
