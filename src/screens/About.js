@@ -24,7 +24,7 @@ const renderContent = ({ lang }) => {
     case 'bash':
       return (
         <ScalableText>
-          Коммерциялы булмаған «Ресурс мәҙәни үҙәк» ойошмаһы тарафынан
+          {'  '}Коммерциялы булмаған «Ресурс мәҙәни үҙәк» ойошмаһы тарафынан
           Башҡортостан Республикаһының гражданлыҡ йәмғиәтен үҫтереүгә булышлыҡ
           итеү фонды ярҙамы менән ойошторолған «Акнур» мәҙәни-ағартыу проекты
           рамкаларында{' '}
@@ -35,29 +35,33 @@ const renderContent = ({ lang }) => {
           >
             (https://rkssentr.ru){' '}
           </ScalableText>
-          «Халыҡ һөнәрҙәре» мобиль ҡушымтаһы эшләнде. Был ҡушымта
-          ҡулланыусыларға солоҡсолоҡ,ат егеү кәрәк-яраҡтарын етештереү, ағастан,
-          туҙҙан,кейеҙҙән һәм туҡыманан әйберҙәр эшләү шөғөлдәре буйынса белем
-          һәм күнекмәләр биреүгә йүнәлтелгән. © Коммерциялы булмаған «Ресурс
-          мәҙәни үҙәк» ойошмаһы, 2020 йыл.
+          «Халыҡ һөнәрҙәре» мобиль ҡушымтаһы эшләнде.
+          {'\n\n'}
+          {'   '}Был ҡушымта ҡулланыусыларға солоҡсолоҡ,ат егеү кәрәк-яраҡтарын
+          етештереү, ағастан, туҙҙан,кейеҙҙән һәм туҡыманан әйберҙәр эшләү
+          шөғөлдәре буйынса белем һәм күнекмәләр биреүгә йүнәлтелгән.
+          {'\n\n'} ©Коммерциялы булмаған «Ресурс мәҙәни үҙәк» ойошмаһы, 2020
+          йыл.
         </ScalableText>
       )
     case 'eng':
       return (
         <ScalableText>
-          Within the framework of the project entitled “Cultural and educational
-          center“ Aknur ”, organized by ANO “ Resource Cultural Center ” with
-          the support of the Foundation for Assistance to Civil Society of the
-          Republic of Bashkortostan, a mobile application“ Folk Crafts ”was
-          developed. This application is aimed at acquiring skills and
-          knowledges by users of traditional folk crafts such as beekeeping,
-          saddlery, wood carving, birch bark carving, making felt, textiles.
+          {'   '}Within the framework of the project entitled “Cultural and
+          educational center“ Aknur ”, organized by ANO “ Resource Cultural
+          Center ” with the support of the Foundation for Assistance to Civil
+          Society of the Republic of Bashkortostan, a mobile application“ Folk
+          Crafts ”was developed. {'\n\n'}
+          {'  '}This application is aimed at acquiring skills and knowledges by
+          users of traditional folk crafts such as beekeeping, saddlery, wood
+          carving, birch bark carving, making felt, textiles. {'\n\n'}© АНО
+          «Ресурсный культурный центр», 2020.
         </ScalableText>
       )
     case 'rus':
       return (
         <ScalableText>
-          В рамках проекта Культурно-просветительский центр «Акнур»{' '}
+          {'   '}В рамках проекта Культурно-просветительский центр «Акнур»{' '}
           <ScalableText
             color="blue"
             style={{}}
@@ -74,11 +78,13 @@ const renderContent = ({ lang }) => {
           >
             (https://fsgo.bashkortostan.ru)
           </ScalableText>{' '}
-          было разработано мобильное приложение «Народные ремесла». Данное
-          приложение направлено на приобретение пользователями умений и навыков
-          по традиционным народным ремеслам как бортничество, шорничество,
-          резьба по дереву, резьба по бересте, изготовление войлочных,
-          текстильных изделий. © АНО «Ресурсный культурный центр», 2020 г.{' '}
+          было разработано мобильное приложение «Народные ремесла». {' \n\n '}
+          {'   '}
+          Данное приложение направлено на приобретение пользователями умений и
+          навыков по традиционным народным ремеслам как бортничество,
+          шорничество, резьба по дереву, резьба по бересте, изготовление
+          войлочных, текстильных изделий. {' \n\n'}© АНО «Ресурсный культурный
+          центр», 2020 г.{' '}
         </ScalableText>
       )
   }

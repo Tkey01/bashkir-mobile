@@ -37,7 +37,8 @@ const renderContent = ({ lang }) => {
       return (
         <View>
           <ScalableText style={MARGIN}>
-            Беҙгә күрһәтелгән e-mail адресы буйынса яҙығыҙ: rkssentr@gmail.com
+            Беҙгә күрһәтелгән e-mail адресы буйынса яҙығыҙ: {'\n'}
+            rkssentr@gmail.com
           </ScalableText>
           <ScalableText style={MARGIN}>
             Беҙҙең сайт:{' '}
@@ -71,7 +72,7 @@ const renderContent = ({ lang }) => {
       return (
         <View>
           <ScalableText style={MARGIN}>
-            Please contact us at e-mail: rkssentr@gmail.com
+            Our email: rkssentr@gmail.com
           </ScalableText>
           <ScalableText style={MARGIN}>
             Our website:{' '}
@@ -104,7 +105,7 @@ const renderContent = ({ lang }) => {
       return (
         <View>
           <ScalableText style={MARGIN}>
-            Напишите нам по адресу e-mail: rkssentr@gmail.com
+            Наша почта: rkssentr@gmail.com
           </ScalableText>
           <ScalableText style={MARGIN}>
             Наш сайт:{' '}

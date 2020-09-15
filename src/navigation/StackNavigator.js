@@ -13,6 +13,7 @@ export const Stack = createStackNavigator()
 
 import { generateCommonRoutes } from '../helpers/generateCommonRoutes'
 import { audioMapping } from '../global/audioMapping'
+import { cutLongTitle } from '../helpers/cutLongTitle'
 
 export const StackNavigatorComponent = ({
   navigation,
@@ -54,9 +55,11 @@ export const StackNavigatorComponent = ({
         name="AudioPlayer"
         component={PlayerScreen}
         options={{
-          title: getLangText(
-            languages.routes.AudioPlayer[lang],
-            `routes.AudioPlayer.${lang}`,
+          title: cutLongTitle(
+            getLangText(
+              languages.routes.AudioPlayer[lang],
+              `routes.AudioPlayer.${lang}`,
+            ),
           ),
         }}
       />
@@ -64,9 +67,8 @@ export const StackNavigatorComponent = ({
         name="Main"
         component={SCREENS.Main}
         options={{
-          title: getLangText(
-            languages.routes.Main[lang],
-            `routes.Main.${lang}`,
+          title: cutLongTitle(
+            getLangText(languages.routes.Main[lang], `routes.Main.${lang}`),
           ),
         }}
       />
@@ -74,9 +76,8 @@ export const StackNavigatorComponent = ({
         name="Bort"
         component={SCREENS.BortMain}
         options={{
-          title: getLangText(
-            languages.routes.Bort[lang],
-            `routes.Bort.${lang}`,
+          title: cutLongTitle(
+            getLangText(languages.routes.Bort[lang], `routes.Bort.${lang}`),
           ),
         }}
       />
@@ -84,9 +85,8 @@ export const StackNavigatorComponent = ({
         name="Shor"
         component={SCREENS.ShorMain}
         options={{
-          title: getLangText(
-            languages.routes.Shor[lang],
-            `routes.Shor.${lang}`,
+          title: cutLongTitle(
+            getLangText(languages.routes.Shor[lang], `routes.Shor.${lang}`),
           ),
         }}
       />
@@ -94,9 +94,11 @@ export const StackNavigatorComponent = ({
         name="Textile"
         component={SCREENS.TextileMain}
         options={{
-          title: getLangText(
-            languages.routes.Textile[lang],
-            `routes.Textile.${lang}`,
+          title: cutLongTitle(
+            getLangText(
+              languages.routes.Textile[lang],
+              `routes.Textile.${lang}`,
+            ),
           ),
         }}
       />
@@ -104,9 +106,11 @@ export const StackNavigatorComponent = ({
         name="TextileQuilt"
         component={SCREENS.TextileQuiltMain}
         options={{
-          title: getLangText(
-            languages.routes.TextileQuilt[lang],
-            `routes.TextileQuilt.${lang}`,
+          title: cutLongTitle(
+            getLangText(
+              languages.routes.TextileQuilt[lang],
+              `routes.TextileQuilt.${lang}`,
+            ),
           ),
         }}
       />
@@ -114,9 +118,11 @@ export const StackNavigatorComponent = ({
         name="TextileBatik"
         component={SCREENS.TextileBatikMain}
         options={{
-          title: getLangText(
-            languages.routes.TextileBatik[lang],
-            `routes.TextileBatik.${lang}`,
+          title: cutLongTitle(
+            getLangText(
+              languages.routes.TextileBatik[lang],
+              `routes.TextileBatik.${lang}`,
+            ),
           ),
         }}
       />
@@ -124,9 +130,11 @@ export const StackNavigatorComponent = ({
         name="TextileChen"
         component={SCREENS.TextileChenMain}
         options={{
-          title: getLangText(
-            languages.routes.TextileChen[lang],
-            `routes.TextileChen.${lang}`,
+          title: cutLongTitle(
+            getLangText(
+              languages.routes.TextileChen[lang],
+              `routes.TextileChen.${lang}`,
+            ),
           ),
         }}
       />
@@ -134,9 +142,11 @@ export const StackNavigatorComponent = ({
         name="TextilePatch"
         component={SCREENS.TextilePatchMain}
         options={{
-          title: getLangText(
-            languages.routes.TextilePatch[lang],
-            `routes.TextilePatch.${lang}`,
+          title: cutLongTitle(
+            getLangText(
+              languages.routes.TextilePatch[lang],
+              `routes.TextilePatch.${lang}`,
+            ),
           ),
         }}
       />
@@ -144,9 +154,8 @@ export const StackNavigatorComponent = ({
         name="Wood"
         component={SCREENS.WoodMain}
         options={{
-          title: getLangText(
-            languages.routes.Wood[lang],
-            `routes.Wood.${lang}`,
+          title: cutLongTitle(
+            getLangText(languages.routes.Wood[lang], `routes.Wood.${lang}`),
           ),
         }}
       />
@@ -154,9 +163,8 @@ export const StackNavigatorComponent = ({
         name="Berest"
         component={SCREENS.BerestMain}
         options={{
-          title: getLangText(
-            languages.routes.Berest[lang],
-            `routes.Berest.${lang}`,
+          title: cutLongTitle(
+            getLangText(languages.routes.Berest[lang], `routes.Berest.${lang}`),
           ),
         }}
       />
@@ -164,9 +172,8 @@ export const StackNavigatorComponent = ({
         name="Voil"
         component={SCREENS.VoilMain}
         options={{
-          title: getLangText(
-            languages.routes.Voil[lang],
-            `routes.Voil.${lang}`,
+          title: cutLongTitle(
+            getLangText(languages.routes.Voil[lang], `routes.Voil.${lang}`),
           ),
         }}
       />
@@ -185,9 +192,11 @@ export const StackNavigatorComponent = ({
         name="Settings"
         component={SCREENS.Settings}
         options={{
-          title: getLangText(
-            languages.routes.Settings[lang],
-            `routes.Settings.${lang}`,
+          title: cutLongTitle(
+            getLangText(
+              languages.routes.Settings[lang],
+              `routes.Settings.${lang}`,
+            ),
           ),
           header: (props) => {
             return (
@@ -203,9 +212,11 @@ export const StackNavigatorComponent = ({
         name="Favorites"
         component={SCREENS.Favorites}
         options={{
-          title: getLangText(
-            languages.routes.Favorites[lang],
-            `routes.Favorites.${lang}`,
+          title: cutLongTitle(
+            getLangText(
+              languages.routes.Favorites[lang],
+              `routes.Favorites.${lang}`,
+            ),
           ),
           header: (props) => {
             return (
@@ -222,9 +233,8 @@ export const StackNavigatorComponent = ({
         name="Search"
         component={SCREENS.Search}
         options={{
-          title: getLangText(
-            languages.routes.Search[lang],
-            `routes.Search.${lang}`,
+          title: cutLongTitle(
+            getLangText(languages.routes.Search[lang], `routes.Search.${lang}`),
           ),
         }}
       />
@@ -232,9 +242,8 @@ export const StackNavigatorComponent = ({
         name="Notes"
         component={SCREENS.Notes}
         options={{
-          title: getLangText(
-            languages.routes.Notes[lang],
-            `routes.Notes.${lang}`,
+          title: cutLongTitle(
+            getLangText(languages.routes.Notes[lang], `routes.Notes.${lang}`),
           ),
           header: (props) => {
             return (
@@ -251,9 +260,11 @@ export const StackNavigatorComponent = ({
         name="AddNote"
         component={SCREENS.AddNote}
         options={{
-          title: getLangText(
-            languages.routes.AddNote[lang],
-            `routes.AddNote.${lang}`,
+          title: cutLongTitle(
+            getLangText(
+              languages.routes.AddNote[lang],
+              `routes.AddNote.${lang}`,
+            ),
           ),
         }}
       />
@@ -261,9 +272,11 @@ export const StackNavigatorComponent = ({
         name="NormBase"
         component={SCREENS.NormBase}
         options={{
-          title: getLangText(
-            languages.routes.NormBase[lang],
-            `routes.NormBase.${lang}`,
+          title: cutLongTitle(
+            getLangText(
+              languages.routes.NormBase[lang],
+              `routes.NormBase.${lang}`,
+            ),
           ),
         }}
       />
@@ -271,9 +284,8 @@ export const StackNavigatorComponent = ({
         name="About"
         component={SCREENS.About}
         options={{
-          title: getLangText(
-            languages.routes.About[lang],
-            `routes.About.${lang}`,
+          title: cutLongTitle(
+            getLangText(languages.routes.About[lang], `routes.About.${lang}`),
           ),
         }}
       />
@@ -281,9 +293,11 @@ export const StackNavigatorComponent = ({
         name="Feedback"
         component={SCREENS.Feedback}
         options={{
-          title: getLangText(
-            languages.routes.Feedback[lang],
-            `routes.Feedback.${lang}`,
+          title: cutLongTitle(
+            getLangText(
+              languages.routes.Feedback[lang],
+              `routes.Feedback.${lang}`,
+            ),
           ),
         }}
       />
@@ -291,9 +305,8 @@ export const StackNavigatorComponent = ({
         name="Terms"
         component={SCREENS.Terms}
         options={{
-          title: getLangText(
-            languages.routes.Terms[lang],
-            `routes.Terms.${lang}`,
+          title: cutLongTitle(
+            getLangText(languages.routes.Terms[lang], `routes.Terms.${lang}`),
           ),
         }}
       />
@@ -303,9 +316,8 @@ export const StackNavigatorComponent = ({
           name={note.routeName}
           component={SCREENS.AddNote}
           options={{
-            title: getLangText(
-              languages.routes.Note[lang],
-              `routes.Note.${lang}`,
+            title: cutLongTitle(
+              getLangText(languages.routes.Note[lang], `routes.Note.${lang}`),
             ),
             header: (props) => {
               return (

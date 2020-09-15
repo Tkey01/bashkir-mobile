@@ -71,6 +71,8 @@ export const MyHeaderComponent = ({
           fontSize: 20,
           marginLeft: previous ? 30 : 46,
           flex: 1,
+          height: 50,
+          textAlignVertical: 'center',
         }}
       >
         {title}
