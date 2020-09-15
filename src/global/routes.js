@@ -83,10 +83,6 @@ export const routes = [
     title: languages.routes.Terms,
   },
   {
-    routeName: 'PrivacyPolicy',
-    title: languages.routes.PrivacyPolicy,
-  },
-  {
     routeName: 'Feedback',
     title: languages.routes.Feedback,
   },

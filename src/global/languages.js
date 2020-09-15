@@ -108,11 +108,6 @@ export const languages = {
       eng: 'Terms of use',
       bash: 'Ҡулланыусылар килешеүе',
     },
-    PrivacyPolicy: {
-      rus: 'Политика конфиденциальности',
-      eng: 'Privacy policy',
-      bash: 'Конфиденциаллек сәйәсәте',
-    },
     Feedback: {
       rus: 'Обратная связь',
       eng: 'Feedback',

@@ -288,16 +288,6 @@ export const StackNavigatorComponent = ({
         }}
       />
       <Stack.Screen
-        name="PrivacyPolicy"
-        component={SCREENS.PrivacyPolicy}
-        options={{
-          title: getLangText(
-            languages.routes.PrivacyPolicy[lang],
-            `routes.PrivacyPolicy.${lang}`,
-          ),
-        }}
-      />
-      <Stack.Screen
         name="Terms"
         component={SCREENS.Terms}
         options={{
