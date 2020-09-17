@@ -1,4 +1,4 @@
-package com.awesomeproject;
+package com.narodnieremesla;
 
 import com.facebook.react.ReactActivity;
 
