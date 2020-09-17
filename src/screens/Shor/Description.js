@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { ScrollView, Image } from 'react-native'
 
 import { TemplateString } from '../../components/TemplateString'
 import { languages } from '../../global/languages'
@@ -8,6 +7,7 @@ import { getTemplateStringArray } from '../../helpers/getTemplateStringArray'
 import { getLangText } from '../../helpers/getLangText'
 import { ScreenWrapper } from '../../components/ScreenWrapper'
 import shor from '../../assets/images/content/shor.jpg'
+import { Image } from 'react-native'
 
 export const DescriptionComponent = ({ lang }) => {
   return (

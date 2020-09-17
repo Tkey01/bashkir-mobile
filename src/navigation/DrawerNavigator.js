@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { NavigationContainer } from '@react-navigation/native'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 
-import { Settings, Favorites, Notes } from '../screens'
 import { SideMenu } from '../components/SideMenu'
 import { StackNavigator } from './StackNavigator'
 

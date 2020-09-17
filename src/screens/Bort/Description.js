@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { ScrollView, Image } from 'react-native'
+import { Image } from 'react-native'
 
 import { TemplateString } from '../../components/TemplateString'
 import { languages } from '../../global/languages'
