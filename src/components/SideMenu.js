@@ -18,6 +18,7 @@ const list = [
   'About',
   'Terms',
   'Feedback',
+  'PrivacyPolicy',
 ]
 const langs = ['RUS', 'BASH', 'ENG']
 

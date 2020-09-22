@@ -86,6 +86,10 @@ export const routes = [
     routeName: 'Feedback',
     title: languages.routes.Feedback,
   },
+  {
+    routeName: 'PrivacyPolicy',
+    title: languages.routes.PrivacyPolicy,
+  },
 
   ...createNestedRoutes('Bort'),
   ...createNestedRoutes('Shor'),

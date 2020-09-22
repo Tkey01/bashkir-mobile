@@ -322,6 +322,18 @@ export const StackNavigatorComponent = ({
           ),
         }}
       />
+      <Stack.Screen
+        name="PrivacyPolicy"
+        component={SCREENS.PrivacyPolicy}
+        options={{
+          title: cutLongTitle(
+            getLangText(
+              languages.routes.PrivacyPolicy[lang],
+              `routes.PrivacyPolicy.${lang}`,
+            ),
+          ),
+        }}
+      />
       {notes.map((note) => (
         <Stack.Screen
           key={note.routeName}
