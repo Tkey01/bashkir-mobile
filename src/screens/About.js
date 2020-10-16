@@ -40,7 +40,7 @@ const renderContent = ({ lang }) => {
           {'   '}Был ҡушымта ҡулланыусыларға солоҡсолоҡ,ат егеү кәрәк-яраҡтарын
           етештереү, ағастан, туҙҙан,кейеҙҙән һәм туҡыманан әйберҙәр эшләү
           шөғөлдәре буйынса белем һәм күнекмәләр биреүгә йүнәлтелгән.
-          {'\n\n'} ©Коммерциялы булмаған «Ресурс мәҙәни үҙәк» ойошмаһы, 2020
+          {'\n\n'} © Коммерциялы булмаған «Ресурс мәҙәни үҙәк» ойошмаһы, 2020
           йыл.
         </ScalableText>
       )
@@ -54,8 +54,8 @@ const renderContent = ({ lang }) => {
           Crafts ”was developed. {'\n\n'}
           {'  '}This application is aimed at acquiring skills and knowledges by
           users of traditional folk crafts such as beekeeping, saddlery, wood
-          carving, birch bark carving, making felt, textiles. {'\n\n'}© АНО
-          «Ресурсный культурный центр», 2020.
+          carving, birch bark carving, making felt, textiles. {'\n\n'}© Resource
+          cultural center, 2020
         </ScalableText>
       )
     case 'rus':

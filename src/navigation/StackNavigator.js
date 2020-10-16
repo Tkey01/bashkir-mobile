@@ -29,7 +29,7 @@ export const StackNavigatorComponent = ({
         header: (props) => {
           const routeName = props.scene.route.name
           const isFavor = favorites[routeName]
-          const audioFile = audioMapping[routeName]
+          const audioFile = audioMapping(routeName, lang)
 
           return (
             <MyHeader
